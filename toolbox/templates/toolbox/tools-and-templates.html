@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/tools-and-templates.css' %}">
+{% endblock %}
+
+
+{% block body %}
+
+{% include 'nav.html' %}
+
+<main>
+    <header>
+        <h2>Toolbox for NA</h2>
+    </header>
+    <div class="content">
+        <header>
+            <div class="select"><span class="checkbox"></span></div>
+            <div class="title">Title</div>
+            <div class="description">Description</div>
+            <div class="format">Format</div>
+            <div class="thumbnail">Thumbnail</div>
+            <div class="extra">Extra</div>
+        </header>
+        <div class="content">
+            <div>
+                <div class="select"><span class="checkbox"></span></div>
+                <div class="title">Hello</div>
+                <div class="description">Lorem Ipsum dolores amet</div>
+                <div class="format">PDF</div>
+                <div class="thumbnail"></div>
+                <div class="extra">Bla bla</div>
+            </div>
+            <div>
+                <div class="select"><span class="checkbox"></span></div>
+                <div class="title">Hello</div>
+                <div class="description">Lorem Ipsum dolores amet</div>
+                <div class="format">PDF</div>
+                <div class="thumbnail"></div>
+                <div class="extra">Bla bla</div>
+            </div>
+            <div>
+                <div class="select"><span class="checkbox"></span></div>
+                <div class="title">Hello</div>
+                <div class="description">Lorem Ipsum dolores amet</div>
+                <div class="format">PDF</div>
+                <div class="thumbnail"></div>
+                <div class="extra">Bla bla</div>
+            </div>
+        </div>
+        </div>
+        </div>
+    </div>
+</main>
+
+{% endblock %}

@@ -1,0 +1,12 @@
+{% load staticfiles %}
+ 
+<nav>
+    <div id="logo-wrapper">
+        <a href="{% url 'home' %}"><img src="{% static 'img/unhcr-logo.png' %}"></a>
+    </div>
+    <div id="main-menu">
+        <a href="{% url 'tools_and_templates' %}" class="menu-item {% if request.resolver_match.url_name  == 'tools_and_templates' %}active{% endif %}">Tool &amp; templates</a>
+        <a href="#" class="menu-item {% if request.resolver_match.url_name  == 'guidance_and_resource_documents' %}active{% endif %}">Guidance &amp; resource documents</a>
+        <a href="#" class="menu-item {% if request.resolver_match.url_name  == 'contact_us' %}active{% endif %}">Contact us</a>
+    </div>
+</nav>

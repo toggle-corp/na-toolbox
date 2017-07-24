@@ -1,0 +1,75 @@
+@import 'base';
+@import 'nav';
+
+body {
+    main {
+        flex-basis: 100%;
+        margin: 32px;
+        //box-shadow: 0 0 15px -3px rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+
+        >header {
+            height: 64px;
+            display: flex;
+            align-items: center;
+            //background-color: $primary-color;
+            //color: #fff;
+            background-color: #e3e3e3;
+            padding: 0 16px;
+        }
+
+        >.content {
+            .checkbox {
+                display: inline-block;
+                width: 20px;
+                height: 20px;
+                border: 2px solid rgba(0, 0, 0, 0.16);
+                border-radius: 2px;
+            }
+             
+            >header {
+                height: 48px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                background-color: $primary-color;
+                color: #fff;
+                padding: 0 16px;
+                text-transform: uppercase;
+
+                .checkbox {
+                    border: 2px solid rgba(255, 255, 255, 0.24);
+                }
+
+            }
+            >.content {
+                 
+                 
+                >div {
+                    padding: 0 16px;
+                    min-height: 48px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    &:nth-child(even) {
+                        background-color: rgba(0, 0, 0, 0.03);
+                    }
+                }
+            }
+
+
+            .select { 
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-basis: 48px; 
+            }
+            .title { flex-basis: 16%; }
+            .description{ flex-basis: calc(34% - 48px); }
+            .format{ flex-basis: 10%; }
+            .thumbnail{ flex-basis: 15%; }
+            .extra{ flex-basis: 15%; }
+        }
+    }
+}

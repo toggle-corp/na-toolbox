@@ -1,0 +1,104 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400; }
+
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #f5f5f5;
+  color: #414141;
+  font-size: 13px;
+  line-height: 1.5; }
+  body a {
+    text-decoration: none;
+    color: inherit; }
+  body h1, body h2, body h3, body h4, body h5, body h6 {
+    margin: 0; }
+
+body {
+  display: flex;
+  align-items: flex-start;
+  align-content: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap; }
+  body > nav {
+    background-color: #fff;
+    height: 80px;
+    flex-basis: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 32px;
+    box-shadow: 0 3px 15px -5px rgba(0, 0, 0, 0.5); }
+    body > nav #logo-wrapper img {
+      height: 56px; }
+    body > nav #main-menu {
+      display: flex;
+      align-self: stretch; }
+      body > nav #main-menu .menu-item {
+        padding: 0 16px;
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center; }
+        body > nav #main-menu .menu-item:hover {
+          color: #1564c9; }
+        body > nav #main-menu .menu-item.active {
+          background-color: #1564c9;
+          color: #fff; }
+
+body main {
+  flex-basis: 100%;
+  margin: 32px;
+  border: 1px solid rgba(0, 0, 0, 0.1); }
+  body main > header {
+    height: 64px;
+    display: flex;
+    align-items: center;
+    background-color: #e3e3e3;
+    padding: 0 16px; }
+  body main > .content .checkbox {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(0, 0, 0, 0.16);
+    border-radius: 2px; }
+  body main > .content > header {
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #1564c9;
+    color: #fff;
+    padding: 0 16px;
+    text-transform: uppercase; }
+    body main > .content > header .checkbox {
+      border: 2px solid rgba(255, 255, 255, 0.24); }
+  body main > .content > .content > div {
+    padding: 0 16px;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; }
+    body main > .content > .content > div:nth-child(even) {
+      background-color: rgba(0, 0, 0, 0.03); }
+  body main > .content .select {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-basis: 48px; }
+  body main > .content .title {
+    flex-basis: 16%; }
+  body main > .content .description {
+    flex-basis: calc(34% - 48px); }
+  body main > .content .format {
+    flex-basis: 10%; }
+  body main > .content .thumbnail {
+    flex-basis: 15%; }
+  body main > .content .extra {
+    flex-basis: 15%; }
+
+/*# sourceMappingURL=tools-and-templates.css.map */

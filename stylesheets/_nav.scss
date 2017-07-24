@@ -1,0 +1,57 @@
+ 
+$nav-height: 80px;
+ 
+body {
+    display: flex;
+    align-items: flex-start;
+    align-content: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+     
+    >nav {
+        background-color: #fff;
+        height: $nav-height;
+        flex-basis: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 32px;
+        box-shadow: 0 3px 15px -5px rgba(0, 0, 0, 0.5);
+
+
+        #logo-wrapper {
+            img {
+                height: $nav-height - 24px;
+            }
+        }
+
+        #main-menu {
+            display: flex;
+            align-self: stretch;
+
+            .menu-item {
+                padding: 0 16px;
+                text-transform: uppercase;
+                font-weight: 700;
+                letter-spacing: 0.06em;
+                cursor: pointer;
+                display: inline-flex;
+                align-items: center;
+
+                &:hover {
+                    //background-color: $primary-color;
+                    //color: #fff;
+                    color: $primary-color;
+                     
+                }
+
+                &.active {
+                    background-color: $primary-color;
+                    color: #fff;
+                }
+
+            }
+        }
+    }
+}
+
