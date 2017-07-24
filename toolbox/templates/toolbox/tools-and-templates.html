@@ -4,6 +4,7 @@
 
 {% block head %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/tools-and-templates.css' %}">
+<script src="{% static 'js/utils.js' %}"></script>
 {% endblock %}
 
 
@@ -13,11 +14,14 @@
 
 <main>
     <header>
-        <h2>Toolbox for NA</h2>
+        <h2>Toolbox for <strong>Needs Assessment</strong></h2>
+        <div class="action-buttons">
+            <button><i class="ion-ios-download-outline"></i>Download selected</button>
+        </div>
     </header>
     <div class="content">
         <header>
-            <div class="select"><span class="checkbox"></span></div>
+            <div class="select"><span id="check-all" class="checkbox"><i></i></span></div>
             <div class="title">Title</div>
             <div class="description">Description</div>
             <div class="format">Format</div>
@@ -26,7 +30,7 @@
         </header>
         <div class="content">
             <div>
-                <div class="select"><span class="checkbox"></span></div>
+                <div class="select"><span class="checkbox"><i></i></span></div>
                 <div class="title">Hello</div>
                 <div class="description">Lorem Ipsum dolores amet</div>
                 <div class="format">PDF</div>
@@ -34,7 +38,7 @@
                 <div class="extra">Bla bla</div>
             </div>
             <div>
-                <div class="select"><span class="checkbox"></span></div>
+                <div class="select"><span class="checkbox"><i></i></span></div>
                 <div class="title">Hello</div>
                 <div class="description">Lorem Ipsum dolores amet</div>
                 <div class="format">PDF</div>
@@ -42,7 +46,7 @@
                 <div class="extra">Bla bla</div>
             </div>
             <div>
-                <div class="select"><span class="checkbox"></span></div>
+                <div class="select"><span class="checkbox"><i></i></span></div>
                 <div class="title">Hello</div>
                 <div class="description">Lorem Ipsum dolores amet</div>
                 <div class="format">PDF</div>
