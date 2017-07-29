@@ -4,7 +4,7 @@
 
 {% block head %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/tools-and-templates.css' %}">
-<script src="{% static 'js/utils.js' %}"></script>
+<script src="{% static 'js/tools-and-templates.js' %}"></script>
 {% endblock %}
 
 
@@ -12,50 +12,188 @@
 
 {% include 'nav.html' %}
 
+<div id="navigation-tabs">
+    <a data-target="coordination">Coordination</a>
+    <a data-target="planning">Planning</a>
+    <a data-target="navigation-3">Navigation 3</a>
+    <a data-target="navigation-4">Navigation 4</a>
+    <a data-target="navigation-5">Navigation 5</a>
+</div>
+ 
 <main>
     <header>
         <h2>Toolbox for <strong>Needs Assessment</strong></h2>
         <div class="action-buttons">
-            <button><i class="ion-ios-download-outline"></i>Download selected</button>
+            <button><i class="ion-ios-download-outline"></i>Download selected <span id="selection-count">0</span></button>
         </div>
     </header>
+     
     <div class="content">
-        <header>
-            <div class="select"><span id="check-all" class="checkbox"><i></i></span></div>
-            <div class="title">Title</div>
-            <div class="description">Description</div>
-            <div class="format">Format</div>
-            <div class="thumbnail">Thumbnail</div>
-            <div class="extra">Extra</div>
-        </header>
-        <div class="content">
-            <div>
-                <div class="select"><span class="checkbox"><i></i></span></div>
-                <div class="title">Hello</div>
-                <div class="description">Lorem Ipsum dolores amet</div>
-                <div class="format">PDF</div>
-                <div class="thumbnail"></div>
-                <div class="extra">Bla bla</div>
+        <section id="coordination">
+            <header>
+                <div class="section-title">
+                    <h3>Coordination</h3> 
+                </div>
+                <div class="table-header">
+                    <div class="select"><span class="checkbox check-all"><i></i></span></div>
+                    <div class="title">Title</div>
+                    <div class="description">Description</div>
+                    <div class="format">Format</div>
+                    <div class="thumbnail">Thumbnail</div>
+                    <div class="extra">Extra</div>
+                </div>
+            </header>
+            <div class="content">
+                <div>
+                    <div class="select"><span class="checkbox"><i></i></span></div>
+                    <div class="title">Hello</div>
+                    <div class="description">Lorem Ipsum dolores amet</div>
+                    <div class="format">PDF</div>
+                    <div class="thumbnail"></div>
+                    <div class="extra">Bla bla</div>
+                </div>
+                <div>
+                    <div class="select"><span class="checkbox"><i></i></span></div>
+                    <div class="title">Hello</div>
+                    <div class="description">Lorem Ipsum dolores amet</div>
+                    <div class="format">PDF</div>
+                    <div class="thumbnail"></div>
+                    <div class="extra">Bla bla</div>
+                </div>
             </div>
-            <div>
-                <div class="select"><span class="checkbox"><i></i></span></div>
-                <div class="title">Hello</div>
-                <div class="description">Lorem Ipsum dolores amet</div>
-                <div class="format">PDF</div>
-                <div class="thumbnail"></div>
-                <div class="extra">Bla bla</div>
+        </section>
+        <section id="planning">
+            <header>
+                <div class="section-title">
+                    <h3>Planning</h3> 
+                </div>
+                <div class="table-header">
+                    <div class="select"><span class="checkbox check-all"><i></i></span></div>
+                    <div class="title">Title</div>
+                    <div class="description">Description</div>
+                    <div class="format">Format</div>
+                    <div class="thumbnail">Thumbnail</div>
+                    <div class="extra">Extra</div>
+                </div>
+            </header>
+            <div class="content">
+                <div>
+                    <div class="select"><span class="checkbox"><i></i></span></div>
+                    <div class="title">Hello</div>
+                    <div class="description">Lorem Ipsum dolores amet</div>
+                    <div class="format">PDF</div>
+                    <div class="thumbnail"></div>
+                    <div class="extra">Bla bla</div>
+                </div>
+                <div>
+                    <div class="select"><span class="checkbox"><i></i></span></div>
+                    <div class="title">Hello</div>
+                    <div class="description">Lorem Ipsum dolores amet</div>
+                    <div class="format">PDF</div>
+                    <div class="thumbnail"></div>
+                    <div class="extra">Bla bla</div>
+                </div>
             </div>
-            <div>
-                <div class="select"><span class="checkbox"><i></i></span></div>
-                <div class="title">Hello</div>
-                <div class="description">Lorem Ipsum dolores amet</div>
-                <div class="format">PDF</div>
-                <div class="thumbnail"></div>
-                <div class="extra">Bla bla</div>
+        </section>
+        <section id="navigation-3">
+            <header>
+                <div class="section-title">
+                    <h3>Category #3</h3> 
+                </div>
+                <div class="table-header">
+                    <div class="select"><span class="checkbox check-all"><i></i></span></div>
+                    <div class="title">Title</div>
+                    <div class="description">Description</div>
+                    <div class="format">Format</div>
+                    <div class="thumbnail">Thumbnail</div>
+                    <div class="extra">Extra</div>
+                </div>
+            </header>
+            <div class="content">
+                <div>
+                    <div class="select"><span class="checkbox"><i></i></span></div>
+                    <div class="title">Hello</div>
+                    <div class="description">Lorem Ipsum dolores amet</div>
+                    <div class="format">PDF</div>
+                    <div class="thumbnail"></div>
+                    <div class="extra">Bla bla</div>
+                </div>
+                <div>
+                    <div class="select"><span class="checkbox"><i></i></span></div>
+                    <div class="title">Hello</div>
+                    <div class="description">Lorem Ipsum dolores amet</div>
+                    <div class="format">PDF</div>
+                    <div class="thumbnail"></div>
+                    <div class="extra">Bla bla</div>
+                </div>
             </div>
-        </div>
-        </div>
-        </div>
+        </section>
+        <section id="navigation-4">
+            <header>
+                <div class="section-title">
+                    <h3>Category #4</h3> 
+                </div>
+                <div class="table-header">
+                    <div class="select"><span class="checkbox check-all"><i></i></span></div>
+                    <div class="title">Title</div>
+                    <div class="description">Description</div>
+                    <div class="format">Format</div>
+                    <div class="thumbnail">Thumbnail</div>
+                    <div class="extra">Extra</div>
+                </div>
+            </header>
+            <div class="content">
+                <div>
+                    <div class="select"><span class="checkbox"><i></i></span></div>
+                    <div class="title">Hello</div>
+                    <div class="description">Lorem Ipsum dolores amet</div>
+                    <div class="format">PDF</div>
+                    <div class="thumbnail"></div>
+                    <div class="extra">Bla bla</div>
+                </div>
+                <div>
+                    <div class="select"><span class="checkbox"><i></i></span></div>
+                    <div class="title">Hello</div>
+                    <div class="description">Lorem Ipsum dolores amet</div>
+                    <div class="format">PDF</div>
+                    <div class="thumbnail"></div>
+                    <div class="extra">Bla bla</div>
+                </div>
+            </div>
+        </section>
+        <section id="navigation-5">
+            <header>
+                <div class="section-title">
+                    <h3>Category #5</h3> 
+                </div>
+                <div class="table-header">
+                    <div class="select"><span class="checkbox check-all"><i></i></span></div>
+                    <div class="title">Title</div>
+                    <div class="description">Description</div>
+                    <div class="format">Format</div>
+                    <div class="thumbnail">Thumbnail</div>
+                    <div class="extra">Extra</div>
+                </div>
+            </header>
+            <div class="content">
+                <div>
+                    <div class="select"><span class="checkbox"><i></i></span></div>
+                    <div class="title">Hello</div>
+                    <div class="description">Lorem Ipsum dolores amet</div>
+                    <div class="format">PDF</div>
+                    <div class="thumbnail"></div>
+                    <div class="extra">Bla bla</div>
+                </div>
+                <div>
+                    <div class="select"><span class="checkbox"><i></i></span></div>
+                    <div class="title">Hello</div>
+                    <div class="description">Lorem Ipsum dolores amet</div>
+                    <div class="format">PDF</div>
+                    <div class="thumbnail"></div>
+                    <div class="extra">Bla bla</div>
+                </div>
+            </div>
+        </section> 
     </div>
 </main>
 

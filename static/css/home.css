@@ -57,7 +57,7 @@ body {
     margin: 32px 0 0 32px; }
     body > main #intro {
       background-color: #fff;
-      padding: 32px;
+      padding: 24px 32px;
       box-shadow: 0 2px 10px -3px rgba(0, 0, 0, 0.3); }
       body > main #intro h1 {
         font-weight: 300;
@@ -65,12 +65,62 @@ body {
         text-transform: Capitalize; }
       body > main #intro p strong {
         font-weight: 700; }
+    body > main #download-handbook {
+      background-color: #fff;
+      padding: 32px;
+      margin: 16px 0 0 0;
+      box-shadow: 0 2px 10px -3px rgba(0, 0, 0, 0.3); }
+      body > main #download-handbook > header h2 {
+        text-transform: uppercase;
+        font-weight: 400; }
+      body > main #download-handbook .handbook-container .handbook {
+        padding: 10px 10px 10px 0;
+        display: flex; }
+        body > main #download-handbook .handbook-container .handbook:first-child {
+          margin: 10px 0;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
+        body > main #download-handbook .handbook-container .handbook .preview {
+          width: 108px;
+          flex-basis: 108px;
+          height: 128px;
+          object-fit: contain;
+          object-position: center center; }
+        body > main #download-handbook .handbook-container .handbook .details {
+          padding: 0 16px; }
+          body > main #download-handbook .handbook-container .handbook .details .title {
+            font-weight: 300;
+            font-size: 2em;
+            margin: 0;
+            color: rgba(0, 0, 0, 0.7); }
+          body > main #download-handbook .handbook-container .handbook .details .description {
+            margin: 0;
+            color: rgba(0, 0, 0, 0.5); }
+          body > main #download-handbook .handbook-container .handbook .details .action-buttons {
+            margin-top: 16px; }
+            body > main #download-handbook .handbook-container .handbook .details .action-buttons button {
+              border: none;
+              outline: none;
+              background-color: #1564c9;
+              color: #fff;
+              text-transform: uppercase;
+              display: flex;
+              align-items: center;
+              padding: 4px 16px;
+              cursor: pointer; }
+              body > main #download-handbook .handbook-container .handbook .details .action-buttons button i {
+                margin-right: 8px;
+                font-size: 1.67em; }
   body > aside {
     flex-basis: calc(33% - 32px - 8px);
     margin: 32px 32px 0 0; }
-    body > aside #highlights {
+    body > aside #highlights, body > aside #links {
+      min-height: 40vh;
       background-color: #fff;
-      padding: 32px;
+      padding: 24px 32px;
       box-shadow: 0 2px 10px -3px rgba(0, 0, 0, 0.3); }
+      body > aside #highlights > header h2, body > aside #links > header h2 {
+        text-transform: capitalize; }
+    body > aside #links {
+      margin-bottom: 16px; }
 
 /*# sourceMappingURL=home.css.map */
