@@ -42,7 +42,9 @@ $(document).ready(function() {
 
     $('section').each(function() {
         $(this).find('header').css('background-color', $(this).find('.section-title').text().toLowerCase().toPastelColor());
-
+    });
+    $('#download-selected').click(function() {
+        downloadSelected();
     });
 });
 
@@ -96,4 +98,24 @@ function syncNavigationTabs() {
             $('#navigation-tabs a[data-target="' + $(this).prop('id') + '"]').addClass('active');
         }
     });
+}
+
+
+function downloadSelected() {
+    let selectedUrls = $('.tool .checkbox.checked').map(function() {
+        return $(this).closest('.tool').data('url');
+    }).get();
+
+    /* const data = {
+        'urls': JSON.stringify(selectedUrls),
+    };
+    $.post(DOWNLOAD_URL, data, function(response) {
+        var blob=new Blob([response]);
+        var link=document.createElement('a');
+        link.href=window.URL.createObjectURL(blob);
+        link.download="download.zip";
+        link.click();
+    });*/
+    $('form').find('input[name="urls"]').val(JSON.stringify(selectedUrls));
+    $('form').submit();
 }

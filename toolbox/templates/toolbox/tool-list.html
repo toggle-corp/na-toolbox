@@ -6,14 +6,37 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/tool-list.css' %}">
 <script src="{% static 'js/utils.js' %}"></script>
 <script src="{% static 'js/tool-list.js' %}"></script>
+
+<script>
+    const DOWNLOAD_URL = '{% url 'download' %}';
+</script>
 {% endblock %}
 
 
 {% block body %}
 
+<form method="post" action="{% url 'download' %}" hidden>
+{% csrf_token %}
+<input name="urls">
+</form>
+
+<script>
+    const csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
+    function csrfSafeMethod(method) {
+        // these HTTP methods do not require CSRF protection
+        return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+    }
+    $.ajaxSetup({
+        beforeSend: function(xhr, settings) {
+            if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                xhr.setRequestHeader("X-CSRFToken", csrftoken);
+            }
+        }
+    });
+</script>
+
 {% include 'nav.html' %}
 
- 
 <main>
     <header>
         <div id="navigation-tabs">
@@ -22,7 +45,7 @@
             {% endfor %}
         </div>
         <div class="action-buttons">
-            <button><i class="ion-ios-download-outline"></i>Download selected <span id="selection-count">0</span></button>
+            <button id="download-selected"><i class="ion-ios-download-outline"></i>Download selected <span id="selection-count">0</span></button>
         </div>
     </header>
      
@@ -44,7 +67,7 @@
             </header>
             <div class="content">
                 {% for tool in category.tool_set.all %}
-                <div class="tool">
+                <div class="tool" data-url="{{ tool.url }}">
                     <div class="select"><span class="checkbox"><i></i></span></div>
                     <div class="title">{{ tool.title }}</div>
                     <div class="description">{{ tool.description }}</div>
