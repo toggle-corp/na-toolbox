@@ -17,10 +17,44 @@
     <p>The objective of the <strong>Needs assesment toolbox</strong> is to provide, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 </section>
 <section id="download-handbook">
+    <header>
+        <h2>Download handbook</h2>
+    </header>
+    <div class="content">
+        <div class="handbook-container">
+            <div class="handbook">
+                <img class="preview" src="{% static 'img/pdf-icon.png' %}">
+                <div class="details">
+                    <h3 class="title">Need assessment handbook part 1</h3>
+                    <p class="description">lorem ipsum doleres amet bla bla, something like this just some description</p>
+                    <div class="action-buttons">
+                        <button><i class="ion-ios-download-outline"></i>Download</button>
+                    </div>
+                </div>
+            </div>
+            <div class="handbook">
+                <img class="preview" src="{% static 'img/pdf-icon.png' %}">
+                <div class="details">
+                    <h3 class="title">Need assessment handbook part 2</h3>
+                    <p class="description">This is the description for the second part of the handbook</p>
+                    <div class="action-buttons">
+                        <button><i class="ion-ios-download-outline"></i>Download</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 </main>
 
 <aside>
+    <section id="links">
+        <header>
+            <h2>Useful links</h2>
+        </header>
+        <div class="content">
+        </div>
+    </section>
     <section id="highlights">
         <header>
             <h2>Highlights &amp; updates</h2>
@@ -29,5 +63,7 @@
         </div>
     </section>
 </aside>
- 
+
+{% include 'footer.html' %}
+
 {% endblock %}

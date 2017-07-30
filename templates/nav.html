@@ -5,8 +5,11 @@
         <a href="{% url 'home' %}"><img src="{% static 'img/unhcr-logo.png' %}"></a>
     </div>
     <div id="main-menu">
-        <a href="{% url 'tools_and_templates' %}" class="menu-item {% if request.resolver_match.url_name  == 'tools_and_templates' %}active{% endif %}">Tool &amp; templates</a>
-        <a href="#" class="menu-item {% if request.resolver_match.url_name  == 'guidance_and_resource_documents' %}active{% endif %}">Guidance &amp; resource documents</a>
         <a href="{% url 'contact_us' %}" class="menu-item {% if request.resolver_match.url_name  == 'contact_us' %}active{% endif %}">Contact us</a>
+    </div>
+    <div id="navigation-menu">
+        {% for tool_list in tool_lists %}
+        <a href="{% url 'tool_list' tool_list.slug %}" class="menu-item {% if current_list == tool_list %}active{% endif %}">{{ tool_list.title }}</a>
+        {% endfor %}
     </div>
 </nav>

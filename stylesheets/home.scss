@@ -1,5 +1,6 @@
 @import 'base';
 @import 'nav';
+@import 'footer';
 
 body {
     background-color: #f0f0f0;
@@ -11,7 +12,7 @@ body {
 
         #intro {
             background-color: #fff;
-            padding: 32px;
+            padding: 24px 32px;
             box-shadow: 0 2px 10px -3px rgba(0, 0, 0, 0.3);
 
             h1 {
@@ -27,16 +28,98 @@ body {
             }
 
         }
+
+        #download-handbook {
+            background-color: #fff;
+            padding: 32px;
+            margin: 16px 0 0 0;
+            box-shadow: 0 2px 10px -3px rgba(0, 0, 0, 0.3);
+
+            >header {
+                h2 {
+                    text-transform: uppercase;
+                    font-weight: 400;
+                }
+            }
+
+            .handbook-container {
+                .handbook {
+                    padding: 10px 10px 10px 0;
+                    display: flex;
+
+                    &:first-child {
+                        margin: 10px 0;
+                        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+                    }
+
+                    .preview {
+                        width: 108px;
+                        flex-basis: 108px;
+                        height: 128px;
+                        object-fit: contain;
+                        object-position: center center;
+                    }
+
+                    .details {
+                        padding: 0 16px;
+
+                        .title {
+                            font-weight: 300;
+                            font-size: 2em;
+                            margin: 0;
+                            color: rgba(0, 0, 0, 0.7);
+                        }
+
+                        .description {
+                            margin: 0;
+                            color: rgba(0, 0, 0, 0.5);
+                        }
+
+                        .action-buttons {
+                            margin-top: 16px;
+
+                            button {
+                                border: none;
+                                outline: none;
+                                background-color: $primary-color;
+                                color: #fff;
+                                text-transform: uppercase;
+                                display: flex;
+                                align-items: center;
+                                padding: 4px 16px;
+                                cursor: pointer;
+
+                                i {
+                                    margin-right: 8px;
+                                    font-size: 1.67em;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 
     >aside {
         flex-basis: calc(33% - 32px - 8px);
         margin: 32px 32px 0 0;
 
-        #highlights {
+        #highlights, #links {
+            min-height: 40vh;
             background-color: #fff;
-            padding: 32px;
+            padding: 24px 32px;
             box-shadow: 0 2px 10px -3px rgba(0, 0, 0, 0.3);
+
+            >header {
+                h2 {
+                    text-transform: capitalize;
+                }
+            }
+        }
+
+        #links {
+            margin-bottom: 16px;
         }
     }
 }

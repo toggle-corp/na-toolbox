@@ -1,0 +1,25 @@
+body {
+    >footer {
+        margin-top: 16px;
+        height: 64px;
+        flex-basis: 100%;
+        background-color: $primary-color;
+        display: flex;
+        padding: 0 32px;
+        justify-content: flex-start;
+        align-items: center;
+
+        a {
+            margin: 0 16px;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.77);
+            cursor: pointer;
+            font-size: 1.1em;
+
+            &:hover {
+                color: rgba(255, 255, 255, 1);
+            }
+        }
+    }
+}
