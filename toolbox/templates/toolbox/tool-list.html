@@ -3,8 +3,8 @@
 
 
 {% block head %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/tools-and-templates.css' %}">
-<script src="{% static 'js/tools-and-templates.js' %}"></script>
+<link rel="stylesheet" type="text/css" href="{% static 'css/tool-list.css' %}">
+<script src="{% static 'js/tool-list.js' %}"></script>
 {% endblock %}
 
 
@@ -13,11 +13,9 @@
 {% include 'nav.html' %}
 
 <div id="navigation-tabs">
-    <a data-target="coordination">Coordination</a>
-    <a data-target="planning">Planning</a>
-    <a data-target="navigation-3">Navigation 3</a>
-    <a data-target="navigation-4">Navigation 4</a>
-    <a data-target="navigation-5">Navigation 5</a>
+    {% for category in current_list.category_set.all %}
+    <a data-target="category-{{ category.pk }}">{{ category.title }}</a>
+    {% endfor %}
 </div>
  
 <main>
@@ -29,7 +27,36 @@
     </header>
      
     <div class="content">
-        <section id="coordination">
+        {% for category in current_list.category_set.all %}
+        <section id="category-{{ category.pk }}">
+            <header>
+                <div class="section-title">
+                    <h3>{{ category.title }}</h3>
+                </div>
+                <div class="table-header">
+                    <div class="select"><span class="checkbox check-all"><i></i></span></div>
+                    <div class="title">Title</div>
+                    <div class="description">Description</div>
+                    <div class="format">Format</div>
+                    <div class="thumbnail">Thumbnail</div>
+                    <div class="extra">Extra</div>
+                </div>
+            </header>
+            <div class="content">
+                {% for tool in category.tool_set.all %}
+                <div class="tool">
+                    <div class="select"><span class="checkbox"><i></i></span></div>
+                    <div class="title">{{ tool.title }}</div>
+                    <div class="description">{{ tool.description }}</div>
+                    <div class="format"><img src="{{ tool.format.icon.url }}" alt="{{ tool.format.title }}"></div>
+                    <div class="thumbnail"><img src="{{ tool.thumbnail.url }}"></div>
+                    <div class="extra"></div>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+        {% endfor %}
+        <!--section id="coordination">
             <header>
                 <div class="section-title">
                     <h3>Coordination</h3> 
@@ -193,7 +220,7 @@
                     <div class="extra">Bla bla</div>
                 </div>
             </div>
-        </section> 
+        </section-->
     </div>
 </main>
 

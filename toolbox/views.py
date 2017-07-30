@@ -1,14 +1,18 @@
 from django.shortcuts import render
 from django.views.generic import View
+from toolbox.models import ToolList
 
 
 class HomeView(View):
     def get(self, request):
         context = {}
+        context['tool_lists'] = ToolList.objects.all()
         return render(request, 'toolbox/home.html', context)
-     
-     
-class ToolsAndTemplatesView(View):
-    def get(self, request):
+
+
+class ToolListView(View):
+    def get(self, request, slug):
         context = {}
-        return render(request, 'toolbox/tools-and-templates.html', context)
+        context['tool_lists'] = ToolList.objects.all()
+        context['current_list'] = ToolList.objects.get(slug=slug)
+        return render(request, 'toolbox/tool-list.html', context)
