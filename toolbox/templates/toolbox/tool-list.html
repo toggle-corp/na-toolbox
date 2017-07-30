@@ -8,14 +8,14 @@
 <script src="{% static 'js/tool-list.js' %}"></script>
 
 <script>
-    const DOWNLOAD_URL = '{% url 'download' %}';
+    const DOWNLOADING_URL = '{% url 'downloading' %}';
 </script>
 {% endblock %}
 
 
 {% block body %}
 
-<form method="post" action="{% url 'download' %}" hidden>
+<form method="post" action="{% url 'download' %}" target="downloadWindow" hidden>
 {% csrf_token %}
 <input name="urls">
 </form>
