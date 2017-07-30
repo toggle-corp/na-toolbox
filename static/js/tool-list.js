@@ -103,16 +103,10 @@ function downloadSelected() {
         return $(this).closest('.tool').data('url');
     }).get();
 
-    /* const data = {
-        'urls': JSON.stringify(selectedUrls),
-    };
-    $.post(DOWNLOAD_URL, data, function(response) {
-        var blob=new Blob([response]);
-        var link=document.createElement('a');
-        link.href=window.URL.createObjectURL(blob);
-        link.download="download.zip";
-        link.click();
-    });*/
     $('form').find('input[name="urls"]').val(JSON.stringify(selectedUrls));
-    $('form').submit();
+
+    const popup = window.open(DOWNLOADING_URL, 'downloadWindow');
+    popup.onload = function() {
+        $('form').submit();
+    };
 }
