@@ -173,7 +173,6 @@ body {
                         display: flex;
                         align-items: center;
 
-
                         h3 {
                         }
                     }
@@ -223,6 +222,14 @@ body {
                             object-fit: contain;
                             object-position: center center;
                         }
+
+                        label {
+                            display: block;
+                            width: 100%;
+                            color: rgba(0, 0, 0, 0.3);
+                            text-transform: uppercase;
+                            font-weight: 700;
+                        }
                     }
 
                     .title {
@@ -252,11 +259,38 @@ body {
                     flex-basis: 48px; 
                 }
                  
-                .title { flex-basis: 16%; }
-                .description{ flex-basis: calc(34% - 48px); }
-                .format{ flex-basis: 10%; }
-                .thumbnail{ flex-basis: 15%; }
-                .extra{ flex-basis: 15%; }
+                .title { flex-basis: 20%; }
+                .description { flex-basis: 34%; }
+                .format { 
+                    flex-basis: 10%; 
+                    text-align: center;
+                }
+                .thumbnail { 
+                    flex-basis: 14%; 
+                    text-align: center;
+                }
+                .extra { 
+                    flex-basis: 10%; 
+                    text-align: center;
+
+                    a {
+                        display: inline-flex;
+                        align-items: center;
+                        justify-content: center;
+                        color: $primary-color;
+                        width: 48px;
+                        height: 48px;
+                        border-radius: 50%;
+
+                        i {
+                            font-size: 2em;
+                        }
+
+                        &:hover {
+                            background-color: rgba(0, 0, 0, 0.06);
+                        }
+                    }
+                }
             }
         }
     }

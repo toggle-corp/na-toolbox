@@ -214,6 +214,12 @@ body main {
         height: 32px;
         object-fit: contain;
         object-position: center center; }
+      body main > .content section > .content .format label {
+        display: block;
+        width: 100%;
+        color: rgba(0, 0, 0, 0.3);
+        text-transform: uppercase;
+        font-weight: 700; }
       body main > .content section > .content .title {
         font-weight: 700;
         font-size: 1.1em; }
@@ -231,14 +237,29 @@ body main {
         justify-content: center;
         flex-basis: 48px; }
       body main > .content section .title {
-        flex-basis: 16%; }
+        flex-basis: 20%; }
       body main > .content section .description {
-        flex-basis: calc(34% - 48px); }
+        flex-basis: 34%; }
       body main > .content section .format {
-        flex-basis: 10%; }
+        flex-basis: 10%;
+        text-align: center; }
       body main > .content section .thumbnail {
-        flex-basis: 15%; }
+        flex-basis: 14%;
+        text-align: center; }
       body main > .content section .extra {
-        flex-basis: 15%; }
+        flex-basis: 10%;
+        text-align: center; }
+        body main > .content section .extra a {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          color: #1564c9;
+          width: 48px;
+          height: 48px;
+          border-radius: 50%; }
+          body main > .content section .extra a i {
+            font-size: 2em; }
+          body main > .content section .extra a:hover {
+            background-color: rgba(0, 0, 0, 0.06); }
 
 /*# sourceMappingURL=tool-list.css.map */
