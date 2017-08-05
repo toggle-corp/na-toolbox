@@ -40,6 +40,9 @@ $(document).ready(function() {
     });
     syncNavigationTabs();
 
+    $('section').each(function() {
+        $(this).find('header').css('background-color', $(this).find('.section-title').text().toLowerCase().toPastelColor());
+    });
     $('#download-selected').click(function() {
         downloadSelected();
     });

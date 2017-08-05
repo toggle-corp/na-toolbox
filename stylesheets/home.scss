@@ -1,5 +1,6 @@
 @import 'base';
 @import 'nav';
+@import 'footer';
 
 body {
     background-color: #f0f0f0;
@@ -76,7 +77,7 @@ body {
 
                         .action-buttons {
                             margin-top: 16px;
-                             
+
                             button {
                                 border: none;
                                 outline: none;

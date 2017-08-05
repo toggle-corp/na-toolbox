@@ -18,6 +18,12 @@ class HomeView(View):
         return render(request, 'toolbox/home.html', context)
 
 
+class ContactUsView(View):
+    def get(self, request):
+        context = {}
+        context['tool_lists'] = ToolList.objects.all()
+        return render(request, 'toolbox/contact-us.html', context)
+
 class ToolListView(View):
     def get(self, request, slug):
         context = {}
@@ -33,6 +39,8 @@ class DownloadFiles(View):
 
         urls = json.loads(request.POST.get('urls'))
         for i, url in enumerate(urls):
+            if not url:
+                continue
             file = urllib.request.urlopen(url)
             name = ''
             try:

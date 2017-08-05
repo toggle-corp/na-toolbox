@@ -1,11 +1,11 @@
 {% load staticfiles %}
- 
+
 <nav>
     <div id="logo-wrapper">
         <a href="{% url 'home' %}"><img src="{% static 'img/unhcr-logo.png' %}"></a>
     </div>
     <div id="main-menu">
-        <a href="#" class="menu-item {% if request.resolver_match.url_name  == 'contact_us' %}active{% endif %}">Contact us</a>
+        <a href="{% url 'contact_us' %}" class="menu-item {% if request.resolver_match.url_name  == 'contact_us' %}active{% endif %}">Contact us</a>
     </div>
     <div id="navigation-menu">
         {% for tool_list in tool_lists %}

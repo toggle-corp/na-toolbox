@@ -1,1 +1,16 @@
-Downloading
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/downloading.css' %}">
+{% endblock %}
+
+{% block body %}
+<main>
+    <div>
+        <div id="loader"><i class="ion-load-c"></i></div>
+        <h1>Preparing files</h1>
+    </div>
+    <p>Please wait while the files are being prepared, your download will automatically start shortly after.</p>
+</main>
+{% endblock %}
