@@ -14,14 +14,14 @@ body {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background-color: #fff;
+            background-color: #414141;
+            color: #fff;
             padding: 0 16px;
              
             #navigation-tabs {
                 //flex-basis: 100%;
                 //display: flex;
                 //justify-content: center;
-                //background-color: #f0f0f0;
                 //box-shadow: 0 2px 10px -3px rgba(0, 0, 0, 0.5);
 
                 a {
@@ -48,6 +48,7 @@ body {
                     border: none;
                     background-color: transparent;
                     font-weight: 300;
+                    color: #fff;
                     cursor: pointer;
                     text-transform: uppercase;
                     display: flex;
@@ -279,11 +280,13 @@ body {
                         display: inline-flex;
                         align-items: center;
                         justify-content: center;
-                        color: $primary-color;
+                        //color: $primary-color;
+                        //color: #414141;
                         width: 48px;
                         height: 48px;
                         border-radius: 50%;
                         cursor: pointer;
+                        //background-color: rgba(0, 0, 0, 0.5);
 
                         i {
                             font-size: 2em;

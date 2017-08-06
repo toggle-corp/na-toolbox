@@ -40,7 +40,7 @@ body {
       align-items: center;
       justify-content: center;
       animation: spin 2s linear infinite;
-      color: #1564c9;
+      color: #ffe416;
       flex-grow: 0;
       flex-shrink: 0; }
       body main #loader i {
