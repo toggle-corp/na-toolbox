@@ -1,4 +1,4 @@
-from django.conf.urls import url, static
+from django.conf.urls import include, url, static
 from django.contrib import admin
 from django.conf import settings
 from django.views.generic import TemplateView
@@ -15,6 +15,8 @@ urlpatterns = [
     url(r'^contact-us/$', ContactUsView.as_view(), name='contact_us'),
     url(r'^downloading/$', TemplateView.as_view(
         template_name='toolbox/downloading.html'), name='downloading'),
+
+    url(r'^tinymce/', include('tinymce.urls')),
 
     url(r'^(?P<slug>[\w-]+)/$', ToolListView.as_view(), name='tool_list'),
 ] + static.static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

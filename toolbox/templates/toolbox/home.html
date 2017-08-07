@@ -12,39 +12,38 @@
 {% include 'nav.html' %}
 
 <main>
-<section id="intro">
-    <h1>Needs assesment toolbox</h1>
-    <p>The objective of the <strong>Needs assesment toolbox</strong> is to provide, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+{% for intro in introductions %}
+<section class="intro">
+    <h1>{{ intro.title }}</h1>
+    <p>{{ intro.description|safe }}</p>
 </section>
-<section id="download-handbook">
+{% endfor %}
+
+{% for download_section in download_sections %}
+<section class="download-handbook">
     <header>
-        <h2>Download handbook</h2>
+        <h2>{{ download_section.title }}</h2>
     </header>
     <div class="content">
         <div class="handbook-container">
+            {% for download in download_section.download_set.all %}
+            {% if download.enabled %}
             <div class="handbook">
-                <img class="preview" src="{% static 'img/pdf-icon.png' %}">
+                <img class="preview" src="{% if download.thumbnail %}{{ download.thumbnail.url }}{% else %}{% static 'img/pdf-icon.png' %}{% endif %}">
                 <div class="details">
-                    <h3 class="title">Need assessment handbook part 1</h3>
-                    <p class="description">lorem ipsum doleres amet bla bla, something like this just some description</p>
+                    <h3 class="title">{{ download.title }}</h3>
+                    <p class="description">{{ download.description }}</p>
                     <div class="action-buttons">
-                        <button><i class="ion-ios-download-outline"></i>Download</button>
+                        <a href="{% if download.file %}{{ download.file.url }}{% endif %}" download><i class="ion-ios-download-outline"></i>Download</a>
                     </div>
                 </div>
             </div>
-            <div class="handbook">
-                <img class="preview" src="{% static 'img/pdf-icon.png' %}">
-                <div class="details">
-                    <h3 class="title">Need assessment handbook part 2</h3>
-                    <p class="description">This is the description for the second part of the handbook</p>
-                    <div class="action-buttons">
-                        <button><i class="ion-ios-download-outline"></i>Download</button>
-                    </div>
-                </div>
-            </div>
+            {% endif %}
+            {% endfor %}
         </div>
     </div>
 </section>
+{% endfor %}
 </main>
 
 <aside>
@@ -53,11 +52,16 @@
             <h2>Useful links</h2>
         </header>
         <div class="content">
+            {% for keylink in keylinks %}
+            <div>
+                <a href="{{ keylink.url }}">{{ keylink.title }}</a>
+            </div>
+            {% endfor %}
         </div>
     </section>
     <section id="highlights">
         <header>
-            <h2>Highlights &amp; updates</h2>
+            <h2>Highlights</h2>
         </header>
         <div class="content">
         </div>

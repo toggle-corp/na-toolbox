@@ -9,12 +9,18 @@ import urllib
 import os
 
 from toolbox.models import ToolList
+from homecontent.models import Introduction, \
+    DownloadSection, KeyLink
 
 
 class HomeView(View):
     def get(self, request):
         context = {}
         context['tool_lists'] = ToolList.objects.all()
+        context['introductions'] = Introduction.objects.filter(enabled=True)
+        context['download_sections'] = DownloadSection.objects\
+            .filter(enabled=True)
+        context['keylinks'] = KeyLink.objects.filter(enabled=True)
         return render(request, 'toolbox/home.html', context)
 
 
@@ -23,6 +29,7 @@ class ContactUsView(View):
         context = {}
         context['tool_lists'] = ToolList.objects.all()
         return render(request, 'toolbox/contact-us.html', context)
+
 
 class ToolListView(View):
     def get(self, request, slug):
