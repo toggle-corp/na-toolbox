@@ -5,6 +5,7 @@ from tinymce.models import HTMLField
 class Introduction(models.Model):
     title = models.CharField(max_length=200)
     description = HTMLField(blank=True)
+    background_image = models.FileField(blank=True)
     enabled = models.BooleanField(default=True)
 
     def __str__(self):
@@ -32,6 +33,9 @@ class Download(models.Model):
 
     def __str__(self):
         return self.title
+
+    class Meta:
+        ordering = ['title']
 
 
 class KeyLink(models.Model):
