@@ -3,95 +3,159 @@
 @import 'footer';
 
 body {
-    background-color: #f0f0f0;
-
-
     >main {
-        flex-basis: calc(67% - 32px - 8px);
-        margin: 32px 0 0 32px;
+        flex-basis: 100%;
+        display: flex;
+        flex-wrap: wrap;
 
-        .intro {
-            background-color: #fff;
-            padding: 24px 32px;
-            box-shadow: 0 2px 10px -3px rgba(0, 0, 0, 0.3);
+        #intro-container {
+            position: relative;
+            flex-basis: 100%;
+            height: 50vh;
+            margin-bottom: 16px;
 
-            h1 {
-                font-weight: 300;
-                font-size: 3em;
-                text-transform: Capitalize;
-            }
+            @import 'carousel';
+             
+            .intro {
+                position: absolute;
+                left: 0;
+                top: 0;
+                widht: 100%;
+                height: 100%;
 
-            p {
-                strong {
-                    font-weight: 700;
+                .description {
+                    width: 36%;
+                    height: 100%;
+                    padding: 32px;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    overflow-y: auto;
+
+                    h1 {
+                        font-weight: 300;
+                        font-size: 2em;
+                        text-transform: Capitalize;
+                    }
+
+                    p {
+                        strong {
+                            font-weight: 700;
+                        }
+                    }
+                }
+
+                .blur-container {
+                    position: absolute;
+                    left: 0;
+                    top: 7px;
+                    width: 36%;
+                    height: calc(100% - 14px);
+                    filter: brightness(70%) saturate(10%);
+                    object-fit: none;
+                    object-position: left center;
+                }
+
+                .background-image {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: none;
+                    object-position: left center;
                 }
             }
-
         }
 
-        .download-handbook {
-            background-color: #fff;
-            padding: 32px;
-            margin: 16px 0 0 0;
-            box-shadow: 0 2px 10px -3px rgba(0, 0, 0, 0.3);
+        #download-handbook-container {
+            flex-basis: 60%;
+            //flex-basis: calc(60% - 64px);
+            //padding: 0 32px;
+             
+            .download-handbook {
 
-            >header {
-                h2 {
-                    text-transform: uppercase;
-                    font-weight: 400;
+                >header {
+                    margin-bottom: 16px;
+                    padding: 0 16px;
+
+                    .title {
+                        text-transform: uppercase;
+                        font-weight: 400;
+                        min-height: 56px;
+                        display: flex;
+                        align-items: center;
+                    }
+
+                    .description {
+                        >p {
+                            margin: 0;
+                        }
+                    }
                 }
-            }
 
-            .handbook-container {
-                .handbook {
-                    padding: 10px 10px 10px 0;
+                .handbook-container {
+                    padding: 0 12px;
                     display: flex;
+                    flex-wrap: wrap;
+                    justify-content: space-between;
 
-                    &:first-child {
-                        margin: 10px 0;
-                        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-                    }
+                    .handbook {
+                        flex-basis: calc(50% - 8px);
+                        margin: 4px;
+                        display: flex;
+                        @include background-color-secondary;
+                        $preview-width: 208px;
+                        height: $preview-width*1.33;
 
-                    .preview {
-                        width: 108px;
-                        flex-basis: 108px;
-                        height: 128px;
-                        object-fit: contain;
-                        object-position: center center;
-                    }
-
-                    .details {
-                        padding: 0 16px;
-
-                        .title {
-                            font-weight: 300;
-                            font-size: 2em;
-                            margin: 0;
-                            color: rgba(0, 0, 0, 0.7);
+                        .preview {
+                            width: $preview-width;
+                            flex-basis: $preview-width;
+                            height: $preview-width*1.33;
+                            object-fit: cover;
+                            object-position: center center;
                         }
 
-                        .description {
-                            margin: 0;
-                            color: rgba(0, 0, 0, 0.5);
-                        }
+                        .details {
+                            padding: 0 16px;
 
-                        .action-buttons {
-                            margin-top: 16px;
-
-                            a {
-                                border: none;
-                                outline: none;
-                                background-color: $primary-color;
-                                color: #414141;
-                                text-transform: uppercase;
+                            .title {
+                                font-weight: 300;
+                                font-size: 1.6em;
+                                margin: 0;
+                                height: 48px;
                                 display: flex;
                                 align-items: center;
-                                padding: 4px 16px;
-                                cursor: pointer;
+                            }
 
-                                i {
-                                    margin-right: 8px;
-                                    font-size: 1.67em;
+                            .description {
+                                margin: 0;
+                                @include label-color;
+                                height: calc(100% - 48px - 48px);
+                                overflow-y: auto;
+
+                                > p {
+                                    margin: 0;
+                                }
+                            }
+
+                            .action-buttons {
+                                height: 48px;
+                                display: flex;
+                                align-items: center;
+
+                                a {
+                                    border: none;
+                                    outline: none;
+                                    background-color: $primary-color;
+                                    color: get_text_color_on_primary();
+                                    text-transform: uppercase;
+                                    display: inline-flex;
+                                    align-items: center;
+                                    padding: 0 16px;
+                                    cursor: pointer;
+
+                                    i {
+                                        margin-right: 8px;
+                                        font-size: 1.67em;
+                                    }
                                 }
                             }
                         }
@@ -99,27 +163,52 @@ body {
                 }
             }
         }
-    }
 
-    >aside {
-        flex-basis: calc(33% - 32px - 8px);
-        margin: 32px 32px 0 0;
+        #side-content {
+            flex-basis: 40%;
+            flex-grow: 0;
+            display: flex;
+             
+            #highlights, #links {
+                flex-basis: calc(50% - 2px);
+                border-left: 2px solid get_separator_color();
+                height: 100%;
 
-        #highlights, #links {
-            min-height: 40vh;
-            background-color: #fff;
-            padding: 24px 32px;
-            box-shadow: 0 2px 10px -3px rgba(0, 0, 0, 0.3);
+                >header {
+                    height: 48px;
+                    display: flex;
+                    align-items: center;
+                    padding: 0 16px;
 
-            >header {
-                h2 {
-                    text-transform: capitalize;
+                    h2 {
+                        text-transform: uppercase;
+                    }
                 }
+
+                >.content {
+                    padding: 0 16px;
+                    height: calc(100% - 48px - 10px);
+                    overflow-y: auto;
+                    margin-bottom: 10px;
+                }
+
             }
         }
 
         #links {
-            margin-bottom: 16px;
+            >.content {
+                a {
+                    display: block;
+                    width: 100%;
+                    color: $primary-color;
+                    padding: 8px 16px;
+
+                    &:hover {
+                        background-color: $primary-color;
+                        color: get_text_color_on_primary();
+                    }
+                }
+            }
         }
     }
 }

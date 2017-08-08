@@ -4,6 +4,7 @@
 
 {% block head %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+<script src="{% static 'js/home.js' %}"></script>
 {% endblock %}
 
 
@@ -12,62 +13,81 @@
 {% include 'nav.html' %}
 
 <main>
-{% for intro in introductions %}
-<section class="intro">
-    <h1>{{ intro.title }}</h1>
-    <p>{{ intro.description|safe }}</p>
-</section>
-{% endfor %}
-
-{% for download_section in download_sections %}
-<section class="download-handbook">
-    <header>
-        <h2>{{ download_section.title }}</h2>
-    </header>
-    <div class="content">
-        <div class="handbook-container">
-            {% for download in download_section.download_set.all %}
-            {% if download.enabled %}
-            <div class="handbook">
-                <img class="preview" src="{% if download.thumbnail %}{{ download.thumbnail.url }}{% else %}{% static 'img/pdf-icon.png' %}{% endif %}">
-                <div class="details">
-                    <h3 class="title">{{ download.title }}</h3>
-                    <p class="description">{{ download.description }}</p>
-                    <div class="action-buttons">
-                        <a href="{% if download.file %}{{ download.file.url }}{% endif %}" download><i class="ion-ios-download-outline"></i>Download</a>
+    <section id="intro-container">
+        <div class="carousel">
+            <div class="carousel-item-container">
+                {% for intro in introductions %}
+                <div class="carousel-item" id="item-{{ intro.pk }}" hidden>
+                    <div class="intro">
+                        <img class="blur-container" src="{{ intro.background_image.url }}">
+                        <div class="description">
+                            <h1>{{ intro.title }}</h1>
+                            <p>{{ intro.description|safe }}</p>
+                        </div>
+                        <img class="background-image" src="{{ intro.background_image.url }}"> 
                     </div>
                 </div>
+                {% endfor %}
             </div>
-            {% endif %}
-            {% endfor %}
+            <div class="carousel-navigation">
+                {% for intro in introductions %}
+                <button data-target="#item-{{ intro.pk }}"></button>
+                {% endfor %}
+            </div>
         </div>
-    </div>
-</section>
-{% endfor %}
-</main>
+    </section>
 
-<aside>
-    <section id="links">
-        <header>
-            <h2>Useful links</h2>
-        </header>
-        <div class="content">
-            {% for keylink in keylinks %}
-            <div>
+    <section id="download-handbook-container">
+        {% for download_section in download_sections %}
+        <div class="download-handbook">
+            <header>
+                <h2 class="title">{{ download_section.title }}</h2>
+                <div class="description">{{ download_section.description|safe }}</div>
+            </header>
+            <div class="content">
+                <div class="handbook-container">
+                    {% for download in download_section.download_set.all %}
+                    {% if download.enabled %}
+                    <div class="handbook">
+                        <img class="preview" src="{% if download.thumbnail %}{{ download.thumbnail.url }}{% else %}{% static 'img/pdf-icon.png' %}{% endif %}">
+                        <div class="details">
+                            <h3 class="title">{{ download.title }}</h3>
+                            <div class="description">{{ download.description|safe }}</div>
+                            <div class="action-buttons">
+                                <a href="{% if download.file %}{{ download.file.url }}{% endif %}" download><i class="ion-ios-download-outline"></i>Download</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </section>
+     
+    <section id="side-content">
+        <div id="highlights">
+            <header>
+                <h2>Highlights</h2>
+            </header>
+            <div class="content">
+            </div>
+        </div>
+         
+        <div id="links">
+            <header>
+                <h2>Useful links</h2>
+            </header>
+            <div class="content">
+                {% for keylink in keylinks %}
                 <a href="{{ keylink.url }}">{{ keylink.title }}</a>
+                {% endfor %}
             </div>
-            {% endfor %}
         </div>
     </section>
-    <section id="highlights">
-        <header>
-            <h2>Highlights</h2>
-        </header>
-        <div class="content">
-        </div>
-    </section>
-</aside>
-
+</main>
+ 
 {% include 'footer.html' %}
 
 {% endblock %}

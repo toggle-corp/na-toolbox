@@ -1,0 +1,60 @@
+$primary-color: #ffe416;
+ 
+$background-color-dark: #f0f0f0;
+$text-color-light: #414141;
+
+$background-color-dark: #414141;
+$text-color-dark: #fff;
+
+$dark-theme: true;
+$theme: dark;
+
+$label-color-light: rgba(0, 0, 0, 0.5);
+$label-color-dark: rgba(255, 255, 255, 0.5);
+
+$separator-color-light: rgba(0, 0, 0, 0.1);
+$separator-color-dark: rgba(255, 255, 255, 0.1);
+
+@mixin background-color() {
+    @if $dark-theme {
+        background-color: $background-color-dark;
+    } @else {
+        background-color: $background-color-light;
+    }
+}
+ 
+@mixin background-color-secondary() {
+    @if $dark-theme {
+        background-color: lighten($background-color-dark, 10%);
+    } @else {
+        background-color: darken($background-color-light, 10%);
+    }
+}
+ 
+@mixin text-color() {
+    @if $dark-theme {
+        color: $text-color-dark;
+    } @else {
+        color: $text-color-light;
+    }
+}
+ 
+@mixin label-color() {
+    @if $dark-theme {
+        color: $label-color-dark;
+    } @else {
+        color: $label-color-light;
+    }
+}
+
+@function get_separator_color() {
+     @if $dark-theme {
+        @return $separator-color-dark;
+    } @else {
+        @return $separator-color-light;
+    }
+}
+
+@function get_text_color_on_primary() {
+    @return $text-color-light; // TODO: implement proper logic
+}
