@@ -71,9 +71,9 @@
                     <div class="select"><span class="checkbox"><i></i></span></div>
                     <div class="title">{{ tool.title }}</div>
                     <div class="description">{{ tool.description }}</div>
-                    <div class="format"><img src="{{ tool.format.icon.url }}" alt="{{ tool.format.title }}"><label>{{ tool.format.title }}</label></div>
+                    <div class="format"><img src="{% if tool.format.icon %}{{ tool.format.icon.url }}{% endif %}" alt="{{ tool.format.title }}"><label>{{ tool.format.title }}</label></div>
                     <div class="thumbnail">{% if tool.thumbnail %}<img src="{{ tool.thumbnail.url }}">{% endif %}</div>
-                    <div class="extra"><a href="{{ tool.url }}"><i class="ion-ios-download-outline"></i></a></div>
+                    <div class="extra"><a target="_blank" {% if tool.url %}href="{{ tool.url }}"{% endif %}><i class="ion-ios-download-outline"></i></a></div>
                 </div>
                 {% endfor %}
             </div>

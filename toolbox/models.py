@@ -44,9 +44,17 @@ class Tool(models.Model):
     url = models.CharField(max_length=300, blank=True)
     thumbnail = models.FileField(upload_to='thumbnails',
                                  null=True, blank=True, default=None)
+    organization = models.CharField(max_length=150, blank=True)
+
+    order = models.CharField(default='', max_length=10, blank=True)
+
+    tool_type = models.CharField(default='', max_length=100, blank=True)
 
     def __str__(self):
         return self.title
+
+    class Meta:
+        ordering = ['order']
 
 
 # EOF
