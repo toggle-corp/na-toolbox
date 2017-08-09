@@ -25,15 +25,19 @@ class Command(BaseCommand):
             for i, row in enumerate(data):
                 if i == 0:
                     continue
-                category_name = row[0]
+                category_name = row[0][3:]
 
                 category = None
                 try:
-                    category = Category.objects.get(title__iexact=category_name,
-                                                    tool_list=tool_list)
+                    category = Category.objects.get(
+                        title__iexact=category_name,
+                        tool_list=tool_list)
                 except:
-                    category = Category(title=category_name, tool_list=tool_list)
-                    category.save()
+                    category = Category(title=category_name,
+                                        tool_list=tool_list)
+
+                category.order = row[0][:1]
+                category.save()
 
                 tool = None
                 try:

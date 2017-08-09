@@ -27,12 +27,14 @@ class ToolList(models.Model):
 class Category(models.Model):
     title = models.CharField(max_length=250)
     tool_list = models.ForeignKey(ToolList)
+    order = models.CharField(default='', max_length=10, blank=True)
 
     def __str__(self):
         return self.title
 
     class Meta:
         verbose_name_plural = 'Categories'
+        ordering = ['order']
 
 
 class Tool(models.Model):
