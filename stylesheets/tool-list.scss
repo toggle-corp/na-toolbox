@@ -1,9 +1,9 @@
-@import 'base';
-@import 'nav';
- 
+@import 'common/base';
+@import 'common/nav';
+
 
 body {
-     
+
     main {
         flex-basis: 100%;
         margin: 16px 24px 0 24px;
@@ -17,12 +17,14 @@ body {
             background-color: #414141;
             color: #fff;
             padding: 0 16px;
-             
+
+
             #navigation-tabs {
                 //flex-basis: 100%;
                 //display: flex;
                 //justify-content: center;
                 //box-shadow: 0 2px 10px -3px rgba(0, 0, 0, 0.5);
+
 
                 a {
                     padding: 0 16px;
@@ -43,6 +45,8 @@ body {
             }
 
             .action-buttons {
+
+                border: 1px solid $primary-color;
                 button {
                     padding: 4px 10px;
                     border: none;
@@ -82,10 +86,10 @@ body {
         >.content {
             height: calc(100vh - #{$nav-height} - 64px - 16px - 2px);
             overflow-y: scroll;
-             
+
             section {
                 min-height: calc(100vh - #{$nav-height} - 64px - 16px - 2px);
-                 
+
                 .checkbox {
                     user-select: none;
                     position: relative;
@@ -196,7 +200,7 @@ body {
                                 }
 
                                 &.checked {
-                                    //border-color: #fff; 
+                                    //border-color: #fff;
                                 }
                             }
 
@@ -204,7 +208,7 @@ body {
                     }
 
                 }
-                 
+
                 >.content {
                     >div {
                         padding: 10px 16px;
@@ -214,7 +218,7 @@ body {
                         justify-content: space-between;
 
                         &:nth-child(even) {
-                            background-color: rgba(0, 0, 0, 0.03);
+                            background-color: rgba(0, 0, 0, 0.1);
                         }
                     }
 
@@ -229,9 +233,10 @@ body {
                         label {
                             display: block;
                             width: 100%;
-                            color: rgba(0, 0, 0, 0.3);
+                            font-size: 0.8em;
                             text-transform: uppercase;
                             font-weight: 700;
+                            @include label-color;
                         }
                     }
 
@@ -242,7 +247,7 @@ body {
 
                     .description {
                         text-align: justify;
-                        color: rgba(0, 0, 0, 0.5);
+                        @include text-color;
                     }
 
                     .thumbnail {
@@ -255,25 +260,28 @@ body {
                     }
                 }
 
-                .select { 
+                .select {
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    flex-basis: 48px; 
+                    flex-basis: 48px;
+                    span{
+                        border: 2px solid get_label_color();
+                    }
                 }
-                 
+
                 .title { flex-basis: 20%; }
                 .description { flex-basis: 34%; }
-                .format { 
-                    flex-basis: 10%; 
+                .format {
+                    flex-basis: 10%;
                     text-align: center;
                 }
-                .thumbnail { 
-                    flex-basis: 14%; 
+                .thumbnail {
+                    flex-basis: 14%;
                     text-align: center;
                 }
-                .extra { 
-                    flex-basis: 10%; 
+                .extra {
+                    flex-basis: 10%;
                     text-align: center;
 
                     a {
@@ -300,4 +308,6 @@ body {
             }
         }
     }
+
+    
 }

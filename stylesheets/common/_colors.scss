@@ -1,6 +1,6 @@
 $primary-color: #ffe416;
- 
-$background-color-dark: #f0f0f0;
+
+$background-color-light: #f0f0f0;
 $text-color-light: #414141;
 
 $background-color-dark: #414141;
@@ -22,7 +22,7 @@ $separator-color-dark: rgba(255, 255, 255, 0.1);
         background-color: $background-color-light;
     }
 }
- 
+
 @mixin background-color-secondary() {
     @if $dark-theme {
         background-color: lighten($background-color-dark, 10%);
@@ -30,7 +30,7 @@ $separator-color-dark: rgba(255, 255, 255, 0.1);
         background-color: darken($background-color-light, 10%);
     }
 }
- 
+
 @mixin text-color() {
     @if $dark-theme {
         color: $text-color-dark;
@@ -38,7 +38,7 @@ $separator-color-dark: rgba(255, 255, 255, 0.1);
         color: $text-color-light;
     }
 }
- 
+
 @mixin label-color() {
     @if $dark-theme {
         color: $label-color-dark;
@@ -46,6 +46,15 @@ $separator-color-dark: rgba(255, 255, 255, 0.1);
         color: $label-color-light;
     }
 }
+
+@function get_label_color() {
+     @if $dark-theme {
+        @return $label-color-dark;
+    } @else {
+        @return $label-color-light;
+    }
+}
+
 
 @function get_separator_color() {
      @if $dark-theme {
