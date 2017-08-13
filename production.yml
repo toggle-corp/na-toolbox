@@ -15,20 +15,23 @@ services:
         depends_on:
             - web
         volumes:
-            - app-volume:/code
             - static-volume:/static
+            - media-volume:/media
+            - socket-volume:/socket
     web:
         build: .
         image: eoglethorpe/natoolbox:django-1.0
         command: ['./wait-for-it.sh', 'db:5432', '--', '/code/run_production.sh']
         volumes:
-            - app-volume:/code
             - static-volume:/static
+            - media-volume:/media
+            - socket-volume:/socket
         env_file:
             - production.env
         depends_on:
             - db
 
 volumes:
-    app-volume:
     static-volume:
+    media-volume:
+    socket-volume:

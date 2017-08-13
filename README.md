@@ -29,7 +29,15 @@ Make sure to also modify `ALLOWED_HOST`.
 
 The production configuration for docker-compose is in *production.yml*.
 
+Some of the usefull `docker-compose` commands
+
 ```
-$ docker-compose -f production.yml down -v    # To shut down already running docker image
-$ docker-compose -f production.yml up
+$ docker-compose -f production.yml pull     # Pull images from docker hub instead of building
+$ docker-compose -f production.yml build    # Build images from docker hub instead of pulling
+$ docker-compose -f production.yml push     # Push images to docker hub
+
+$ docker-compose -f production.yml up       # Start container [Will build images if not exists]
+
+$ docker-compose -f production.yml down     # To shut down already running docker image
+$ docker-compose -f production.yml down -v  # [`Alert`] To shut down already running docker image plus remove persistent volumes
 ```
