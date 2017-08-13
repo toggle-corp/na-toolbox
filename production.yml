@@ -1,10 +1,6 @@
 version: '3'
 
 services:
-    db:
-        image: postgres
-        healthcheck:
-            test: "exit 0"
     nginx:
         build: ./deploy/nginx/
         ports:
@@ -17,12 +13,12 @@ services:
     web:
         build: .
         image: natoolbox
-        command: ['./wait-for-it.sh', 'db:5432', '--', 'bash', 'run_production.sh']
+        command: ['./run_production.sh']
         volumes:
             - app-volume:/code
             - static-volume:/static
-        depends_on:
-            - db
+        env_file:
+            - production.env
 
 volumes:
     app-volume:
