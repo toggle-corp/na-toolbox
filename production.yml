@@ -1,6 +1,12 @@
 version: '3'
 
 services:
+    db:
+        image: postgres
+        volumes:
+            - ./postgres-data:/var/lib/postgresql/data
+        healthcheck:
+            test: "exit 0"
     nginx:
         build: ./deploy/nginx/
         image: eoglethorpe/natoolbox:nginx-1.0
@@ -14,12 +20,14 @@ services:
     web:
         build: .
         image: eoglethorpe/natoolbox:django-1.0
-        command: ['./run_production.sh']
+        command: ['./wait-for-it.sh', 'db:5432', '--', '/code/run_production.sh']
         volumes:
             - app-volume:/code
             - static-volume:/static
         env_file:
             - production.env
+        depends_on:
+            - db
 
 volumes:
     app-volume:
