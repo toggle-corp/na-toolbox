@@ -3,6 +3,7 @@ version: '3'
 services:
     nginx:
         build: ./deploy/nginx/
+        image: eoglethorpe/natoolbox:nginx-1.0
         ports:
             - '80:80'
         depends_on:
@@ -12,7 +13,7 @@ services:
             - static-volume:/static
     web:
         build: .
-        image: natoolbox
+        image: eoglethorpe/natoolbox:django-1.0
         command: ['./run_production.sh']
         volumes:
             - app-volume:/code
