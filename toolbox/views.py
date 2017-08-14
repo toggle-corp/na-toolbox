@@ -5,7 +5,7 @@ from django.http import HttpResponse
 from io import BytesIO
 from zipfile import ZipFile
 import json
-import urllib
+import urllib.request
 import os
 import cgi
 
