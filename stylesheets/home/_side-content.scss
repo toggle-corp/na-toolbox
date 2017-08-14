@@ -122,8 +122,11 @@
         }
     }
 
+    @media screen and (max-width: 1366px) {
+        margin-top: 24px;
+        flex-basis: 25%;
+    }
     @media screen and (max-width: 1080px) {
         flex-basis: 100%;
-        margin-top: 24px;
     }
 }

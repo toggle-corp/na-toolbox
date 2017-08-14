@@ -1,6 +1,7 @@
 @import 'common/base';
 @import 'common/nav';
 @import 'common/footer';
+@import 'common/modal';
 
 body {
     background-color: #fff;
@@ -14,7 +15,7 @@ body {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background-color: #333333;
+            background-color: $background-color-dark;
             color: #fff;
             padding: 0 16px;
 
@@ -48,6 +49,7 @@ body {
 
             .action-buttons {
                 height: 100%;
+                width: 204px;
                 display: flex;
                 border-left: 1px solid #aaa;
                 border-right: 1px solid #aaa;
@@ -55,7 +57,6 @@ body {
                 transition: 0.2s all ease-in-out;
 
                 button {
-                    width: 204px;
                     padding: 4px 10px;
                     border: none;
                     background-color: transparent;

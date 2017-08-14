@@ -33,15 +33,16 @@
                 margin: 4px;
                 display: flex;
                 @include background-color-secondary;
-                $preview-width: 208px;
-                height: $preview-width*1.33;
+                $preview-width: 40%;
+                height: 320px;
 
                 .preview {
                     width: $preview-width;
                     flex-basis: $preview-width;
-                    height: $preview-width*1.33;
-                    object-fit: cover;
-                    object-position: center center;
+                    height: auto;
+                    object-fit: contain;
+                    padding-top: 16px;
+                    object-position: top center;
                 }
 
                 .details {
@@ -71,6 +72,7 @@
                         height: 48px;
                         display: flex;
                         align-items: center;
+                        justify-content: flex-end;
 
                         a {
                             border: none;
@@ -82,6 +84,7 @@
                             align-items: center;
                             padding: 0 16px;
                             cursor: pointer;
+                            transition: all 0.2s ease-in-out;
 
                             i {
                                 margin-right: 8px;
@@ -89,8 +92,7 @@
 
                             }
                             &:hover{
-                                color: rgba(0,0,0,1);
-                                font-weight: 700;
+                                transform: translateY(-2px);
                             }
                         }
                     }
@@ -98,19 +100,19 @@
             }
         }
     }
-
+    @media screen and (max-width: 1366px) {
+        flex-basis: 75%;
+    }
     @media screen and (max-width: 1080px) {
         flex-basis: 100%;
-
-        .download-handbook {
-
+    }
+    @media screen and (max-width: 720px) {
+        .download-handbook{
             .handbook-container {
-                display: block;
-
+                .handbook {
+                    flex-basis: 100%;
+                }
             }
         }
-
-
     }
-
 }
