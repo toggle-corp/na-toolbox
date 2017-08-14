@@ -7,6 +7,7 @@ from zipfile import ZipFile
 import json
 import urllib
 import os
+import cgi
 
 from toolbox.models import ToolList
 from homecontent.models import Introduction, \
@@ -49,12 +50,19 @@ class DownloadFiles(View):
         for i, url in enumerate(urls):
             if not url:
                 continue
-            file = urllib.request.urlopen(url)
+
+            file = None
+            try:
+                file = urllib.request.urlopen(url)
+            except:
+                continue
             name = ''
             try:
                 name = file.info()['Content-Disposition']
                 if not name:
                     raise Exception()
+                _, params = cgi.parse_header(name)
+                name = params['filename']
             except:
                 name = os.path.basename(
                     urllib.parse.urlsplit(file.geturl()).path)
