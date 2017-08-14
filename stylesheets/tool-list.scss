@@ -101,7 +101,9 @@ body {
             overflow-y: scroll;
 
             section {
-                min-height: calc(100vh - #{$nav-height} - 64px - 16px - 2px);
+                &:last-child {
+                    min-height: calc(100vh - #{$nav-height} - 64px - 16px - 2px);
+                }
                 background-color: #fff;
 
                 .checkbox {
