@@ -211,7 +211,8 @@ body > main {
     position: relative;
     flex-basis: 100%;
     height: 50vh;
-    margin-bottom: 16px; }
+    margin-bottom: 16px;
+    border-bottom: 2px solid #ffe416; }
     body > main #intro-container .intro {
       position: absolute;
       left: 0;
@@ -361,71 +362,54 @@ body > main {
     flex-basis: 40%;
     flex-grow: 0;
     display: flex; }
-    body > main #side-content #highlights, body > main #side-content #links {
-      flex-basis: calc(50% - 2px);
+    body > main #side-content #links {
+      flex-basis: 100%;
       border-left: 2px solid rgba(255, 255, 255, 0.1);
-      height: 100%; }
-      body > main #side-content #highlights > header, body > main #side-content #links > header {
+      height: 100%;
+      overflow: auto; }
+      body > main #side-content #links > header {
         height: 48px;
         display: flex;
         align-items: center;
         padding: 0 16px; }
-        body > main #side-content #highlights > header h2, body > main #side-content #links > header h2 {
+        body > main #side-content #links > header h2 {
           text-transform: uppercase;
           color: #ffe416;
           font-weight: 500; }
-      body > main #side-content #highlights > .content, body > main #side-content #links > .content {
+      body > main #side-content #links > .content {
         padding: 0 16px;
         height: calc(100% - 48px - 10px);
         overflow-y: auto;
-        margin-bottom: 10px; }
-    body > main #side-content #links > .content a {
-      display: block;
-      width: 100%;
-      color: #ffe416;
-      padding: 8px 16px; }
-      body > main #side-content #links > .content a:hover {
-        background-color: #ffe416;
-        color: #333333; }
-    @media screen and (max-width: 768px) {
-      body > main #side-content #highlights > header h2, body > main #side-content #links > header h2 {
-        font-size: 1.2em; } }
-    @media screen and (max-width: 720px) {
-      body > main #side-content #highlights > header h2, body > main #side-content #links > header h2 {
-        font-size: 1.2em; } }
-    @media screen and (max-width: 425px) {
-      body > main #side-content {
-        flex-basis: 40%;
-        flex-grow: 0;
-        display: flex; }
-        body > main #side-content #highlights, body > main #side-content #links {
-          flex-basis: calc(50% - 2px);
-          border-left: 2px solid rgba(255, 255, 255, 0.1);
-          height: 100%; }
-          body > main #side-content #highlights > header, body > main #side-content #links > header {
-            height: 48px;
-            display: flex;
-            align-items: center;
-            padding: 0 16px; }
-            body > main #side-content #highlights > header h2, body > main #side-content #links > header h2 {
-              text-transform: uppercase; }
-          body > main #side-content #highlights > .content, body > main #side-content #links > .content {
-            padding: 0 16px;
-            height: calc(100% - 48px - 10px);
-            overflow-y: auto;
-            margin-bottom: 10px; }
-        body > main #side-content #links > .content a {
-          display: block;
-          width: 100%;
-          color: #ffe416;
-          padding: 8px 16px; }
-          body > main #side-content #links > .content a:hover {
-            background-color: #ffe416;
-            color: #333333; } }
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        align-items: stretch; }
+        body > main #side-content #links > .content .keylink {
+          margin: 4px;
+          flex-basis: calc(50% - 8px); }
+          body > main #side-content #links > .content .keylink > div {
+            background-color: #4d4d4d;
+            padding: 8px 12px;
+            width: 100%;
+            height: 100%; }
+            body > main #side-content #links > .content .keylink > div h3 {
+              font-size: 1.2em;
+              margin: 0; }
+            body > main #side-content #links > .content .keylink > div .description {
+              color: rgba(255, 255, 255, 0.5); }
+              body > main #side-content #links > .content .keylink > div .description p {
+                color: rgba(255, 255, 255, 0.5); }
+          body > main #side-content #links > .content .keylink:hover > div {
+            background-color: #666666; }
+            body > main #side-content #links > .content .keylink:hover > div h3 {
+              color: #ffe416; }
     @media screen and (max-width: 1366px) {
       body > main #side-content {
         margin-top: 24px;
-        flex-basis: 25%; } }
+        flex-basis: 25%; }
+        body > main #side-content #links > .content .keylink {
+          flex-basis: 100%; } }
     @media screen and (max-width: 1080px) {
       body > main #side-content {
         flex-basis: 100%; } }

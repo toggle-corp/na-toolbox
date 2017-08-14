@@ -86,7 +86,12 @@
             </header>
             <div class="content">
                 {% for keylink in keylinks %}
-                <a href="{{ keylink.url }}">{{ keylink.title }}</a>
+                <a href="{{ keylink.url }}" class="keylink">
+                    <div>
+                        <h3>{{ keylink.title }}</h3>
+                        <div class="description">{{ keylink.description|safe }}</div>
+                    </div>
+                </a>
                 {% endfor %}
             </div>
         </div>
