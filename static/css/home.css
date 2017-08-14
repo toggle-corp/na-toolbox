@@ -6,7 +6,7 @@
 body {
   padding: 0;
   margin: 0;
-  background-color: #414141;
+  background-color: #333333;
   color: #fff;
   font-size: 13px;
   line-height: 1.5; }
@@ -41,7 +41,7 @@ body {
       align-self: stretch; }
       body > nav #main-menu .menu-item {
         padding: 0 16px;
-        color: #414141;
+        color: #333333;
         text-transform: uppercase;
         font-weight: 700;
         letter-spacing: 0.06em;
@@ -50,17 +50,17 @@ body {
         align-items: center;
         border: 1px solid transparent; }
         body > nav #main-menu .menu-item:hover {
-          border: 1px solid #414141; }
+          border: 1px solid #333333; }
         body > nav #main-menu .menu-item.active {
-          background-color: #414141;
+          background-color: #333333;
           color: #ffe416; }
     body > nav #navigation-menu {
       background-color: #ffe416;
-      color: #414141;
+      color: #333333;
       flex-basis: calc(100% + 64px);
       margin: 0 -32px;
       height: 48px;
-      text-align: center; }
+      text-align: left; }
       body > nav #navigation-menu .menu-item {
         padding: 0 16px;
         text-transform: uppercase;
@@ -72,14 +72,14 @@ body {
         align-items: center;
         border: 1px solid transparent; }
         body > nav #navigation-menu .menu-item:hover {
-          border: 1px solid #414141; }
+          border: 1px solid #333333; }
         body > nav #navigation-menu .menu-item.active {
-          background-color: #414141;
+          background-color: #333333;
           color: #ffe416; }
 
 body > footer {
   margin-top: 16px;
-  height: 64px;
+  height: 48px;
   flex-basis: 100%;
   background-color: #ffe416;
   display: flex;
@@ -220,7 +220,7 @@ body > main {
         flex-basis: calc(50% - 8px);
         margin: 4px;
         display: flex;
-        background-color: #5b5b5b;
+        background-color: #4d4d4d;
         height: 276.64px; }
         body > main #download-handbook-container .download-handbook .handbook-container .handbook .preview {
           width: 208px;
@@ -252,7 +252,7 @@ body > main {
               border: none;
               outline: none;
               background-color: #ffe416;
-              color: #414141;
+              color: #333333;
               text-transform: uppercase;
               display: inline-flex;
               align-items: center;
@@ -293,7 +293,7 @@ body > main {
       padding: 8px 16px; }
       body > main #side-content #links > .content a:hover {
         background-color: #ffe416;
-        color: #414141; }
+        color: #333333; }
     @media screen and (max-width: 768px) {
       body > main #side-content #highlights > header h2, body > main #side-content #links > header h2 {
         font-size: 1.2em; } }
@@ -328,7 +328,7 @@ body > main {
           padding: 8px 16px; }
           body > main #side-content #links > .content a:hover {
             background-color: #ffe416;
-            color: #414141; } }
+            color: #333333; } }
     @media screen and (max-width: 1080px) {
       body > main #side-content {
         flex-basis: 100%;

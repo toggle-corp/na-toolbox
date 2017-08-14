@@ -6,7 +6,7 @@
 body {
   padding: 0;
   margin: 0;
-  background-color: #414141;
+  background-color: #333333;
   color: #fff;
   font-size: 13px;
   line-height: 1.5; }
@@ -41,7 +41,7 @@ body {
       align-self: stretch; }
       body > nav #main-menu .menu-item {
         padding: 0 16px;
-        color: #414141;
+        color: #333333;
         text-transform: uppercase;
         font-weight: 700;
         letter-spacing: 0.06em;
@@ -50,17 +50,17 @@ body {
         align-items: center;
         border: 1px solid transparent; }
         body > nav #main-menu .menu-item:hover {
-          border: 1px solid #414141; }
+          border: 1px solid #333333; }
         body > nav #main-menu .menu-item.active {
-          background-color: #414141;
+          background-color: #333333;
           color: #ffe416; }
     body > nav #navigation-menu {
       background-color: #ffe416;
-      color: #414141;
+      color: #333333;
       flex-basis: calc(100% + 64px);
       margin: 0 -32px;
       height: 48px;
-      text-align: center; }
+      text-align: left; }
       body > nav #navigation-menu .menu-item {
         padding: 0 16px;
         text-transform: uppercase;
@@ -72,209 +72,243 @@ body {
         align-items: center;
         border: 1px solid transparent; }
         body > nav #navigation-menu .menu-item:hover {
-          border: 1px solid #414141; }
+          border: 1px solid #333333; }
         body > nav #navigation-menu .menu-item.active {
-          background-color: #414141;
+          background-color: #333333;
           color: #ffe416; }
 
-body main {
+body > footer {
+  margin-top: 16px;
+  height: 48px;
   flex-basis: 100%;
-  margin: 16px 24px 0 24px;
-  border: 1px solid rgba(0, 0, 0, 0.1); }
-  body main > header {
-    height: 64px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #414141;
-    color: #fff;
-    padding: 0 16px; }
-    body main > header #navigation-tabs a {
-      padding: 0 16px;
-      height: 36px;
-      display: inline-flex;
+  background-color: #ffe416;
+  display: flex;
+  padding: 0 32px;
+  justify-content: flex-start;
+  align-items: center; }
+  body > footer a {
+    margin: 0 16px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.5);
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 1.1em; }
+    body > footer a:hover {
+      color: black; }
+
+body {
+  background-color: #fff; }
+  body main {
+    flex-basis: 100%;
+    margin: 0; }
+    body main > header {
+      height: 92px;
+      display: flex;
       align-items: center;
-      justify-content: center;
-      border-bottom: 2px solid transparent;
-      text-transform: uppercase;
-      cursor: pointer; }
-      body main > header #navigation-tabs a.active {
-        color: #ffe416;
-        border-bottom: 2px solid #ffe416; }
-    body main > header .action-buttons {
-      border: 1px solid #ffe416; }
-      body main > header .action-buttons button {
-        padding: 4px 10px;
-        border: none;
-        background-color: transparent;
-        font-weight: 300;
-        color: #fff;
-        cursor: pointer;
-        text-transform: uppercase;
+      justify-content: space-between;
+      background-color: #333333;
+      color: #fff;
+      padding: 0 16px; }
+      body main > header #navigation-tabs {
         display: flex;
-        align-items: center;
-        font-size: 1.1em;
-        outline: none;
-        border: 1px solid transparent;
-        transition: 0.2s all ease-in-out; }
-        body main > header .action-buttons button i {
-          margin-right: 8px;
-          font-size: 1.6em; }
-        body main > header .action-buttons button #selection-count {
-          font-size: 1.1em;
-          font-weight: 300; }
-          body main > header .action-buttons button #selection-count:before {
-            content: ': '; }
-        body main > header .action-buttons button:hover {
-          border-color: #ffe416; }
-  body main > .content {
-    height: calc(100vh - 128px - 64px - 16px - 2px);
-    overflow-y: scroll; }
-    body main > .content section {
-      min-height: calc(100vh - 128px - 64px - 16px - 2px); }
-      body main > .content section .checkbox {
-        user-select: none;
-        position: relative;
-        display: inline-block;
-        width: 20px;
-        height: 20px;
-        border: 2px solid rgba(0, 0, 0, 0.16);
-        border-radius: 2px;
-        cursor: pointer; }
-        body main > .content section .checkbox i {
-          position: absolute;
-          display: inline-block;
-          left: 50%;
-          top: 50%;
-          transform: translate(-50%, -50%);
-          border-radius: 50%;
-          width: 0;
-          height: 0;
-          background-color: rgba(0, 0, 0, 0.05);
-          transition: 0.2s all ease-in-out;
-          opacity: 0; }
-        body main > .content section .checkbox.checked:before {
-          content: '';
-          position: absolute;
-          bottom: 2px;
-          left: 3px;
-          width: 2px;
-          height: 10px;
-          background-color: #ffe416;
-          transform: rotate(-45deg);
-          transform-origin: 0 100%; }
-        body main > .content section .checkbox.checked:after {
-          content: '';
-          position: absolute;
-          bottom: 2px;
-          width: 2px;
-          height: 22px;
-          left: 3px;
-          background-color: #ffe416;
-          transform: rotate(36deg);
-          transform-origin: 0 100%; }
-        body main > .content section .checkbox.clicked i {
-          width: 48px;
-          height: 48px;
-          opacity: 1; }
-          body main > .content section .checkbox.clicked i.fading {
-            width: 64px;
-            height: 64px;
-            opacity: 0; }
-      body main > .content section > header {
-        height: 96px;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: space-between;
-        background-color: #ffe416;
-        color: #fff;
-        padding: 0 16px;
-        border-bottom: 2px solid rgba(255, 255, 255, 0.1);
-        position: sticky;
-        top: 0;
-        z-index: 1; }
-        body main > .content section > header .section-title {
-          flex-basis: 100%;
-          height: 56px;
-          display: flex;
-          align-items: center;
-          padding: 0 10px; }
-          body main > .content section > header .section-title h3 {
-            font-size: 2em; }
-        body main > .content section > header .table-header {
-          flex-basis: 100%;
-          height: 32px;
-          display: flex;
-          text-transform: uppercase;
-          align-items: center;
-          justify-content: space-between; }
-          body main > .content section > header .table-header .checkbox {
-            border: 2px solid rgba(255, 255, 255, 0.24); }
-            body main > .content section > header .table-header .checkbox.checked:after, body main > .content section > header .table-header .checkbox.checked:before {
-              background-color: #fff; }
-      body main > .content section > .content > div {
-        padding: 10px 16px;
-        min-height: 64px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between; }
-        body main > .content section > .content > div:nth-child(even) {
-          background-color: rgba(0, 0, 0, 0.1); }
-      body main > .content section > .content .format img {
-        width: 32px;
-        height: 32px;
-        object-fit: contain;
-        object-position: center center; }
-      body main > .content section > .content .format label {
-        display: block;
-        width: 100%;
-        font-size: 0.8em;
-        text-transform: uppercase;
-        font-weight: 700;
-        color: rgba(255, 255, 255, 0.5); }
-      body main > .content section > .content .title {
-        font-weight: 700;
-        font-size: 1.1em; }
-      body main > .content section > .content .description {
-        text-align: justify;
-        color: #fff; }
-      body main > .content section > .content .thumbnail img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center center; }
-      body main > .content section .select {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-basis: 48px; }
-        body main > .content section .select span {
-          border: 2px solid rgba(255, 255, 255, 0.5); }
-      body main > .content section .title {
-        flex-basis: 20%; }
-      body main > .content section .description {
-        flex-basis: 34%; }
-      body main > .content section .format {
-        flex-basis: 10%;
-        text-align: center; }
-      body main > .content section .thumbnail {
-        flex-basis: 14%;
-        text-align: center; }
-      body main > .content section .extra {
-        flex-basis: 10%;
-        text-align: center; }
-        body main > .content section .extra a {
+        justify-content: center; }
+        body main > header #navigation-tabs a {
+          padding: 16px;
+          max-width: 196px;
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          width: 48px;
-          height: 48px;
-          border-radius: 50%;
+          border-bottom: 2px solid transparent;
+          text-transform: uppercase;
+          text-align: center;
           cursor: pointer; }
-          body main > .content section .extra a i {
-            font-size: 2em; }
-          body main > .content section .extra a:hover {
-            background-color: rgba(0, 0, 0, 0.06); }
+          body main > header #navigation-tabs a.active {
+            color: #ffe416;
+            border-bottom: 2px solid #ffe416; }
+      body main > header .action-buttons {
+        height: 100%;
+        display: flex;
+        border-left: 1px solid #aaa;
+        border-right: 1px solid #aaa;
+        align-items: center;
+        transition: 0.2s all ease-in-out; }
+        body main > header .action-buttons button {
+          width: 204px;
+          padding: 4px 10px;
+          border: none;
+          background-color: transparent;
+          font-weight: 300;
+          color: #fff;
+          cursor: pointer;
+          text-transform: uppercase;
+          display: flex;
+          align-items: center;
+          font-size: 1.02em;
+          outline: none;
+          border: 1px solid transparent; }
+          body main > header .action-buttons button i {
+            margin-right: 8px;
+            font-size: 1.4em; }
+          body main > header .action-buttons button #selection-count {
+            font-size: 1.02em;
+            font-weight: 300; }
+            body main > header .action-buttons button #selection-count:before {
+              content: ': '; }
+        body main > header .action-buttons:hover {
+          background-color: #ffe416; }
+          body main > header .action-buttons:hover button {
+            color: #333333; }
+    body main > .content {
+      height: calc(100vh - 128px - 92px - 48px);
+      border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+      overflow-y: scroll; }
+      body main > .content section {
+        min-height: calc(100vh - 128px - 64px - 16px - 2px);
+        background-color: #fff; }
+        body main > .content section .checkbox {
+          user-select: none;
+          position: relative;
+          display: inline-block;
+          width: 20px;
+          height: 20px;
+          border: 2px solid rgba(0, 0, 0, 0.16);
+          border-radius: 2px;
+          cursor: pointer; }
+          body main > .content section .checkbox i {
+            position: absolute;
+            display: inline-block;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            width: 0;
+            height: 0;
+            background-color: rgba(0, 0, 0, 0.05);
+            transition: 0.2s all ease-in-out;
+            opacity: 0; }
+          body main > .content section .checkbox.checked:before {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: 3px;
+            width: 2px;
+            height: 10px;
+            background-color: #338EC9;
+            transform: rotate(-45deg);
+            transform-origin: 0 100%; }
+          body main > .content section .checkbox.checked:after {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            width: 2px;
+            height: 22px;
+            left: 3px;
+            background-color: #338EC9;
+            transform: rotate(36deg);
+            transform-origin: 0 100%; }
+          body main > .content section .checkbox.clicked i {
+            width: 48px;
+            height: 48px;
+            opacity: 1; }
+            body main > .content section .checkbox.clicked i.fading {
+              width: 64px;
+              height: 64px;
+              opacity: 0; }
+        body main > .content section > header {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          justify-content: space-between;
+          background-color: #666666;
+          color: #fff;
+          padding: 16px;
+          border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+          z-index: 1; }
+          body main > .content section > header .section-title {
+            flex-basis: 100%;
+            display: flex;
+            align-items: center;
+            padding: 0 10px; }
+            body main > .content section > header .section-title h3 {
+              font-size: 2em; }
+          body main > .content section > header .table-header {
+            flex-basis: 100%;
+            padding-bottom: 8px;
+            display: flex;
+            text-transform: uppercase;
+            align-items: center;
+            justify-content: space-between; }
+            body main > .content section > header .table-header .checkbox {
+              border: 2px solid rgba(255, 255, 255, 0.24); }
+              body main > .content section > header .table-header .checkbox.checked:after, body main > .content section > header .table-header .checkbox.checked:before {
+                background-color: #fff; }
+        body main > .content section > .content > div {
+          padding: 10px 16px;
+          min-height: 64px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between; }
+          body main > .content section > .content > div:nth-child(even) {
+            background-color: rgba(0, 0, 0, 0.1); }
+        body main > .content section > .content .format img {
+          width: 32px;
+          height: 32px;
+          object-fit: contain;
+          object-position: center center; }
+        body main > .content section > .content .format label {
+          display: block;
+          width: 100%;
+          font-size: 0.8em;
+          text-transform: uppercase;
+          font-weight: 700;
+          color: rgba(0, 0, 0, 0.5); }
+        body main > .content section > .content .title {
+          font-weight: 700;
+          color: #333333;
+          font-size: 1.1em; }
+        body main > .content section > .content .description {
+          text-align: justify;
+          color: #333333; }
+        body main > .content section > .content .thumbnail img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center center; }
+        body main > .content section .select {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-basis: 48px; }
+          body main > .content section .select span {
+            border: 2px solid rgba(0, 0, 0, 0.5); }
+        body main > .content section .title {
+          flex-basis: 24%; }
+        body main > .content section .description {
+          flex-basis: 34%; }
+        body main > .content section .format {
+          flex-basis: 14%;
+          text-align: center; }
+        body main > .content section .thumbnail {
+          flex-basis: 14%;
+          text-align: center; }
+        body main > .content section .extra {
+          flex-basis: 10%;
+          text-align: center; }
+          body main > .content section .extra a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #414141;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            cursor: pointer; }
+            body main > .content section .extra a i {
+              font-size: 2em; }
+            body main > .content section .extra a:hover {
+              background-color: rgba(0, 0, 0, 0.06); }
+  body > footer {
+    margin: 0; }
 
 /*# sourceMappingURL=tool-list.css.map */
