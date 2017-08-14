@@ -148,16 +148,16 @@ body #modal-fill {
     flex-wrap: wrap;
     align-items: center;
     align-content: center; }
-    body #modal-fill .modal #logo-wrapper {
+    body #modal-fill .modal .logo-container {
       flex-basis: 100%;
       display: flex;
       justify-content: space-between;
       padding: 8px 24px;
       margin-bottom: 16px; }
-      body #modal-fill .modal #logo-wrapper img {
+      body #modal-fill .modal .logo-container img {
         height: 72px;
         padding: 12px 0; }
-      body #modal-fill .modal #logo-wrapper button {
+      body #modal-fill .modal .logo-container button {
         padding: 16px;
         font-size: 2em;
         border: none;
@@ -165,7 +165,7 @@ body #modal-fill {
         cursor: pointer;
         background-color: #fff; }
       @media screen and (max-width: 420px) {
-        body #modal-fill .modal #logo-wrapper img {
+        body #modal-fill .modal .logo-container img {
           height: 56px; } }
     body #modal-fill .modal > a {
       flex-basis: 100%;
