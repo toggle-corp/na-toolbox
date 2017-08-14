@@ -217,6 +217,16 @@ body > main {
           border: 1px solid #ffe416;
           background-color: #ffe416;
           color: #333333; }
+      @media screen and (max-width: 1300px) {
+        body > main .carousel .carousel-navigation {
+          width: 42%; }
+          body > main .carousel .carousel-navigation h3 {
+            font-size: 1.8em; } }
+      @media screen and (max-width: 1080px) {
+        body > main .carousel .carousel-navigation {
+          width: 50%; }
+          body > main .carousel .carousel-navigation h3 {
+            font-size: 1.5em; } }
   body > main #intro-container {
     position: relative;
     flex-basis: 100%;
@@ -253,13 +263,18 @@ body > main {
         height: 100%;
         object-fit: cover;
         object-position: center center; }
+    @media screen and (max-width: 1300px) {
+      body > main #intro-container .intro .description {
+        width: 42%; } }
     @media screen and (max-width: 1080px) {
-      body > main #intro-container .intro .description h1 {
-        font-weight: 700;
-        font-size: 1.5em;
-        text-transform: Capitalize; }
-      body > main #intro-container .intro .description p {
-        font-weight: 700; } }
+      body > main #intro-container .intro .description {
+        width: 50%; }
+        body > main #intro-container .intro .description h1 {
+          font-weight: 700;
+          font-size: 1.5em;
+          text-transform: Capitalize; }
+        body > main #intro-container .intro .description p {
+          font-weight: 700; } }
     @media screen and (max-width: 720px) {
       body > main #intro-container {
         height: auto; }
@@ -294,6 +309,9 @@ body > main {
           width: 100%;
           text-align: center;
           justify-content: center; } }
+    @media screen and (max-width: 320px) {
+      body > main #intro-container .intro .description {
+        padding-top: 144px; } }
   body > main #download-handbook-container {
     flex-basis: 60%; }
     body > main #download-handbook-container .download-handbook > header {

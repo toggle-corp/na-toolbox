@@ -43,5 +43,19 @@
                 color: $text-color-light;
             }
         }
+        @media screen and (max-width: 1300px) {
+            width: 42%;
+
+            h3{
+                font-size: 1.8em;
+            }
+        }
+        @media screen and (max-width: 1080px) {
+            width: 50%;
+
+            h3{
+                font-size: 1.5em;
+            }
+        }
     }
 }

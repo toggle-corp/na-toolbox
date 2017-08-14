@@ -48,10 +48,18 @@
 
 
     }
-
+    @media screen and (max-width: 1300px) {
+        .intro {
+            .description {
+                width: 42%;
+            }
+        }
+    }
     @media screen and (max-width: 1080px) {
         .intro {
             .description {
+                width: 50%;
+
                 h1 {
                     font-weight: 700;
                     font-size: 1.5em;
@@ -113,6 +121,14 @@
             width: 100%;
             text-align: center;
             justify-content: center;
+        }
+    }
+    @media screen and (max-width: 320px) {
+
+        .intro {
+            .description {
+                padding-top: 144px;
+            }
         }
     }
 }
