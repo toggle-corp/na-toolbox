@@ -40,4 +40,13 @@ $ docker-compose -f production.yml up       # Start container [Will build images
 
 $ docker-compose -f production.yml down     # To shut down already running docker image
 $ docker-compose -f production.yml down -v  # [`Alert`] To shut down already running docker image plus remove persistent volumes
+
+```
+
+For Detach mode
+
+```
+$ docker-compose -f production.yml up -d     # to start container in detach mode
+$ docker-compose -f production.yml logs -f   # to look at logs
+$ docker-compose -f production.yml stop      # Stop the containers
 ```
