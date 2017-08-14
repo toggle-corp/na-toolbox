@@ -11,9 +11,11 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
+from dotenv import load_dotenv
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+load_dotenv(os.path.join(BASE_DIR, 'production.env'))
 
 
 # Quick-start development settings - unsuitable for production
@@ -132,8 +134,8 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 
-STATIC_ROOT = '/static'
+STATIC_ROOT = os.environ.get('STATIC_ROOT', '/static')
 
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_ROOT = '/media'
+MEDIA_ROOT = os.environ.get('MEDIA_ROOT', '/media')
 MEDIA_URL = '/media/'

@@ -1,2 +1,12 @@
-DJANGO_DEBUG=
-ALLOWED_HOST=localhost
+DJANGO_SECRET_KEY=random_string
+DJANGO_DEBUG=string_for_true__no_string_for_false
+ALLOWED_HOST=im.unhcr.org
+
+STATIC_ROOT={your_code_location}/static
+MEDIA_ROOT={your_code_location}/media
+
+DATABASE_NAME=name
+DATABASE_USER=user
+DATABASE_PASSWORD=password
+DATABASE_PORT=port
+DATABASE_HOST=host
