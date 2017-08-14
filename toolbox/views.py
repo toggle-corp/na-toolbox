@@ -10,7 +10,7 @@ import os
 
 from toolbox.models import ToolList
 from homecontent.models import Introduction, \
-    DownloadSection, KeyLink
+    DownloadSection, KeyLink, Highlight
 
 
 class HomeView(View):
@@ -21,6 +21,7 @@ class HomeView(View):
         context['download_sections'] = DownloadSection.objects\
             .filter(enabled=True)
         context['keylinks'] = KeyLink.objects.filter(enabled=True)
+        context['highlights'] = Highlight.objects.filter(enabled=True)
         return render(request, 'toolbox/home.html', context)
 
 

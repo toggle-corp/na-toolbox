@@ -71,6 +71,13 @@
                 <h2>Highlights</h2>
             </header>
             <div class="content">
+                {% for highlight in highlights %}
+                <img {% if highlight.preview %}src="{{ highlight.preview.url }}"{% endif %}>
+                <a {% if highlight.url %}href="{{ highlight.url }}"{% endif %}>
+                    {{ highlight.title }}
+                </a>
+                {{ highlight.description }}
+                {% endfor %}
             </div>
         </div>
 
