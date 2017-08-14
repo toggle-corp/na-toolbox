@@ -1,6 +1,7 @@
 @import 'common/base';
 @import 'common/nav';
 @import 'common/footer';
+@import 'common/modal';
 
 body {
     background-color: #fff;
@@ -189,6 +190,16 @@ body {
                 background-color: $background-color-less-dark;
                 margin: 0 -16px;
                 padding: 0 16px;
+            }
+        }
+
+        >.content {
+            height: calc(100vh - #{$nav-height} - 56px - 48px);
+            border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+            overflow-y: scroll;
+
+            section {
+                background-color: #fff;
 
                 .checkbox {
                     visibility: hidden;
@@ -240,6 +251,10 @@ body {
                             background-color: rgba(0, 0, 0, 0.06);
                         }
                     }
+                }
+                 
+                &:last-child {
+                    min-height: calc(100vh - #{$nav-height} - 64px - 16px - 2px);
                 }
             }
         }

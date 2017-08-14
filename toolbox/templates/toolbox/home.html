@@ -4,7 +4,7 @@
 
 {% block head %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
-<script src="{% static 'js/home.js' %}"></script>
+<script src="{% static 'jsbuild/home.js' %}"></script>
 {% endblock %}
 
 
@@ -66,7 +66,7 @@
     </section>
 
     <section id="side-content">
-        <div id="highlights">
+        <!-- <div id="highlights">
             <header>
                 <h2>Highlights</h2>
             </header>
@@ -76,18 +76,22 @@
                 <a {% if highlight.url %}href="{{ highlight.url }}"{% endif %}>
                     {{ highlight.title }}
                 </a>
-                {{ highlight.description }}
+                {{ highlight.description|safe }}
                 {% endfor %}
             </div>
-        </div>
-
+        </div> -->
         <div id="links">
             <header>
                 <h2>Useful links</h2>
             </header>
             <div class="content">
                 {% for keylink in keylinks %}
-                <a href="{{ keylink.url }}">{{ keylink.title }}</a>
+                <a href="{{ keylink.url }}" class="keylink">
+                    <div>
+                        <h3>{{ keylink.title }}</h3>
+                        <div class="description">{{ keylink.description|safe }}</div>
+                    </div>
+                </a>
                 {% endfor %}
             </div>
         </div>
