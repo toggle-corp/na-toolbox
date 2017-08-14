@@ -345,51 +345,10 @@ body {
             body main > header .table-header .extra a:hover {
               background-color: rgba(0, 0, 0, 0.06); }
     body main > .content {
-      height: calc(100vh - 128px - 56px - 48px);
-      border-bottom: 2px solid rgba(0, 0, 0, 0.2);
-      overflow-y: scroll; }
-      body main > .content section {
-        background-color: #fff; }
-        body main > .content section .checkbox {
-          border: 2px solid rgba(255, 255, 255, 0.24); }
-          body main > .content section .checkbox.checked:after, body main > .content section .checkbox.checked:before {
-            background-color: rgba(0, 0, 0, 0.5); }
-        body main > .content section .select {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-basis: 48px; }
-        body main > .content section .title {
-          flex-basis: 24%; }
-        body main > .content section .description {
-          flex-basis: 34%; }
-        body main > .content section .format {
-          flex-basis: 14%;
-          text-align: center; }
-        body main > .content section .extra {
-          flex-basis: 10%;
-          text-align: center; }
-          body main > .content section .extra a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            color: #414141;
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            cursor: pointer; }
-            body main > .content section .extra a i {
-              font-size: 2em; }
-            body main > .content section .extra a:hover {
-              background-color: rgba(0, 0, 0, 0.06); }
-        body main > .content section:last-child {
-          min-height: calc(100vh - 128px - 64px - 16px - 2px); }
-    body main > .content {
       height: calc(100vh - 128px - 56px - 32px - 48px);
       border-bottom: 2px solid rgba(0, 0, 0, 0.2);
       overflow-y: scroll; }
       body main > .content section {
-        min-height: calc(100vh - 128px - 64px - 16px - 2px);
         background-color: #fff; }
         body main > .content section > header {
           display: flex;
@@ -471,6 +430,8 @@ body {
               font-size: 2em; }
             body main > .content section .extra a:hover {
               background-color: rgba(0, 0, 0, 0.06); }
+        body main > .content section:last-child {
+          min-height: calc(100vh - 128px - 64px - 16px - 2px); }
   body > footer {
     margin: 0; }
 

@@ -231,71 +231,68 @@ body {
             }
         }
 
-        >.content {
-            height: calc(100vh - #{$nav-height} - 56px - 48px);
-            border-bottom: 2px solid rgba(0, 0, 0, 0.2);
-            overflow-y: scroll;
-
-            section {
-                background-color: #fff;
-
-                .checkbox {
-                    //visibility: hidden;
-                    border: 2px solid rgba(255, 255, 255, 0.24);
-
-                    &.checked {
-                        &:after, &:before {
-                            background-color: $label-color-light;
-                        }
-
-                        &.checked {
-                            //border-color: #fff;
-                        }
-                    }
-                }
-
-                .select {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    flex-basis: 48px;
-                }
-
-                .title { flex-basis: 24%; }
-                .description { flex-basis: 34%; }
-                .format {
-                    flex-basis: 14%;
-                    text-align: center;
-                }
-                .extra {
-                    flex-basis: 10%;
-                    text-align: center;
-
-                    a {
-                        display: inline-flex;
-                        align-items: center;
-                        justify-content: center;
-                        color: #414141;
-                        width: 48px;
-                        height: 48px;
-                        border-radius: 50%;
-                        cursor: pointer;
-
-                        i {
-                            font-size: 2em;
-                        }
-
-                        &:hover {
-                            background-color: rgba(0, 0, 0, 0.06);
-                        }
-                    }
-                }
-
-                &:last-child {
-                    min-height: calc(100vh - #{$nav-height} - 64px - 16px - 2px);
-                }
-            }
-        }
+        // >.content {
+        //     height: calc(100vh - #{$nav-height} - 56px - 48px);
+        //     border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+        //     overflow-y: scroll;
+        //
+        //     section {
+        //         background-color: #fff;
+        //
+        //         .checkbox {
+        //             //visibility: hidden;
+        //             border: 2px solid rgba(255, 255, 255, 0.24);
+        //
+        //             &.checked {
+        //                 &:after, &:before {
+        //                     background-color: $label-color-light;
+        //                 }
+        //
+        //                 &.checked {
+        //                     //border-color: #fff;
+        //                 }
+        //             }
+        //         }
+        //
+        //         .select {
+        //             display: flex;
+        //             align-items: center;
+        //             justify-content: center;
+        //             flex-basis: 48px;
+        //         }
+        //
+        //         .title { flex-basis: 24%; }
+        //         .description { flex-basis: 34%; }
+        //         .format {
+        //             flex-basis: 14%;
+        //             text-align: center;
+        //         }
+        //         .extra {
+        //             flex-basis: 10%;
+        //             text-align: center;
+        //
+        //             a {
+        //                 display: inline-flex;
+        //                 align-items: center;
+        //                 justify-content: center;
+        //                 color: #414141;
+        //                 width: 48px;
+        //                 height: 48px;
+        //                 border-radius: 50%;
+        //                 cursor: pointer;
+        //
+        //                 i {
+        //                     font-size: 2em;
+        //                 }
+        //
+        //                 &:hover {
+        //                     background-color: rgba(0, 0, 0, 0.06);
+        //                 }
+        //             }
+        //         }
+        //
+        //     }
+        // }
 
         >.content {
             height: calc(100vh - #{$nav-height} - 56px - 32px - 48px);
@@ -303,7 +300,6 @@ body {
             overflow-y: scroll;
 
             section {
-                min-height: calc(100vh - #{$nav-height} - 64px - 16px - 2px);
                 background-color: #fff;
 
                 >header {
@@ -431,6 +427,9 @@ body {
                             background-color: rgba(0, 0, 0, 0.06);
                         }
                     }
+                }
+                &:last-child {
+                    min-height: calc(100vh - #{$nav-height} - 64px - 16px - 2px);
                 }
             }
         }
