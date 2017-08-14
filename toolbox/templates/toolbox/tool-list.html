@@ -4,8 +4,8 @@
 
 {% block head %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/tool-list.css' %}">
-<script src="{% static 'js/utils.js' %}"></script>
-<script src="{% static 'js/tool-list.js' %}"></script>
+<script src="{% static 'jsbuild/utils.js' %}"></script>
+<script src="{% static 'jsbuild/tool-list.js' %}"></script>
 
 <script>
     const DOWNLOADING_URL = '{% url 'downloading' %}';
@@ -39,13 +39,24 @@
 
 <main>
     <header>
+        <button id="scroll-left-btn" onclick="scrollNavTabLeft()"><i class="ion-ios-arrow-left"></i></button>
         <div id="navigation-tabs">
-            {% for category in current_list.category_set.all %}
-            <a data-target="category-{{ category.pk }}">{{ category.title }}</a>
-            {% endfor %}
+            <div class="scroll-wrapper">
+                {% for category in current_list.category_set.all %}
+                <a data-target="category-{{ category.pk }}">{{ category.title }}</a>
+                {% endfor %}
+            </div>
         </div>
+        <button id="scroll-right-btn" onclick="scrollNavTabRight()"><i class="ion-ios-arrow-right"></i></button>
         <div class="action-buttons">
             <button id="download-selected"><i class="ion-ios-download-outline"></i>Download selected <span id="selection-count">0</span></button>
+        </div>
+        <div class="table-header">
+            <div class="select"><span class="checkbox check-all"><i></i></span></div>
+            <div class="title">Title</div>
+            <div class="description">Description</div>
+            <div class="format">Format</div>
+            <div class="extra">Download</div>
         </div>
     </header>
 
@@ -54,25 +65,18 @@
         <section id="category-{{ category.pk }}">
             <header>
                 <div class="section-title">
+                    <div class="select check-all-section"><span class="checkbox check-all"><i></i></span></div>
                     <h3>{{ category.title }}</h3>
-                </div>
-                <div class="table-header">
-                    <div class="select"><span class="checkbox check-all"><i></i></span></div>
-                    <div class="title">Title</div>
-                    <div class="description">Description</div>
-                    <div class="format">Format</div>
-                    <div class="thumbnail">Thumbnail</div>
-                    <div class="extra">Download</div>
                 </div>
             </header>
             <div class="content">
                 {% for tool in category.tool_set.all %}
                 <div class="tool" data-url="{{ tool.url }}">
                     <div class="select"><span class="checkbox"><i></i></span></div>
-                    <div class="title">{{ tool.title }}</div>
+                    <div class="title"><a target="_blank" {% if tool.url %}href="{{ tool.url }}"{% endif %}>{{ tool.title }}</a></div>
                     <div class="description">{{ tool.description }}</div>
-                    <div class="format"><img src="{% if tool.format.icon %}{{ tool.format.icon.url }}{% else %}{% static 'img/pdf-icon.png' %}{% endif %}" alt="{{ tool.format.title }}"><label>{{ tool.format.title }}</label></div>
-                    <div class="thumbnail">{% if tool.thumbnail %}<img src="{{ tool.thumbnail.url }}">{% endif %}</div>
+                    <div class="format"><a target="_blank" {% if tool.url %}href="{{ tool.url }}"{% endif %}><img src="{% if tool.format.icon %}{{ tool.format.icon.url }}{% else %}{% static 'img/pdf-icon.png' %}{% endif %}" alt="{{ tool.format.title }}"><label>{{ tool.format.title }}</label></a></div>
+                    <!-- <div class="thumbnail">{% if tool.thumbnail %}<img src="{{ tool.thumbnail.url }}">{% endif %}</div> -->
                     <div class="extra"><a target="_blank" {% if tool.url %}href="{{ tool.url }}"{% endif %}><i class="ion-ios-download-outline"></i></a></div>
                 </div>
                 {% endfor %}
@@ -81,5 +85,7 @@
         {% endfor %}
     </div>
 </main>
+
+{% include 'footer.html' %}
 
 {% endblock %}

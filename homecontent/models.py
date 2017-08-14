@@ -16,9 +16,13 @@ class DownloadSection(models.Model):
     title = models.CharField(max_length=200)
     description = HTMLField(blank=True)
     enabled = models.BooleanField(default=True)
+    order = models.IntegerField(default=1)
 
     def __str__(self):
         return self.title
+
+    class Meta:
+        ordering = ['order']
 
 
 class Download(models.Model):
@@ -30,18 +34,40 @@ class Download(models.Model):
     thumbnail = models.FileField(upload_to='download_thumbnails',
                                  null=True, blank=True, default=None)
     enabled = models.BooleanField(default=True)
+    order = models.IntegerField(default=1)
 
     def __str__(self):
         return self.title
 
     class Meta:
-        ordering = ['title']
+        ordering = ['order', 'title']
 
 
 class KeyLink(models.Model):
     title = models.CharField(max_length=200)
+    description = HTMLField(blank=True)
     url = models.CharField(max_length=300, blank=True)
     enabled = models.BooleanField(default=True)
+    order = models.IntegerField(default=1)
 
     def __str__(self):
         return self.title
+
+    class Meta:
+        ordering = ['order']
+
+
+class Highlight(models.Model):
+    title = models.CharField(max_length=200)
+    description = HTMLField(blank=True)
+    url = models.CharField(max_length=300, blank=True)
+    preview = models.FileField(upload_to='highlight_previews',
+                               null=True, blank=True, default=None)
+    enabled = models.BooleanField(default=True)
+    order = models.IntegerField(default=1)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        ordering = ['order']

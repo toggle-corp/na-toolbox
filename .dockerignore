@@ -6,6 +6,8 @@ postgres-data/
 
 production.env
 
+node_modules/
+
 # Media files, uploaded by users
 media/
 temp_downloads/
