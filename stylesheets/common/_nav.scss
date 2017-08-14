@@ -44,12 +44,11 @@ body {
                 border: 1px solid transparent;
 
                 &:hover {
-                    border: 1px solid #414141;
-
+                    border: 1px solid #333333;
                 }
 
                 &.active {
-                    background-color: #414141;
+                    background-color: #333333;
                     color: $primary-color;
                 }
 
@@ -58,10 +57,11 @@ body {
 
         #navigation-menu {
             background-color: $primary-color;
-            color: #414141;
+            color: #333333;
             flex-basis: calc(100% + 64px);
             margin: 0 -32px;
             height: 48px;
+            text-align: left;
 
             .menu-item {
                 padding: 0 16px;
@@ -76,17 +76,16 @@ body {
                 border: 1px solid transparent;
 
                 &:hover {
-                    background-color: #414141;
+                    background-color: #333333;
                     color: $primary-color;
                 }
 
                 &.active {
-                    background-color: #414141;
+                    background-color: #333333;
                     color: $primary-color;
                 }
 
             }
-
         }
     }
 }

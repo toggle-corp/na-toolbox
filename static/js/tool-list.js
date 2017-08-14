@@ -3,14 +3,14 @@ $(document).ready(function() {
     $('.checkbox').on('click', function() {
         $(this).toggleClass('checked');
         $(this).addClass('clicked');
-         
+
 
         let that = this;
-        setTimeout(() => { 
-            $(that).find('i').addClass('fading'); 
-            setTimeout(() => { 
-                $(that).removeClass('clicked'); 
-                $(that).find('i').removeClass('fading'); 
+        setTimeout(() => {
+            $(that).find('i').addClass('fading');
+            setTimeout(() => {
+                $(that).removeClass('clicked');
+                $(that).find('i').removeClass('fading');
             }, 200);
         }, 200);
 
@@ -39,10 +39,10 @@ $(document).ready(function() {
         syncNavigationTabs();
     });
     syncNavigationTabs();
-
-    $('section').each(function() {
-        $(this).find('header').css('background-color', $(this).find('.section-title').text().toLowerCase().toPastelColor());
-    });
+    // 
+    // $('section').each(function() {
+    //     $(this).find('header').css('background-color', $(this).find('.section-title').text().toLowerCase().toPastelColor());
+    // });
     $('#download-selected').click(function() {
         downloadSelected();
     });
@@ -59,23 +59,23 @@ function unCheckAllInSection(sectionSelector) {
 function checkAll() {
     $('.checkbox').addClass('checked');
 }
- 
+
 function unCheckAll() {
     $('.checkbox').removeClass('checked');
 }
 
 function syncCheckState() {
-     
+
     $('section').each(function() {
         let allChecked = true;
-         
+
         $(this).find('.checkbox').not($('.check-all')).each(function() {
             if (!$(this).hasClass('checked')) {
-                allChecked = false; 
+                allChecked = false;
                 return false;
             }
         });
-         
+
         if (allChecked) {
             $(this).find('.check-all').addClass('checked');
         } else {
@@ -92,7 +92,7 @@ function updateSelectedCount() {
 function syncNavigationTabs() {
     let mainOffset = $('main').offset().top + $('main > header').height();
     $('#navigation-tabs a.active').removeClass('active');
-         
+
     $('section').each(function() {
         if( ($(this).offset().top - mainOffset - 2) < 0 && ($(this).offset().top + $(this).height() - mainOffset - 2) > 0) {
             $('#navigation-tabs a[data-target="' + $(this).prop('id') + '"]').addClass('active');

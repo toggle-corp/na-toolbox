@@ -56,14 +56,14 @@
                 <div class="section-title">
                     <h3>{{ category.title }}</h3>
                 </div>
-                <div class="table-header">
+                <!-- <div class="table-header">
                     <div class="select"><span class="checkbox check-all"><i></i></span></div>
                     <div class="title">Title</div>
                     <div class="description">Description</div>
                     <div class="format">Format</div>
-                    <div class="thumbnail">Thumbnail</div>
                     <div class="extra">Download</div>
-                </div>
+                </div> -->
+                <!-- <div class="thumbnail">Thumbnail</div> -->
             </header>
             <div class="content">
                 {% for tool in category.tool_set.all %}
@@ -72,7 +72,7 @@
                     <div class="title">{{ tool.title }}</div>
                     <div class="description">{{ tool.description }}</div>
                     <div class="format"><img src="{% if tool.format.icon %}{{ tool.format.icon.url }}{% else %}{% static 'img/pdf-icon.png' %}{% endif %}" alt="{{ tool.format.title }}"><label>{{ tool.format.title }}</label></div>
-                    <div class="thumbnail">{% if tool.thumbnail %}<img src="{{ tool.thumbnail.url }}">{% endif %}</div>
+                    <!-- <div class="thumbnail">{% if tool.thumbnail %}<img src="{{ tool.thumbnail.url }}">{% endif %}</div> -->
                     <div class="extra"><a target="_blank" {% if tool.url %}href="{{ tool.url }}"{% endif %}><i class="ion-ios-download-outline"></i></a></div>
                 </div>
                 {% endfor %}
@@ -81,5 +81,7 @@
         {% endfor %}
     </div>
 </main>
+
+{% include 'footer.html' %}
 
 {% endblock %}
