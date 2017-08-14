@@ -108,7 +108,7 @@ body {
     flex-basis: 100%;
     margin: 0; }
     body main > header {
-      height: 92px;
+      height: 56px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -120,7 +120,6 @@ body {
         justify-content: center; }
         body main > header #navigation-tabs a {
           padding: 16px;
-          max-width: 196px;
           display: inline-flex;
           align-items: center;
           justify-content: center;
@@ -165,7 +164,7 @@ body {
           body main > header .action-buttons:hover button {
             color: #333333; }
     body main > .content {
-      height: calc(100vh - 128px - 92px - 48px);
+      height: calc(100vh - 128px - 56px - 48px);
       border-bottom: 2px solid rgba(0, 0, 0, 0.2);
       overflow-y: scroll; }
       body main > .content section {
