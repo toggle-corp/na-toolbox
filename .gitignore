@@ -4,6 +4,8 @@ postgres-data/
 
 *.css.map
 
+production.env
+
 # Media files, uploaded by users
 media/
 temp_downloads/

@@ -72,7 +72,8 @@ body {
         align-items: center;
         border: 1px solid transparent; }
         body > nav #navigation-menu .menu-item:hover {
-          border: 1px solid #333333; }
+          background-color: #333333;
+          color: #ffe416; }
         body > nav #navigation-menu .menu-item.active {
           background-color: #333333;
           color: #ffe416; }
@@ -87,15 +88,19 @@ body > footer {
   justify-content: flex-start;
   align-items: center; }
   body > footer a {
-    margin: 0 16px;
+    padding: 0 16px;
+    height: 100%;
     text-transform: uppercase;
     text-decoration: none;
     color: rgba(0, 0, 0, 0.5);
     font-weight: 700;
     cursor: pointer;
-    font-size: 1.1em; }
+    font-size: 1.1em;
+    display: inline-flex;
+    align-items: center; }
     body > footer a:hover {
-      color: black; }
+      background-color: #414141;
+      color: #ffe416; }
 
 body {
   background-color: #fff; }

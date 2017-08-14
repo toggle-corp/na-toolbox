@@ -8,10 +8,11 @@
 
             .title {
                 text-transform: uppercase;
-                font-weight: 400;
+                font-weight: 500;
                 min-height: 56px;
                 display: flex;
                 align-items: center;
+                color: $primary-color;
             }
 
             .description {
@@ -85,6 +86,11 @@
                             i {
                                 margin-right: 8px;
                                 font-size: 1.67em;
+
+                            }
+                            &:hover{
+                                color: rgba(0,0,0,1);
+                                font-weight: 700;
                             }
                         }
                     }

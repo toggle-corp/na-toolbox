@@ -10,6 +10,7 @@ services:
         command: ['./wait-for-it.sh', 'db:5432', '--', '/code/run_develop.sh']
         volumes:
             - .:/code
+            - ./media:/media
         ports:
             - '8000:8000'
         depends_on:
