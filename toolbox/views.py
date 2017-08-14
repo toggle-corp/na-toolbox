@@ -33,6 +33,13 @@ class ContactUsView(View):
         return render(request, 'toolbox/contact-us.html', context)
 
 
+class FaqsView(View):
+    def get(self, request):
+        context = {}
+        context['tool_lists'] = ToolList.objects.all()
+        return render(request, 'toolbox/faqs.html', context)
+
+
 class ToolListView(View):
     def get(self, request, slug):
         context = {}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/contact-us.css' %}">
+{% endblock %}
+
+{% block body %}
+
+{% include 'nav.html' %}
+
+<main>
+    <section>
+        <header>
+            <h1>FAQs</h1>
+        </header>
+        <div class="content">
+            <p>Currently under construction and will be based on the incoming questions via the <a href="{% url 'contact_us' %}">contact us</a> page.</p>
+        </div>
+    </section>
+</main>
+
+{% include 'footer.html' %}
+
+{% endblock %}
