@@ -42,6 +42,9 @@
             <header>
                 <h2 class="title">{{ download_section.title }}</h2>
                 <div class="description">{{ download_section.description|safe }}</div>
+                <div class="action-buttons">
+                    <a href="{% static 'files/handbook.pdf' %}" download><i class="ion-ios-download-outline"></i>Download Full Handbook</a>
+                </div>
             </header>
             <div class="content">
                 <div class="handbook-container">

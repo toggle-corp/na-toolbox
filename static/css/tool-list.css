@@ -1,6 +1,6 @@
 * {
   box-sizing: border-box;
-  font-family: 'Proxima Nova', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-weight: 400; }
 
 body {
@@ -269,7 +269,7 @@ body {
         body main > header #navigation-tabs .scroll-wrapper {
           height: 100%; }
           body main > header #navigation-tabs .scroll-wrapper a {
-            padding: 10px 16px;
+            padding: 10px 16px 14px 16px;
             display: inline-flex;
             border-bottom: 2px solid transparent;
             text-transform: uppercase;
@@ -307,7 +307,7 @@ body {
           color: #333333; }
       body main > header .table-header {
         flex-basis: calc(100% + 32px);
-        height: 32px;
+        height: 40px;
         display: flex;
         text-transform: uppercase;
         align-items: center;
