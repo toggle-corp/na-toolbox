@@ -1,13 +1,17 @@
 @import 'common/base';
 @import 'common/nav';
 @import 'common/footer';
+@import 'common/modal';
+
+$nav-height: 128px;
 
 body {
+
     >main {
         flex-basis: 100%;
         display: flex;
         flex-wrap: wrap;
-        
+
         @import 'common/carousel';
         @import 'home/intro-container';
         @import 'home/download-handbook-container';

@@ -27,5 +27,16 @@ body {
                 color: $primary-color;
             }
         }
+        @media screen and (max-width: 720px) {
+            height: auto;
+            flex-wrap: wrap;
+            flex-direction: column;
+            justify-content: center;
+
+            a {
+                flex-basis: 100%;
+                padding: 16px;
+            }
+        }
     }
 }
