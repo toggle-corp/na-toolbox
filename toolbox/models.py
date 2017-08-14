@@ -15,6 +15,7 @@ class ToolList(models.Model):
     title = models.CharField(max_length=250)
     slug = models.SlugField(default=None, null=True, blank=True,
                             editable=False)
+    order = models.IntegerField(default=0)
 
     def __str__(self):
         return self.title
@@ -22,6 +23,9 @@ class ToolList(models.Model):
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
         super(ToolList, self).save(*args, **kwargs)
+
+    class Meta:
+        ordering = ['order']
 
 
 class Category(models.Model):
