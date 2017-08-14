@@ -9,7 +9,7 @@ services:
             test: "exit 0"
     nginx:
         build: ./deploy/nginx/
-        image: eoglethorpe/natoolbox:nginx-1.0
+        image: eoglethorpe/natoolbox:nginxh-1.0
         ports:
             - '80:80'
         depends_on:
@@ -19,7 +19,7 @@ services:
             - media-volume:/media
     web:
         build: .
-        image: eoglethorpe/natoolbox:django-1.0
+        image: eoglethorpe/natoolbox:djangoh-1.0
         command: ['./wait-for-it.sh', 'db:5432', '--', '/code/run_production.sh']
         volumes:
             - static-volume:/static
