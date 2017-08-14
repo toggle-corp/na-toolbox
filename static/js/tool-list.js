@@ -1,5 +1,4 @@
 $(document).ready(function() {
-
     $('.checkbox').on('click', function() {
         $(this).toggleClass('checked');
         $(this).addClass('clicked');
@@ -30,6 +29,7 @@ $(document).ready(function() {
 
     $('main > .content').scroll(function() {
         syncNavigationTabs();
+        syncTabPositionOnScroll();
     });
 
     $('#navigation-tabs a').on('click', function() {
@@ -39,14 +39,89 @@ $(document).ready(function() {
         syncNavigationTabs();
     });
     syncNavigationTabs();
-    // 
-    // $('section').each(function() {
-    //     $(this).find('header').css('background-color', $(this).find('.section-title').text().toLowerCase().toPastelColor());
-    // });
+     
     $('#download-selected').click(function() {
         downloadSelected();
     });
+     
+    calculateNavigationWidth(); 
+    syncScrollButtons();
 });
+
+function calculateNavigationWidth() {
+    let navigationTabs = $('#navigation-tabs');
+    let container = navigationTabs.find('.scroll-wrapper');
+
+    totalWidth = 0;
+    container.find('a').each(function() { 
+        totalWidth += $(this).outerWidth(); 
+    });
+
+    container.width(totalWidth);
+}
+
+function syncScrollButtons() {
+    let navigationTabs = $('#navigation-tabs');
+    let scrollWrapper = navigationTabs.find('.scroll-wrapper');
+
+    if (navigationTabs.scrollLeft() > 0) {
+        $('#scroll-left-btn').show();
+    } else {
+        $('#scroll-left-btn').hide();
+    }
+    
+    if (navigationTabs.scrollLeft() < (scrollWrapper.width() - navigationTabs.width() - 1 )) {
+        $('#scroll-right-btn').show();
+    } else {
+        $('#scroll-right-btn').hide();
+    }
+
+}
+
+function syncTabPositionOnScroll() {
+    let navigationTabs = $('#navigation-tabs');
+    let scrollWrapper = navigationTabs.find('.scroll-wrapper');
+    let activeItem = scrollWrapper.find('.active');
+     
+    if (activeItem.length > 0) {
+        let startPosition = activeItem.position().left;
+        let endPosition = startPosition + activeItem.outerWidth();
+        let diff = endPosition - navigationTabs.width();
+         
+        if (diff > 0) {
+            navigationTabs.scrollLeft(navigationTabs.scrollLeft() + diff);
+            syncScrollButtons();
+        } 
+         
+        diff = startPosition - navigationTabs.position().left - 32;
+        if (diff < 0) {
+            navigationTabs.scrollLeft(navigationTabs.scrollLeft() + diff);
+            syncScrollButtons();
+        }
+    }
+}
+
+function scrollNavTabRight(animate=true) {
+    let navigationTabs = $('#navigation-tabs');
+    if (animate) {
+        navigationTabs.animate({scrollLeft: '+=100'}, 200, () => { syncScrollButtons(); });
+    } else {
+        navigationTabs.scrollLeft(navigationTabs.scrollLeft() + 100);
+        syncScrollButtons();
+    }
+    
+}
+ 
+function scrollNavTabLeft(animate=true) {
+    let navigationTabs = $('#navigation-tabs');
+    if (animate) {
+        navigationTabs.animate({scrollLeft: '-=100'}, 200, () => { syncScrollButtons(); });
+    } else {
+        navigationTabs.scrollLeft(navigationTabs.scrollLeft() - 100);
+        syncScrollButtons();
+    }
+
+}
 
 function checkAllInSection(sectionSelector) {
     $(sectionSelector).find('.checkbox').addClass('checked');
@@ -65,7 +140,6 @@ function unCheckAll() {
 }
 
 function syncCheckState() {
-
     $('section').each(function() {
         let allChecked = true;
 

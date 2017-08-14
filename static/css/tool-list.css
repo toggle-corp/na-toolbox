@@ -107,118 +107,178 @@ body {
   body main {
     flex-basis: 100%;
     margin: 0; }
+    body main .checkbox {
+      user-select: none;
+      position: relative;
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 2px solid rgba(0, 0, 0, 0.16);
+      border-radius: 2px;
+      cursor: pointer; }
+      body main .checkbox i {
+        position: absolute;
+        display: inline-block;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        width: 0;
+        height: 0;
+        background-color: rgba(0, 0, 0, 0.05);
+        transition: 0.2s all ease-in-out;
+        opacity: 0; }
+      body main .checkbox.checked:before {
+        content: '';
+        position: absolute;
+        bottom: 2px;
+        left: 3px;
+        width: 2px;
+        height: 10px;
+        background-color: #338EC9;
+        transform: rotate(-45deg);
+        transform-origin: 0 100%; }
+      body main .checkbox.checked:after {
+        content: '';
+        position: absolute;
+        bottom: 2px;
+        width: 2px;
+        height: 22px;
+        left: 3px;
+        background-color: #338EC9;
+        transform: rotate(36deg);
+        transform-origin: 0 100%; }
+      body main .checkbox.clicked i {
+        width: 48px;
+        height: 48px;
+        opacity: 1; }
+        body main .checkbox.clicked i.fading {
+          width: 64px;
+          height: 64px;
+          opacity: 0; }
     body main > header {
-      height: 56px;
+      height: calc(56px + 32px);
       display: flex;
+      flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
       background-color: #333333;
       color: #fff;
-      padding: 0 16px; }
+      padding: 0 16px;
+      position: relative; }
+      body main > header > button {
+        position: absolute;
+        width: 32px;
+        height: 32px;
+        top: calc(24px - 16px);
+        z-index: 1;
+        font-size: 1.5em;
+        background-color: rgba(0, 0, 0, 0.67);
+        border: none;
+        color: #fff;
+        outline: none;
+        border-radius: 50%;
+        padding: 0;
+        cursor: pointer; }
+        body main > header > button#scroll-left-btn {
+          left: 10px; }
+        body main > header > button#scroll-right-btn {
+          right: calc(240px + 16px); }
       body main > header #navigation-tabs {
+        height: 48px;
+        flex-basis: calc(100% - 240px - 64px);
+        width: calc(100vw - 240px - 64px);
+        margin: 0 32px;
+        overflow: hidden; }
+        body main > header #navigation-tabs .scroll-wrapper {
+          height: 100%; }
+          body main > header #navigation-tabs .scroll-wrapper a {
+            padding: 10px 16px;
+            display: inline-flex;
+            border-bottom: 2px solid transparent;
+            text-transform: uppercase;
+            align-items: center;
+            text-align: center;
+            cursor: pointer; }
+            body main > header #navigation-tabs .scroll-wrapper a.active {
+              color: #ffe416;
+              border-bottom: 2px solid #ffe416; }
+      body main > header .action-buttons {
+        border-left: 1px solid #aaa;
+        transition: 0.2s all ease-in-out;
+        width: 240px;
         display: flex;
         justify-content: center; }
-        body main > header #navigation-tabs a {
-          padding: 16px;
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          border-bottom: 2px solid transparent;
-          text-transform: uppercase;
-          text-align: center;
-          cursor: pointer; }
-          body main > header #navigation-tabs a.active {
-            color: #ffe416;
-            border-bottom: 2px solid #ffe416; }
-      body main > header .action-buttons {
-        height: 100%;
-        display: flex;
-        border-left: 1px solid #aaa;
-        border-right: 1px solid #aaa;
-        align-items: center;
-        transition: 0.2s all ease-in-out; }
         body main > header .action-buttons button {
-          width: 204px;
           padding: 4px 10px;
-          border: none;
           background-color: transparent;
           font-weight: 300;
           color: #fff;
-          cursor: pointer;
           text-transform: uppercase;
-          display: flex;
+          display: inline-flex;
           align-items: center;
-          font-size: 1.02em;
           outline: none;
-          border: 1px solid transparent; }
+          border: 1px solid transparent;
+          cursor: pointer; }
           body main > header .action-buttons button i {
             margin-right: 8px;
             font-size: 1.4em; }
           body main > header .action-buttons button #selection-count {
-            font-size: 1.02em;
-            font-weight: 300; }
-            body main > header .action-buttons button #selection-count:before {
-              content: ': '; }
-        body main > header .action-buttons:hover {
-          background-color: #ffe416; }
-          body main > header .action-buttons:hover button {
-            color: #333333; }
+            font-weight: 300;
+            margin-left: 6px; }
+        body main > header .action-buttons:hover button {
+          background-color: #ffe416;
+          color: #333333; }
+      body main > header .table-header {
+        flex-basis: calc(100% + 32px);
+        height: 32px;
+        display: flex;
+        text-transform: uppercase;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #666666;
+        margin: 0 -16px;
+        padding: 0 16px; }
+        body main > header .table-header .checkbox {
+          visibility: hidden;
+          border: 2px solid rgba(255, 255, 255, 0.24); }
+          body main > header .table-header .checkbox.checked:after, body main > header .table-header .checkbox.checked:before {
+            background-color: #fff; }
+        body main > header .table-header .select {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-basis: 48px; }
+        body main > header .table-header .title {
+          flex-basis: 24%; }
+        body main > header .table-header .description {
+          flex-basis: 34%; }
+        body main > header .table-header .format {
+          flex-basis: 14%;
+          text-align: center; }
+        body main > header .table-header .extra {
+          flex-basis: 10%;
+          text-align: center; }
+          body main > header .table-header .extra a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #414141;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            cursor: pointer; }
+            body main > header .table-header .extra a i {
+              font-size: 2em; }
+            body main > header .table-header .extra a:hover {
+              background-color: rgba(0, 0, 0, 0.06); }
     body main > .content {
-      height: calc(100vh - 128px - 56px - 48px);
+      height: calc(100vh - 128px - 56px - 32px - 48px);
       border-bottom: 2px solid rgba(0, 0, 0, 0.2);
       overflow-y: scroll; }
       body main > .content section {
         min-height: calc(100vh - 128px - 64px - 16px - 2px);
         background-color: #fff; }
-        body main > .content section .checkbox {
-          user-select: none;
-          position: relative;
-          display: inline-block;
-          width: 20px;
-          height: 20px;
-          border: 2px solid rgba(0, 0, 0, 0.16);
-          border-radius: 2px;
-          cursor: pointer; }
-          body main > .content section .checkbox i {
-            position: absolute;
-            display: inline-block;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            border-radius: 50%;
-            width: 0;
-            height: 0;
-            background-color: rgba(0, 0, 0, 0.05);
-            transition: 0.2s all ease-in-out;
-            opacity: 0; }
-          body main > .content section .checkbox.checked:before {
-            content: '';
-            position: absolute;
-            bottom: 2px;
-            left: 3px;
-            width: 2px;
-            height: 10px;
-            background-color: #338EC9;
-            transform: rotate(-45deg);
-            transform-origin: 0 100%; }
-          body main > .content section .checkbox.checked:after {
-            content: '';
-            position: absolute;
-            bottom: 2px;
-            width: 2px;
-            height: 22px;
-            left: 3px;
-            background-color: #338EC9;
-            transform: rotate(36deg);
-            transform-origin: 0 100%; }
-          body main > .content section .checkbox.clicked i {
-            width: 48px;
-            height: 48px;
-            opacity: 1; }
-            body main > .content section .checkbox.clicked i.fading {
-              width: 64px;
-              height: 64px;
-              opacity: 0; }
         body main > .content section > header {
           display: flex;
           flex-wrap: wrap;
@@ -226,27 +286,14 @@ body {
           justify-content: space-between;
           background-color: #666666;
           color: #fff;
-          padding: 16px;
-          border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+          padding: 10px 16px;
           z-index: 1; }
           body main > .content section > header .section-title {
             flex-basis: 100%;
             display: flex;
-            align-items: center;
-            padding: 0 10px; }
+            align-items: center; }
             body main > .content section > header .section-title h3 {
-              font-size: 2em; }
-          body main > .content section > header .table-header {
-            flex-basis: 100%;
-            padding-bottom: 8px;
-            display: flex;
-            text-transform: uppercase;
-            align-items: center;
-            justify-content: space-between; }
-            body main > .content section > header .table-header .checkbox {
-              border: 2px solid rgba(255, 255, 255, 0.24); }
-              body main > .content section > header .table-header .checkbox.checked:after, body main > .content section > header .table-header .checkbox.checked:before {
-                background-color: #fff; }
+              margin-left: 10px; }
         body main > .content section > .content > div {
           padding: 10px 16px;
           min-height: 64px;

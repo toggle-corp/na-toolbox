@@ -39,13 +39,24 @@
 
 <main>
     <header>
+        <button id="scroll-left-btn" onclick="scrollNavTabLeft()"><i class="ion-ios-arrow-left"></i></button>
         <div id="navigation-tabs">
-            {% for category in current_list.category_set.all %}
-            <a data-target="category-{{ category.pk }}">{{ category.title }}</a>
-            {% endfor %}
+            <div class="scroll-wrapper">
+                {% for category in current_list.category_set.all %}
+                <a data-target="category-{{ category.pk }}">{{ category.title }}</a>
+                {% endfor %}
+            </div>
         </div>
+        <button id="scroll-right-btn" onclick="scrollNavTabRight()"><i class="ion-ios-arrow-right"></i></button>
         <div class="action-buttons">
             <button id="download-selected"><i class="ion-ios-download-outline"></i>Download selected <span id="selection-count">0</span></button>
+        </div>
+        <div class="table-header">
+            <div class="select"><span class="checkbox check-all"><i></i></span></div>
+            <div class="title">Title</div>
+            <div class="description">Description</div>
+            <div class="format">Format</div>
+            <div class="extra">Download</div>
         </div>
     </header>
 
@@ -54,16 +65,9 @@
         <section id="category-{{ category.pk }}">
             <header>
                 <div class="section-title">
+                    <div class="select check-all-section"><span class="checkbox check-all"><i></i></span></div>
                     <h3>{{ category.title }}</h3>
                 </div>
-                <!-- <div class="table-header">
-                    <div class="select"><span class="checkbox check-all"><i></i></span></div>
-                    <div class="title">Title</div>
-                    <div class="description">Description</div>
-                    <div class="format">Format</div>
-                    <div class="extra">Download</div>
-                </div> -->
-                <!-- <div class="thumbnail">Thumbnail</div> -->
             </header>
             <div class="content">
                 {% for tool in category.tool_set.all %}
