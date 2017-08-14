@@ -43,7 +43,8 @@ body {
                 border: 1px solid transparent;
 
                 &:hover {
-                    border: 1px solid #333333;
+                    background-color: #333333;
+                    color: $primary-color;
                 }
 
                 &.active {

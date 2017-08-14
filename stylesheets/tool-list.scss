@@ -9,7 +9,7 @@ body {
     main {
         flex-basis: 100%;
         margin: 0;
-        
+
         .checkbox {
             user-select: none;
             position: relative;
@@ -87,7 +87,7 @@ body {
             color: $text-color-dark;
             padding: 0 16px;
             position: relative;
-             
+
             >button {
                 position: absolute;
                 width: 32px;
@@ -97,7 +97,7 @@ body {
                 font-size: 1.5em;
                 background-color: rgba(0, 0, 0, 0.67);
                 border: none;
-                color: $text-color-dark; 
+                color: $text-color-dark;
                 outline: none;
                 border-radius: 50%;
                 padding: 0;
@@ -121,7 +121,7 @@ body {
 
                 .scroll-wrapper {
                     height: 100%;
-                     
+
                     a {
                         padding: 10px 16px;
                         display: inline-flex;
@@ -136,7 +136,7 @@ body {
                             border-bottom: 2px solid $primary-color;
                         }
                     }
-                } 
+                }
             }
 
             .action-buttons {
@@ -179,7 +179,7 @@ body {
                     }
                 }
             }
-             
+
             .table-header {
                 flex-basis: calc(100% + 32px);
                 height: 32px;
@@ -253,7 +253,7 @@ body {
                         }
                     }
                 }
-                 
+
                 .select {
                     display: flex;
                     align-items: center;
@@ -290,7 +290,7 @@ body {
                         }
                     }
                 }
-                 
+
                 &:last-child {
                     min-height: calc(100vh - #{$nav-height} - 64px - 16px - 2px);
                 }
@@ -329,7 +329,7 @@ body {
                         }
                     }
 
-                    
+
                 }
 
                 >.content {
@@ -364,9 +364,12 @@ body {
                     }
 
                     .title {
-                        font-weight: 700;
-                        color: $text-color-light;
-                        font-size: 1.1em;
+
+                        a {
+                            font-weight: 700;
+                            color: $text-color-light;
+                            font-size: 1.1em;
+                        }
                     }
 
                     .description {

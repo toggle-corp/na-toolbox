@@ -73,7 +73,7 @@
                 {% for tool in category.tool_set.all %}
                 <div class="tool" data-url="{{ tool.url }}">
                     <div class="select"><span class="checkbox"><i></i></span></div>
-                    <div class="title">{{ tool.title }}</div>
+                    <div class="title"><a target="_blank" {% if tool.url %}href="{{ tool.url }}"{% endif %}>{{ tool.title }}</a></div>
                     <div class="description">{{ tool.description }}</div>
                     <div class="format"><img src="{% if tool.format.icon %}{{ tool.format.icon.url }}{% else %}{% static 'img/pdf-icon.png' %}{% endif %}" alt="{{ tool.format.title }}"><label>{{ tool.format.title }}</label></div>
                     <!-- <div class="thumbnail">{% if tool.thumbnail %}<img src="{{ tool.thumbnail.url }}">{% endif %}</div> -->

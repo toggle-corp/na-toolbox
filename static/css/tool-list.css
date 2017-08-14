@@ -50,7 +50,8 @@ body {
         align-items: center;
         border: 1px solid transparent; }
         body > nav #main-menu .menu-item:hover {
-          border: 1px solid #333333; }
+          background-color: #333333;
+          color: #ffe416; }
         body > nav #main-menu .menu-item.active {
           background-color: #333333;
           color: #ffe416; }
@@ -425,7 +426,7 @@ body {
           text-transform: uppercase;
           font-weight: 700;
           color: rgba(0, 0, 0, 0.5); }
-        body main > .content section > .content .title {
+        body main > .content section > .content .title a {
           font-weight: 700;
           color: #333333;
           font-size: 1.1em; }
