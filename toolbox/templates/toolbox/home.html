@@ -76,7 +76,7 @@
                 <a {% if highlight.url %}href="{{ highlight.url }}"{% endif %}>
                     {{ highlight.title }}
                 </a>
-                {{ highlight.description }}
+                {{ highlight.description|safe }}
                 {% endfor %}
             </div>
         </div> -->

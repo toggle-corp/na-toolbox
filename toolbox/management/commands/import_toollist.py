@@ -22,45 +22,64 @@ class Command(BaseCommand):
                 tool_list = ToolList(title='Tools and templates')
                 tool_list.save()
 
+            guidance_list = None
+            try:
+                guidance_list = ToolList.objects.get(
+                    title__iexact='Guidance and resource documents')
+            except:
+                guidance_list = ToolList(
+                    title='Guidance and resource documents')
+                guidance_list.save()
+
             for i, row in enumerate(data):
                 if i == 0:
                     continue
+
+                current_list = None
+                if row[2] == 'gg':
+                    current_list = guidance_list
+                elif row[2] == 'tt':
+                    current_list = tool_list
+                else:
+                    continue
+
                 category_name = row[0][3:]
 
                 category = None
                 try:
                     category = Category.objects.get(
                         title__iexact=category_name,
-                        tool_list=tool_list)
+                        tool_list=current_list)
                 except:
                     category = Category(title=category_name,
-                                        tool_list=tool_list)
+                                        tool_list=current_list)
 
                 category.order = row[0][:1]
                 category.save()
 
                 tool = None
                 try:
-                    tool = Tool.objects.get(title=row[3], category=category,
-                                            organization=row[2])
+                    tool = Tool.objects.get(title=row[5], category=category,
+                                            organization=row[4])
                 except:
                     tool = Tool()
 
                 tool.category = category
                 tool.order = row[1]
-                tool.organization = row[2]
-                tool.title = row[3]
-                tool.description = row[4]
-                tool.tool_type = row[5]
+
+                tool.url = row[3]
+                tool.organization = row[4]
+                tool.title = row[5]
+                tool.description = row[6]
+                tool.tool_type = row[7]
 
                 format = None
                 try:
-                    format = Format.objects.get(title__iexact=row[6])
+                    format = Format.objects.get(title__iexact=row[8])
                 except:
-                    format = Format(title=row[6])
+                    format = Format(title=row[8])
                     format.save()
 
                 tool.format = format
-                tool.url = row[8]
 
                 tool.save()

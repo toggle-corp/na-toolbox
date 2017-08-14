@@ -45,6 +45,7 @@ class Download(models.Model):
 
 class KeyLink(models.Model):
     title = models.CharField(max_length=200)
+    description = HTMLField(blank=True)
     url = models.CharField(max_length=300, blank=True)
     enabled = models.BooleanField(default=True)
     order = models.IntegerField(default=1)
@@ -58,7 +59,7 @@ class KeyLink(models.Model):
 
 class Highlight(models.Model):
     title = models.CharField(max_length=200)
-    description = models.TextField(blank=True)
+    description = HTMLField(blank=True)
     url = models.CharField(max_length=300, blank=True)
     preview = models.FileField(upload_to='highlight_previews',
                                null=True, blank=True, default=None)
