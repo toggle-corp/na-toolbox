@@ -108,7 +108,11 @@ function downloadSelected() {
 
     $('form').find('input[name="urls"]').val(JSON.stringify(selectedUrls));
 
-    const popup = window.open(DOWNLOADING_URL, 'downloadWindow');
+    const targetName = 'downloadWindow-' + (Date.now()) + '-'
+        + String(Math.floor(Math.random() * 9e15));
+    $('form').attr('target', targetName);
+
+    const popup = window.open(DOWNLOADING_URL, targetName);
     popup.onload = function() {
         $('form').submit();
     };
