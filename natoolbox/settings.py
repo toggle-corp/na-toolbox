@@ -20,12 +20,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '@+5ul*r#%t7cj0$4b9#n!t27gs+8ak%x)$!5n2hfn$knu43l_1'
+SECRET_KEY = os.environ.get(
+        'DJANGO_SECRET_KEY',
+        '@+5ul*r#%t7cj0$4b9#n!t27gs+8ak%x)$!5n2hfn$knu43l_1')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DJANGO_DEBUG', True)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [os.environ.get('ALLOWED_HOST', '*')]
 
 
 # Application definition
@@ -80,10 +82,11 @@ WSGI_APPLICATION = 'natoolbox.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'HOST': 'db',
-        'PORT': 5432,
+        'NAME': os.environ.get('DATABASE_NAME', 'postgres'),
+        'USER': os.environ.get('DATABASE_USER', 'postgres'),
+        'PASSWORD': os.environ.get('DATABASE_PASSWORD', 'password'),
+        'PORT': os.environ.get('DATABASE_PORT', '5432'),
+        'HOST': os.environ.get('DATABASE_HOST', 'db'),
     }
 }
 
@@ -112,7 +115,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = os.environ.get('DJANGO_TIME_ZONE', 'CET')
 
 USE_I18N = True
 
@@ -131,5 +134,6 @@ STATICFILES_DIRS = [
 
 STATIC_ROOT = '/static'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = '/media'
 MEDIA_URL = '/media/'

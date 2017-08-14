@@ -1,7 +1,10 @@
 # Database
 db.sqlite3
+postgres-data/
 
 *.css.map
+
+production.env
 
 # Media files, uploaded by users
 media/
