@@ -52,7 +52,7 @@ function calculateNavigationWidth() {
     let navigationTabs = $('#navigation-tabs');
     let container = navigationTabs.find('.scroll-wrapper');
 
-    totalWidth = 0;
+    let totalWidth = 0;
     container.find('a').each(function() { 
         totalWidth += $(this).outerWidth(); 
     });
@@ -182,8 +182,7 @@ function downloadSelected() {
 
     $('form').find('input[name="urls"]').val(JSON.stringify(selectedUrls));
 
-    const targetName = 'downloadWindow-' + (Date.now()) + '-'
-        + String(Math.floor(Math.random() * 9e15));
+    const targetName = 'downloadWindow-' + (Date.now()) + '-' + String(Math.floor(Math.random() * 9e15));
     $('form').attr('target', targetName);
 
     const popup = window.open(DOWNLOADING_URL, targetName);

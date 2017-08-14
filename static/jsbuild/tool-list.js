@@ -1,7 +1,6 @@
 'use strict';
 
 $(document).ready(function () {
-
     $('.checkbox').on('click', function () {
         $(this).toggleClass('checked');
         $(this).addClass('clicked');
@@ -30,6 +29,7 @@ $(document).ready(function () {
 
     $('main > .content').scroll(function () {
         syncNavigationTabs();
+        syncTabPositionOnScroll();
     });
 
     $('#navigation-tabs a').on('click', function () {
@@ -39,14 +39,94 @@ $(document).ready(function () {
         syncNavigationTabs();
     });
     syncNavigationTabs();
-    // 
-    // $('section').each(function() {
-    //     $(this).find('header').css('background-color', $(this).find('.section-title').text().toLowerCase().toPastelColor());
-    // });
+
     $('#download-selected').click(function () {
         downloadSelected();
     });
+
+    calculateNavigationWidth();
+    syncScrollButtons();
 });
+
+function calculateNavigationWidth() {
+    var navigationTabs = $('#navigation-tabs');
+    var container = navigationTabs.find('.scroll-wrapper');
+
+    var totalWidth = 0;
+    container.find('a').each(function () {
+        totalWidth += $(this).outerWidth();
+    });
+
+    container.width(totalWidth);
+}
+
+function syncScrollButtons() {
+    var navigationTabs = $('#navigation-tabs');
+    var scrollWrapper = navigationTabs.find('.scroll-wrapper');
+
+    if (navigationTabs.scrollLeft() > 0) {
+        $('#scroll-left-btn').show();
+    } else {
+        $('#scroll-left-btn').hide();
+    }
+
+    if (navigationTabs.scrollLeft() < scrollWrapper.width() - navigationTabs.width() - 1) {
+        $('#scroll-right-btn').show();
+    } else {
+        $('#scroll-right-btn').hide();
+    }
+}
+
+function syncTabPositionOnScroll() {
+    var navigationTabs = $('#navigation-tabs');
+    var scrollWrapper = navigationTabs.find('.scroll-wrapper');
+    var activeItem = scrollWrapper.find('.active');
+
+    if (activeItem.length > 0) {
+        var startPosition = activeItem.position().left;
+        var endPosition = startPosition + activeItem.outerWidth();
+        var diff = endPosition - navigationTabs.width();
+
+        if (diff > 0) {
+            navigationTabs.scrollLeft(navigationTabs.scrollLeft() + diff);
+            syncScrollButtons();
+        }
+
+        diff = startPosition - navigationTabs.position().left - 32;
+        if (diff < 0) {
+            navigationTabs.scrollLeft(navigationTabs.scrollLeft() + diff);
+            syncScrollButtons();
+        }
+    }
+}
+
+function scrollNavTabRight() {
+    var animate = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+
+    var navigationTabs = $('#navigation-tabs');
+    if (animate) {
+        navigationTabs.animate({ scrollLeft: '+=100' }, 200, function () {
+            syncScrollButtons();
+        });
+    } else {
+        navigationTabs.scrollLeft(navigationTabs.scrollLeft() + 100);
+        syncScrollButtons();
+    }
+}
+
+function scrollNavTabLeft() {
+    var animate = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+
+    var navigationTabs = $('#navigation-tabs');
+    if (animate) {
+        navigationTabs.animate({ scrollLeft: '-=100' }, 200, function () {
+            syncScrollButtons();
+        });
+    } else {
+        navigationTabs.scrollLeft(navigationTabs.scrollLeft() - 100);
+        syncScrollButtons();
+    }
+}
 
 function checkAllInSection(sectionSelector) {
     $(sectionSelector).find('.checkbox').addClass('checked');
@@ -65,7 +145,6 @@ function unCheckAll() {
 }
 
 function syncCheckState() {
-
     $('section').each(function () {
         var allChecked = true;
 
@@ -114,3 +193,4 @@ function downloadSelected() {
         $('form').submit();
     };
 }
+//# sourceMappingURL=tool-list.js.map

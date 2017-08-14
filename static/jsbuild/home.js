@@ -40,3 +40,4 @@ $(document).ready(function () {
         next.click();
     }
 });
+//# sourceMappingURL=home.js.map

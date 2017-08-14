@@ -37,3 +37,4 @@ String.prototype.toPastelColor = function () {
     h = Math.pow(h, -4);
     return 'hsl(' + Math.ceil(h * 360) + ', ' + s + ', ' + l + ')';
 };
+//# sourceMappingURL=utils.js.map
