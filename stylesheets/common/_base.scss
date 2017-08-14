@@ -2,7 +2,7 @@
 
 * {
     box-sizing: border-box;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Proxima Nova', sans-serif;
     font-weight: 400;
 }
 
@@ -11,7 +11,7 @@ body {
     margin: 0;
     @include background-color;
     @include text-color;
-    font-size: 13px;
+    font-size: 15px;
     line-height: 1.5;
 
     a {
