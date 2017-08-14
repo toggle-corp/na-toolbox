@@ -21,7 +21,6 @@
                     <div class="intro">
                         <img class="background-image" src="{{ intro.background_image.url }}">
                         <div class="description">
-                            <h1>{{ intro.title }}</h1>
                             <p>{{ intro.description|safe }}</p>
                         </div>
                     </div>
@@ -29,8 +28,9 @@
                 {% endfor %}
             </div>
             <div class="carousel-navigation">
+                <h3>Needs Assessment Handbook</h3>
                 {% for intro in introductions %}
-                <button data-target="#item-{{ intro.pk }}"></button>
+                <button data-target="#item-{{ intro.pk }}">{{ intro.title }}</button>
                 {% endfor %}
             </div>
         </div>

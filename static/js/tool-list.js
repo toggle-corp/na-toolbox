@@ -39,13 +39,17 @@ $(document).ready(function() {
         syncNavigationTabs();
     });
     syncNavigationTabs();
-     
+
     $('#download-selected').click(function() {
         downloadSelected();
     });
-     
-    calculateNavigationWidth(); 
+
+    calculateNavigationWidth();
     syncScrollButtons();
+
+    $(window).on('resize', () => {
+        syncScrollButtons();
+    });
 });
 
 function calculateNavigationWidth() {
@@ -53,8 +57,8 @@ function calculateNavigationWidth() {
     let container = navigationTabs.find('.scroll-wrapper');
 
     let totalWidth = 0;
-    container.find('a').each(function() { 
-        totalWidth += $(this).outerWidth(); 
+    container.find('a').each(function() {
+        totalWidth += $(this).outerWidth();
     });
 
     container.width(totalWidth);
@@ -69,7 +73,7 @@ function syncScrollButtons() {
     } else {
         $('#scroll-left-btn').hide();
     }
-    
+
     if (navigationTabs.scrollLeft() < (scrollWrapper.width() - navigationTabs.width() - 1 )) {
         $('#scroll-right-btn').show();
     } else {
@@ -82,17 +86,17 @@ function syncTabPositionOnScroll() {
     let navigationTabs = $('#navigation-tabs');
     let scrollWrapper = navigationTabs.find('.scroll-wrapper');
     let activeItem = scrollWrapper.find('.active');
-     
+
     if (activeItem.length > 0) {
         let startPosition = activeItem.position().left;
         let endPosition = startPosition + activeItem.outerWidth();
         let diff = endPosition - navigationTabs.width();
-         
+
         if (diff > 0) {
             navigationTabs.scrollLeft(navigationTabs.scrollLeft() + diff);
             syncScrollButtons();
-        } 
-         
+        }
+
         diff = startPosition - navigationTabs.position().left - 32;
         if (diff < 0) {
             navigationTabs.scrollLeft(navigationTabs.scrollLeft() + diff);
@@ -109,9 +113,9 @@ function scrollNavTabRight(animate=true) {
         navigationTabs.scrollLeft(navigationTabs.scrollLeft() + 100);
         syncScrollButtons();
     }
-    
+
 }
- 
+
 function scrollNavTabLeft(animate=true) {
     let navigationTabs = $('#navigation-tabs');
     if (animate) {

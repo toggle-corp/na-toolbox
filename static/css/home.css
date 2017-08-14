@@ -187,31 +187,40 @@ body > main {
     width: 100%;
     height: 100%; }
     body > main .carousel .carousel-navigation {
+      background-color: rgba(0, 0, 0, 0.8);
+      width: 36%;
+      height: 96px;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
       position: absolute;
-      right: 10px;
-      bottom: 10px;
-      background-color: rgba(0, 0, 0, 0.5);
-      padding: 6px 10px;
-      border-radius: 3px; }
+      left: 0;
+      top: 0;
+      padding: 10px 32px; }
+      body > main .carousel .carousel-navigation h3 {
+        flex-basis: 100%;
+        font-size: 2em;
+        color: #ffe416;
+        display: block; }
       body > main .carousel .carousel-navigation button {
         display: inline-block;
         margin: 3px;
         padding: 0;
-        width: 12px;
-        height: 12px;
+        font-size: 1.33em;
+        padding: 4px 16px;
+        color: #fff;
         background-color: transparent;
-        border: 2px solid rgba(255, 255, 255, 0.8);
+        border: 1px solid rgba(255, 255, 255, 0.8);
         outline: none;
-        cursor: pointer;
-        border-radius: 50%; }
-        body > main .carousel .carousel-navigation button:hover {
-          background-color: rgba(255, 255, 255, 0.5); }
+        cursor: pointer; }
         body > main .carousel .carousel-navigation button.active {
-          background-color: rgba(255, 255, 255, 0.8); }
+          border: 1px solid #ffe416;
+          background-color: #ffe416;
+          color: #333333; }
   body > main #intro-container {
     position: relative;
     flex-basis: 100%;
-    height: 50vh;
+    height: 60vh;
     margin-bottom: 16px;
     border-bottom: 2px solid #ffe416; }
     body > main #intro-container .intro {
@@ -222,8 +231,10 @@ body > main {
       height: 100%; }
       body > main #intro-container .intro .description {
         width: 36%;
-        height: 100%;
+        height: calc(100% - 96px);
         padding: 32px;
+        padding-top: 8px;
+        margin-top: 96px;
         position: absolute;
         left: 0;
         top: 0;
@@ -258,6 +269,8 @@ body > main {
             position: relative;
             width: auto;
             padding: 32px;
+            padding-top: 96px;
+            margin-top: 0;
             left: 0;
             top: 0;
             overflow-y: auto;
@@ -275,12 +288,12 @@ body > main {
             object-fit: cover;
             object-position: center center; }
         body > main #intro-container .carousel-navigation {
-          top: 50vh;
-          left: 50%;
+          top: calc(50vh);
+          left: 0;
           bottom: auto;
-          width: auto;
-          transform: translate(-50%, -100%);
-          text-align: center; } }
+          width: 100%;
+          text-align: center;
+          justify-content: center; } }
   body > main #download-handbook-container {
     flex-basis: 60%; }
     body > main #download-handbook-container .download-handbook > header {

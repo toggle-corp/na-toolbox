@@ -46,6 +46,10 @@ $(document).ready(function () {
 
     calculateNavigationWidth();
     syncScrollButtons();
+
+    $(window).on('resize', function () {
+        syncScrollButtons();
+    });
 });
 
 function calculateNavigationWidth() {

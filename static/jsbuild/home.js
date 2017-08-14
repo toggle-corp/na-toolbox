@@ -2,12 +2,10 @@
 
 $(document).ready(function () {
     var slideActiveDuration = 5000;
-    var nextSlideTimeout = setTimeout(function () {
-        showNextCarouselItem('#intro-container .carousel');
-    }, slideActiveDuration);
+    //let nextSlideTimeout = setTimeout(() => { showNextCarouselItem('#intro-container .carousel'); }, slideActiveDuration);
 
     $('.carousel-navigation button').on('click', function () {
-        clearTimeout(nextSlideTimeout);
+        //clearTimeout(nextSlideTimeout);
 
         $(this).siblings('.active').removeClass('active');
         $(this).addClass('active');
@@ -15,9 +13,7 @@ $(document).ready(function () {
         var itemsContainer = $(this).closest('.carousel').find('.carousel-item-container');
         showCarouselItem(itemsContainer.find($(this).data('target')));
 
-        nextSlideTimeout = setTimeout(function () {
-            showNextCarouselItem('#intro-container .carousel');
-        }, slideActiveDuration);
+        //nextSlideTimeout = setTimeout(() => { showNextCarouselItem('#intro-container .carousel'); }, slideActiveDuration);
     });
 
     function showCarouselItem(item) {
