@@ -238,7 +238,10 @@ body > main {
       left: 0;
       top: 0;
       width: 100%;
-      height: 100%; }
+      height: 100%;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover; }
       body > main #intro-container .intro .description {
         width: 36%;
         height: calc(100% - 96px);
@@ -262,6 +265,7 @@ body > main {
         width: 100%;
         height: 100%;
         object-fit: cover;
+        display: none;
         object-position: center center; }
     @media screen and (max-width: 1300px) {
       body > main #intro-container .intro .description {
@@ -279,7 +283,10 @@ body > main {
       body > main #intro-container {
         height: auto; }
         body > main #intro-container .intro {
-          position: relative; }
+          position: relative;
+          background-image: none !important; }
+          body > main #intro-container .intro .background-image {
+            display: block; }
           body > main #intro-container .intro .description {
             position: relative;
             width: auto;
@@ -366,6 +373,7 @@ body > main {
           padding-top: 16px;
           object-position: top center; }
         body > main #download-handbook-container .download-handbook .handbook-container .handbook .details {
+          flex-basis: 60%;
           padding: 0 16px; }
           body > main #download-handbook-container .download-handbook .handbook-container .handbook .details .title {
             font-weight: 300;

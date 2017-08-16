@@ -18,7 +18,7 @@
             <div class="carousel-item-container">
                 {% for intro in introductions %}
                 <div class="carousel-item" id="item-{{ intro.pk }}" hidden>
-                    <div class="intro">
+                    <div class="intro" style="background-image: url('{{ intro.background_image.url }}')">
                         <img class="background-image" src="{{ intro.background_image.url }}">
                         <div class="description">
                             <p>{{ intro.description|safe }}</p>

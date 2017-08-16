@@ -11,6 +11,9 @@
         top: 0;
         width: 100%;
         height: 100%;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
 
         .description {
             width: 36%;
@@ -43,6 +46,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: none;
             object-position: center center;
         }
 
@@ -79,7 +83,11 @@
 
         .intro {
             position: relative;
+            background-image: none!important;
 
+            .background-image {
+                display: block;
+            }
             .description {
                 position: relative;
                 width: auto;
