@@ -71,6 +71,11 @@ class ToolListView(View):
         context['current_list'] = ToolList.objects.get(slug=slug)
         return render(request, 'toolbox/tool-list.html', context)
 
+class FieldSupportView(View):
+    def get(self, request):
+        context = {}
+
+        return render(request, 'toolbox/field-support.html', context)
 
 class DownloadFiles(View):
     def post(self, request):

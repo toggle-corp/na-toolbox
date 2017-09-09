@@ -4,13 +4,14 @@ from django.conf import settings
 from django.views.generic import TemplateView
 
 from toolbox.views import HomeView, ToolListView, \
-    DownloadFiles, ContactUsView, FaqsView
+    DownloadFiles, ContactUsView, FaqsView, FieldSupportView
 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
 
     url(r'^$', HomeView.as_view(), name='home'),
+    url(r'^field-support/$', FieldSupportView.as_view(), name='field_support'),
 
     url(r'^download/$', DownloadFiles.as_view(), name='download'),
     url(r'^contact-us/$', ContactUsView.as_view(), name='contact_us'),
