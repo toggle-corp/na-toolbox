@@ -474,5 +474,51 @@ body > main {
     @media screen and (max-width: 1080px) {
       body > main #side-content {
         flex-basis: 100%; } }
+  body > main #news-and-updates {
+    flex-basis: 100%;
+    border-top: 2px solid #ffe416;
+    margin-top: 32px;
+    padding: 16px 0; }
+    body > main #news-and-updates > header {
+      height: 48px;
+      display: flex;
+      align-items: center;
+      padding: 0 16px; }
+      body > main #news-and-updates > header h2 {
+        text-transform: uppercase;
+        color: #ffe416;
+        font-weight: 500; }
+    body > main #news-and-updates > .content {
+      padding: 0 16px; }
+      body > main #news-and-updates > .content .input-group {
+        max-width: 400px;
+        margin-bottom: 24px;
+        padding: 10px 0; }
+        body > main #news-and-updates > .content .input-group label {
+          width: 100%;
+          margin-bottom: 10px;
+          text-transform: uppercase;
+          color: rgba(255, 255, 255, 0.7);
+          font-size: 0.9em; }
+        body > main #news-and-updates > .content .input-group input {
+          display: block;
+          outline: none;
+          background-color: transparent;
+          border: none;
+          border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+          width: 100%;
+          font-size: 1.33em;
+          color: #fff;
+          padding: 6px 0; }
+          body > main #news-and-updates > .content .input-group input:focus {
+            border-bottom-color: #ffe416; }
+      body > main #news-and-updates > .content button {
+        display: inline-block;
+        background-color: #ffe416;
+        border: none;
+        outline: none;
+        padding: 8px 12px;
+        text-transform: uppercase;
+        font-size: 1.2em; }
 
 /*# sourceMappingURL=home.css.map */

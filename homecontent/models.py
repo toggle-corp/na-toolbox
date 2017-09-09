@@ -71,3 +71,17 @@ class Highlight(models.Model):
 
     class Meta:
         ordering = ['order']
+
+
+class Subscriber(models.Model):
+    name = models.CharField(max_length=200)
+    email = models.CharField(max_length=200)
+    organization = models.CharField(max_length=200)
+    duty_station = models.CharField(max_length=200)
+    subscribed_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return '{} ({})'.format(self.name, self.email)
+
+    class Meta:
+        ordering = ['-subscribed_at']

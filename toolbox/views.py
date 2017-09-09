@@ -11,7 +11,7 @@ import cgi
 
 from toolbox.models import ToolList
 from homecontent.models import Introduction, \
-    DownloadSection, KeyLink, Highlight
+    DownloadSection, KeyLink, Highlight, Subscriber
 
 
 class HomeView(View):
@@ -24,6 +24,30 @@ class HomeView(View):
         context['keylinks'] = KeyLink.objects.filter(enabled=True)
         context['highlights'] = Highlight.objects.filter(enabled=True)
         return render(request, 'toolbox/home.html', context)
+
+    def post(self, request):
+        context = {}
+
+        if Subscriber.objects.filter(email=request.POST['email'])\
+           .count() > 0:
+            context['status'] = 'failure'
+            context['message'] = 'The email you entered is already in our subscriber list'
+        else:
+            subscriber = Subscriber()
+            subscriber.name = request.POST['name']
+            subscriber.email = request.POST['email']
+            subscriber.organization = request.POST['organization']
+            subscriber.duty_station = request.POST['duty-station']
+            subscriber.save()
+
+            context['status'] = 'success'
+
+        context['name'] = request.POST['name']
+        context['email'] = request.POST['email']
+        context['organization'] = request.POST['organization']
+        context['duty_station'] = request.POST['duty-station']
+
+        return render(request, 'toolbox/subscribe-result.html', context)
 
 
 class ContactUsView(View):

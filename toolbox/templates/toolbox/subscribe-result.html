@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/subscribe-result.css' %}">
+{% endblock %}
+
+{% block body %}
+    {% if status == 'success' %}
+    <main class="success">
+        <h1>Subscription successful</h1>
+        <p>You have been successfully subscribed to the <strong>Needs Assment</strong> News &amp; Update</p>
+        <a href={% url 'home' %}><i class="ion-android-arrow-back"></i>Back to home</a>
+    </main>
+    {% else %}
+    <main class="error">
+        <h1>Failed to subscribe</h1>
+        <p>{{ message }}</p>
+        <a href={% url 'home' %}><i class="ion-android-arrow-back"></i>Back to home</a>
+    </main>
+    {% endif %}
+
+{% endblock %}
