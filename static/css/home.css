@@ -489,9 +489,11 @@ body > main {
         color: #ffe416;
         font-weight: 500; }
     body > main #news-and-updates > .content {
-      padding: 0 16px; }
+      padding: 0 16px;
+      margin: auto;
+      max-width: 960px; }
       body > main #news-and-updates > .content .input-group {
-        max-width: 400px;
+        width: 100%;
         margin-bottom: 24px;
         padding: 10px 0; }
         body > main #news-and-updates > .content .input-group label {

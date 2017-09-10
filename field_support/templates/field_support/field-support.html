@@ -4,6 +4,7 @@
 
 {% block head %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/field-support.css' %}">
+<script src="{% static 'jsbuild/field-support.js' %}"></script>
 {% endblock %}
 
 {% block body %}
@@ -97,10 +98,10 @@
                         {% endfor %}
                         <option value="other">Other field support request (not related to needs assessments)</option>
                     </select>
-                    <input name="service-requested-other" placeholder="Please explain">
+                    <input name="service-requested-other" placeholder="Please explain" hidden>
                 </div>
 
-                <div class="input-group">
+                <div class="input-group open-select">
                     <label>What will the needs assessment activity inform? *</label>
                     <select name="activity-information" required>
                         {% for activity in activity_informations %}
@@ -108,28 +109,28 @@
                         {% endfor %}
                         <option value="other">Other</option>
                     </select>
-                    <input name="activity-information-other" placeholder="Please explain">
+                    <input name="activity-information-other" placeholder="Please explain" hidden>
                 </div>
 
-                <div class="input-group">
+                <div class="input-group open-checkbox">
                     <label>Which sectors does the assessment activity support? (Tick all that apply)</label>
                     <div class="checkbox-container">
                         {% for support_sector in support_sectors %}
                         <label><input type="checkbox" name="support-sectors" value="{{ support_sector.pk }}">{{ support_sector }}</label>
                         {% endfor %}
                         <label><input type="checkbox" name="support-sectors" value="other">Other</label>
-                        <input name="support-sectors-other" placeholder="Please identify">
+                        <input type="text" name="support-sectors-other" placeholder="Please identify" hidden>
                     </div>
                 </div>
 
-                <div class="input-group">
+                <div class="input-group open-checkbox">
                     <label>What types of data sources do you have? (Tick all that apply)</label>
                     <div class="checkbox-container">
                         {% for data_source in data_sources %}
                         <label><input type="checkbox" name="data-sources" value="{{ data_source.pk }}">{{ data_source }}</label>
                         {% endfor %}
                         <label><input type="checkbox" name="data-sources" value="other">Other</label>
-                        <input name="data-sources-other" placeholder="Please identify">
+                        <input type="text" name="data-sources-other" placeholder="Please identify" hidden>
                     </div>
                 </div>
 
