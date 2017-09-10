@@ -115,10 +115,10 @@
                     <label>Which sectors does the assessment activity support? (Tick all that apply)</label>
                     <div class="checkbox-container">
                         {% for support_sector in support_sectors %}
-                        <label><input type="checkbox" name="support-sector[]" value="{{ support_sector.pk }}">{{ support_sector }}</label>
+                        <label><input type="checkbox" name="support-sectors" value="{{ support_sector.pk }}">{{ support_sector }}</label>
                         {% endfor %}
-                        <label><input type="checkbox" name="support-sector[]" value="other">Other</label>
-                        <input name="support-sector-other" placeholder="Please identify">
+                        <label><input type="checkbox" name="support-sectors" value="other">Other</label>
+                        <input name="support-sectors-other" placeholder="Please identify">
                     </div>
                 </div>
 
@@ -126,16 +126,16 @@
                     <label>What types of data sources do you have? (Tick all that apply)</label>
                     <div class="checkbox-container">
                         {% for data_source in data_sources %}
-                        <label><input type="checkbox" name="data-source[]" value="{{ data_source.pk }}">{{ data_source }}</label>
+                        <label><input type="checkbox" name="data-sources" value="{{ data_source.pk }}">{{ data_source }}</label>
                         {% endfor %}
-                        <label><input type="checkbox" name="data-source[]" value="other">Other</label>
-                        <input name="data-source-other" placeholder="Please identify">
+                        <label><input type="checkbox" name="data-sources" value="other">Other</label>
+                        <input name="data-sources-other" placeholder="Please identify">
                     </div>
                 </div>
 
                 <div class="input-group open-select">
                     <label>Is the needs assessment activity a joint or interagency activity?</label>
-                    <select name="joint-interagency-activity">
+                    <select name="joint-activity">
                         {% for option in joint_activity_options %}
                         <option value="{{ option.pk }}">{{ option }}</option>
                         {% endfor %}

@@ -6,6 +6,7 @@ from field_support.models import (
     ServiceRequested,
     ActivityInformation, SupportSector,
     DataSource,
+    FieldSupportRequest
 )
 
 
@@ -18,3 +19,5 @@ admin.site.register(ActivityInformation)
 admin.site.register(SupportSector)
 admin.site.register(DataSource)
 admin.site.register(JointActivityOption)
+
+admin.site.register(FieldSupportRequest)

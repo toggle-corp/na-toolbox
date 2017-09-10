@@ -100,7 +100,7 @@ class JointActivityOption(models.Model):
         ordering = ['order']
 
 
-class FieldSupport(models.Model):
+class FieldSupportRequest(models.Model):
     full_name = models.CharField(max_length=255)
 
     duty_station = models.ForeignKey(DutyStation)
@@ -118,8 +118,8 @@ class FieldSupport(models.Model):
                                              blank=True)
     activity_information_other = models.CharField(max_length=500, blank=True)
 
-    activity_support = models.ManyToManyField(SupportSector, blank=True)
-    activity_support_other = models.CharField(max_length=500, blank=True)
+    support_sectors = models.ManyToManyField(SupportSector, blank=True)
+    support_sectors_other = models.CharField(max_length=500, blank=True)
 
     data_sources = models.ManyToManyField(DataSource, blank=True)
     data_sources_other = models.CharField(max_length=500, blank=True)
