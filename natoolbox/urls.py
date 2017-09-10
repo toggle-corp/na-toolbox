@@ -4,7 +4,8 @@ from django.conf import settings
 from django.views.generic import TemplateView
 
 from toolbox.views import HomeView, ToolListView, \
-    DownloadFiles, ContactUsView, FaqsView, FieldSupportView
+    DownloadFiles, ContactUsView, FaqsView
+from field_support.views import FieldSupportView
 
 
 urlpatterns = [

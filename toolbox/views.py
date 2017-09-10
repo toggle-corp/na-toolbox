@@ -29,9 +29,10 @@ class HomeView(View):
         context = {}
 
         if Subscriber.objects.filter(email=request.POST['email'])\
-           .count() > 0:
+                .count() > 0:
             context['status'] = 'failure'
-            context['message'] = 'The email you entered is already in our subscriber list'
+            context['message'] = \
+                'The email you entered is already in our subscriber list'
         else:
             subscriber = Subscriber()
             subscriber.name = request.POST['name']
@@ -71,11 +72,6 @@ class ToolListView(View):
         context['current_list'] = ToolList.objects.get(slug=slug)
         return render(request, 'toolbox/tool-list.html', context)
 
-class FieldSupportView(View):
-    def get(self, request):
-        context = {}
-
-        return render(request, 'toolbox/field-support.html', context)
 
 class DownloadFiles(View):
     def post(self, request):

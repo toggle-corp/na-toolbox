@@ -1,0 +1,159 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/field-support.css' %}">
+{% endblock %}
+
+{% block body %}
+ 
+{% include 'nav.html' %}
+
+<main>
+    <section id="introduction">
+        <header>
+            <h2>Introduction</h2>
+        </header>
+        <div class="content">
+            <p>The Field Information and Coordination Support Section is pleased to offer UNHCR colleagues and partners support to help professionalize needs assessment practices.  Field support activities are demand-driven and may include services such as:</p>
+            <ul>
+                <li>Joint needs assessment preparedness mission</li>
+                <li>Country or region specific information management and/or needs assessment training workshop</li>
+                <li>Assistance to define key information requirements (i.e. linking data activities to Strategy objectives)Assistance in undertaking a secondary data review (desk review)</li>
+                <li>Assistance in undertaking multi-sectoral analysis</li>
+                <li>Assistance in analysing qualitative needs assessment data</li>
+                <li>Assistance in defining methodology for UNHCR assessments</li>
+                <li>Assistance in harmonizing assessment practices across multiple regions/situations</li>
+                <li>Assistance in conducting joint needs assessments</li>
+                <li>General questions and/or clarification on needs assessments</li>
+                <li>Other needs assessment requests</li>
+            </ul>
+        </div>
+    </section>
+    <section id="how-to-request">
+        <header>
+            <h2>How to request for support</h2>
+        </header>
+        <div class="content">
+            <p>Follow the link à explain your needs à submit the request. All UNHCR colleagues are invited to click on the ‘Request for Support’ link to initiate discussions. Support can be from a simple question to assisting operations conduct joint needs assessments at the field level.  We strive to answer your questions in a timely manner and analyse the requests to help provide more targeted assistance in the future.  If we cannot support your needs, we will do our best to find someone who can.  The process is simple; click on the “Request for Support” link below, answer a few basic questions around the area of service you wish to discuss and submit your request.</p>
+            <p><strong>Note:</strong> Only physical field support mission requests will formally go to senior management (by the requesting colleague/teams). All other inquiries will be handled by field support staff and the regional networks.</p>
+        </div>
+    </section>
+    <section id="request-form">
+        <header>
+            <h2>Request for support</h2>
+        </header>
+        <div class="content">
+            <form method="POST">
+                {% csrf_token %}
+
+                <div class="input-group">
+                    <label>Full name *</label>
+                    <input name="name" type="text" placeholder="eg: John Doe" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Duty station *</label>
+                    <select name="duty-station" required>
+                        {% for duty_station in duty_stations %}
+                        <option value="{{ duty_station.pk }}">{{ duty_station }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Context: Situation *</label>
+                    <select name="context-situation" required>
+                        {% for context in situation_contexts %}
+                        <option value="{{ context.pk }}">{{ context }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Context: Persons of Concern *</label>
+                    <select name="context-persons-of-concern" required>
+                        {% for context in person_of_concern_contexts %}
+                        <option value="{{ context.pk }}">{{ context }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>CRRF country *</label>
+                    <select name="crrf-country" required>
+                        {% for option in crrf_country_options %}
+                        <option value="{{ option.pk }}">{{ option }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="input-group open-select">
+                    <label>Service requested *</label>
+                    <select name="service-requested" required>
+                        {% for service in services_requested %}
+                        <option value="{{ service.pk }}">{{ service }}</option>
+                        {% endfor %}
+                        <option value="other">Other field support request (not related to needs assessments)</option>
+                    </select>
+                    <input name="service-requested-other" placeholder="Please explain">
+                </div>
+
+                <div class="input-group">
+                    <label>What will the needs assessment activity inform? *</label>
+                    <select name="activity-information" required>
+                        {% for activity in activity_informations %}
+                        <option value="{{ activity.pk }}">{{ activity }}</option>
+                        {% endfor %}
+                        <option value="other">Other</option>
+                    </select>
+                    <input name="activity-information-other" placeholder="Please explain">
+                </div>
+
+                <div class="input-group">
+                    <label>Which sectors does the assessment activity support? (Tick all that apply)</label>
+                    <div class="checkbox-container">
+                        {% for support_sector in support_sectors %}
+                        <label><input type="checkbox" name="support-sector[]" value="{{ support_sector.pk }}">{{ support_sector }}</label>
+                        {% endfor %}
+                        <label><input type="checkbox" name="support-sector[]" value="other">Other</label>
+                        <input name="support-sector-other" placeholder="Please identify">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>What types of data sources do you have? (Tick all that apply)</label>
+                    <div class="checkbox-container">
+                        {% for data_source in data_sources %}
+                        <label><input type="checkbox" name="data-source[]" value="{{ data_source.pk }}">{{ data_source }}</label>
+                        {% endfor %}
+                        <label><input type="checkbox" name="data-source[]" value="other">Other</label>
+                        <input name="data-source-other" placeholder="Please identify">
+                    </div>
+                </div>
+
+                <div class="input-group open-select">
+                    <label>Is the needs assessment activity a joint or interagency activity?</label>
+                    <select name="joint-interagency-activity">
+                        {% for option in joint_activity_options %}
+                        <option value="{{ option.pk }}">{{ option }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Other information or comment?</label>
+                    <textarea name="comment" rows=4></textarea>
+                </div>
+
+                <button type="submit">Send request</button>
+            </form>
+        </div>
+    </section>
+</main>
+
+{% include 'footer.html' %}
+
+{% endblock %}
+
