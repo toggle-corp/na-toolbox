@@ -5,46 +5,63 @@
         >header {
             margin-bottom: 16px;
             padding: 0 16px;
+            display: flex;
 
-            .title {
-                text-transform: uppercase;
-                font-weight: 500;
-                min-height: 56px;
-                display: flex;
-                align-items: center;
-                color: $primary-color;
+            .preview {
+                height: 100%;
+                flex-basis: 40%;
+                width: 40%;
+                object-fit: cover;
+                object-position: center center;
             }
 
-            .description {
-                >p {
-                    margin: 0;
-                }
-            }
-            .action-buttons {
-                height: 48px;
-                display: flex;
-                align-items: center;
-                justify-content: flex-end;
+            .details {
+                padding: 16px;
 
-                a {
-                    border: none;
-                    outline: none;
-                    background-color: $primary-color;
-                    color: get_text_color_on_primary();
+                .title {
                     text-transform: uppercase;
-                    display: inline-flex;
+                    font-weight: 500;
+                    min-height: 56px;
+                    display: flex;
                     align-items: center;
-                    padding: 0 16px;
-                    cursor: pointer;
-                    transition: all 0.2s ease-in-out;
+                    color: $primary-color;
+                }
 
-                    i {
-                        margin-right: 8px;
-                        font-size: 1.67em;
+                .description {
+                    max-height: calc(100% - 48px - 56px);
+                    overflow-y: auto;
+                    text-align: justify;
 
+                    >p {
+                        margin: 0;
                     }
-                    &:hover{
-                        transform: translateY(-2px);
+                }
+
+                .action-buttons {
+                    height: 48px;
+                    display: flex;
+                    align-items: flex-end;
+
+                    a {
+                        border: none;
+                        outline: none;
+                        background-color: $primary-color;
+                        color: get_text_color_on_primary();
+                        text-transform: uppercase;
+                        display: inline-flex;
+                        align-items: center;
+                        padding: 0 16px;
+                        cursor: pointer;
+                        transition: all 0.2s ease-in-out;
+
+                        i {
+                            margin-right: 8px;
+                            font-size: 1.67em;
+
+                        }
+                        &:hover{
+                            transform: translateY(-2px);
+                        }
                     }
                 }
             }
@@ -136,12 +153,23 @@
         flex-basis: 100%;
     }
     @media screen and (max-width: 720px) {
-        .download-handbook{
+        .download-handbook {
+            >header {
+                flex-wrap: wrap;
+
+                .preview {
+                    width: 100%;
+                    object-fit: cover;
+                    object-position: center;
+                }
+            }
             .handbook-container {
                 .handbook {
                     flex-basis: 100%;
                 }
             }
         }
+
+
     }
 }

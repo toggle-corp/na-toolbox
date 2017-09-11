@@ -39,30 +39,15 @@
         {% for download_section in download_sections %}
         <div class="download-handbook">
             <header>
-                <h2 class="title">{{ download_section.title }}</h2>
-                <div class="description">{{ download_section.description|safe }}</div>
-                <div class="action-buttons">
-                    <a href="{% static 'files/handbook.pdf' %}" download><i class="ion-ios-download-outline"></i>Download Full Handbook</a>
+                <img class="preview" src="{% if download_section.thumbnail %}{{ download_section.thumbnail.url }}{% else %}{% static 'img/pdf-icon.png' %}{% endif %}">
+                <div class="details">
+                    <h2 class="title">{{ download_section.title }}</h2>
+                    <div class="description">{{ download_section.description|safe }}</div>
+                    <div class="action-buttons">
+                        <a href="{% if download_section.file %}{{ download_section.file.url }}{% endif %}" download><i class="ion-ios-download-outline"></i>Download Full Handbook</a>
+                    </div>
                 </div>
             </header>
-            <div class="content">
-                <div class="handbook-container">
-                    {% for download in download_section.download_set.all %}
-                    {% if download.enabled %}
-                    <div class="handbook">
-                        <img class="preview" src="{% if download.thumbnail %}{{ download.thumbnail.url }}{% else %}{% static 'img/pdf-icon.png' %}{% endif %}">
-                        <div class="details">
-                            <h3 class="title">{{ download.title }}</h3>
-                            <div class="description">{{ download.description|safe }}</div>
-                            <div class="action-buttons">
-                                <a href="{% if download.file %}{{ download.file.url }}{% endif %}" download><i class="ion-ios-download-outline"></i>Download</a>
-                            </div>
-                        </div>
-                    </div>
-                    {% endif %}
-                    {% endfor %}
-                </div>
-            </div>
         </div>
         {% endfor %}
     </section>
