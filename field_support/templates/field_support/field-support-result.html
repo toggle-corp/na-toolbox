@@ -1,8 +1,15 @@
-<div style="color: magenta;">
-    SUCCESSSSSSSSSSSSS
-</div>
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/subscribe-result.css' %}">
+{% endblock %}
 
 
-<div style="color: red;">
-    PARTYYYYYYYY
-</div>
+{% block body %}
+    <main class="success">
+        <h1>Submitted successfully</h1>
+        <p>Your field support request has been submitted. We'll get back to you shortly.</p>
+        <a href={% url 'home' %}><i class="ion-android-arrow-back"></i>Go to home</a>
+    </main>
+{% endblock %}
