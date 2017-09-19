@@ -7,6 +7,8 @@
             <button id="modal-close"><i class="ion-close"></i></button>
         </div>
         <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'news_and_notifications' %}" class="menu-item {% if  request.resolver_match.url_name == 'news_and_notifications' %}active{% endif %}">News &amp; Notifications</a>
+        <a href="{% url 'field_support' %}" class="menu-item {% if  request.resolver_match.url_name == 'field_support' %}active{% endif %}">Request support</a>
         {% for tool_list in tool_lists %}
         <a href="{% url 'tool_list' tool_list.slug %}" class="menu-item {% if current_list == tool_list %}active{% endif %}">{{ tool_list.title }}</a>
         {% endfor %}

@@ -102,6 +102,8 @@ class JointActivityOption(models.Model):
 
 class FieldSupportRequest(models.Model):
     full_name = models.CharField(max_length=255)
+    email = models.CharField(max_length=255)
+    position = models.CharField(max_length=255)
 
     duty_station = models.ForeignKey(DutyStation)
     situation_context = models.ForeignKey(SituationContext)

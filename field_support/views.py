@@ -35,6 +35,8 @@ class FieldSupportView(View):
         fsr = FieldSupportRequest()
 
         fsr.full_name = request.POST['name']
+        fsr.email = request.POST['email']
+        fsr.position = request.POST['position']
 
         fsr.duty_station = DutyStation.objects.get(
             pk=request.POST['duty-station'])

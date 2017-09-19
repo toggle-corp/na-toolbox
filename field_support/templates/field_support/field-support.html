@@ -8,7 +8,7 @@
 {% endblock %}
 
 {% block body %}
- 
+
 {% include 'nav.html' %}
 
 <main>
@@ -61,6 +61,16 @@
                         <option value="{{ duty_station.pk }}">{{ duty_station }}</option>
                         {% endfor %}
                     </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Position *</label>
+                    <input name="position" type="text" placeholder="eg: Enumenator" required>
+                </div>
+
+                <div class="input-group">
+                    <label>E-mail *</label>
+                    <input name="email" type="text" placeholder="eg: johndoe@gmail.com" required>
                 </div>
 
                 <div class="input-group">
@@ -157,4 +167,3 @@
 {% include 'footer.html' %}
 
 {% endblock %}
-

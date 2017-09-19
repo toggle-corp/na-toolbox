@@ -16,6 +16,50 @@ body {
   body h1, body h2, body h3, body h4, body h5, body h6 {
     margin: 0; }
 
+body #modal-fill {
+  position: absolute;
+  background-color: #fff;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  z-index: 1111; }
+  body #modal-fill .modal {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center; }
+    body #modal-fill .modal .logo-container {
+      flex-basis: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 24px;
+      margin-bottom: 16px; }
+      body #modal-fill .modal .logo-container img {
+        height: 72px;
+        padding: 12px 0; }
+      body #modal-fill .modal .logo-container button {
+        padding: 16px;
+        font-size: 2em;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        background-color: #fff; }
+      @media screen and (max-width: 420px) {
+        body #modal-fill .modal .logo-container img {
+          height: 56px; } }
+    body #modal-fill .modal > a {
+      flex-basis: 100%;
+      color: #414141;
+      cursor: pointer;
+      font-size: 1.2em;
+      padding: 16px 0;
+      font-weight: 700;
+      text-transform: uppercase;
+      text-align: center;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.3); }
+
 body {
   display: flex;
   align-items: flex-start;

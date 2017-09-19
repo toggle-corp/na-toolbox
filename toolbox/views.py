@@ -29,7 +29,7 @@ class HomeView(View):
 class NewsAndNotificationsView(View):
     def get(self, request):
         context = {}
-        context['tool_list'] = ToolList.objects.all()
+        context['tool_lists'] = ToolList.objects.all()
         return render(request, 'toolbox/news-and-notifications.html', context)
 
     def post(self, request):
