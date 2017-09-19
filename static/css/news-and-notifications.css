@@ -133,94 +133,54 @@ body > footer {
         flex-basis: 100%;
         padding: 16px; } }
 
-body > main {
+#news-and-updates {
   width: 97%;
   max-width: 900px;
-  padding: 16px 0;
+  padding: 24px;
   margin: auto;
   background-color: rgba(255, 255, 255, 0.1);
   margin-top: 16px; }
-  body > main #introduction, body > main #how-to-request {
-    padding: 16px 32px; }
-  body > main #request-form h2 {
-    padding: 0 32px; }
-  body > main #introduction > header, body > main #how-to-request > header, body > main #request-form > header {
-    height: 56px;
+  #news-and-updates > header {
+    height: 48px;
     display: flex;
-    align-items: center; }
-    body > main #introduction > header h2, body > main #how-to-request > header h2, body > main #request-form > header h2 {
+    align-items: center;
+    padding: 0 16px; }
+    #news-and-updates > header h2 {
       text-transform: uppercase;
-      color: #ffe416; }
-  body > main #introduction > .content, body > main #how-to-request > .content, body > main #request-form > .content {
-    text-align: justify; }
-  body > main form .input-group {
-    width: 100%;
-    padding: 24px 32px; }
-    body > main form .input-group:nth-child(even) {
-      background-color: rgba(255, 255, 255, 0.04); }
-    body > main form .input-group > label {
+      color: #ffe416;
+      font-weight: 500; }
+  #news-and-updates > .content {
+    padding: 0 16px; }
+    #news-and-updates > .content .input-group {
       width: 100%;
-      margin-bottom: 10px;
+      margin-bottom: 24px;
+      padding: 10px 0; }
+      #news-and-updates > .content .input-group label {
+        width: 100%;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.9em; }
+      #news-and-updates > .content .input-group input {
+        display: block;
+        outline: none;
+        background-color: transparent;
+        border: none;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+        width: 100%;
+        font-size: 1.33em;
+        color: #fff;
+        padding: 6px 0; }
+        #news-and-updates > .content .input-group input:focus {
+          border-bottom-color: #ffe416; }
+    #news-and-updates > .content button {
+      display: inline-block;
+      background-color: #ffe416;
+      border: none;
+      outline: none;
+      padding: 8px 12px;
       text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.7);
-      font-size: 0.9em; }
-    body > main form .input-group > input, body > main form .input-group > textarea {
-      display: block;
-      outline: none;
-      background-color: transparent;
-      border: none;
-      border-bottom: 2px solid rgba(255, 255, 255, 0.2);
-      width: 100%;
-      font-size: 1.33em;
-      color: #fff;
-      padding: 6px 0; }
-      body > main form .input-group > input:focus, body > main form .input-group > textarea:focus {
-        border-bottom-color: #ffe416; }
-    body > main form .input-group select {
-      display: block;
-      width: 100%;
-      padding: 6px 0;
-      outline: none;
-      color: #fff;
-      font-size: 1.33em;
-      background-color: transparent;
-      border: none;
-      border-bottom: 2px solid rgba(255, 255, 255, 0.2); }
-      body > main form .input-group select option {
-        color: #414141; }
-    body > main form .input-group select + input {
-      display: none;
-      margin-top: 16px; }
-    body > main form .input-group .checkbox-container label {
-      display: block;
-      padding: 6px 0;
+      font-size: 1.2em;
       cursor: pointer; }
-    body > main form .input-group .checkbox-container input[type="checkbox"] {
-      margin-right: 10px;
-      border: none;
-      outline: none;
-      transform: scale(1.3);
-      background-color: #fff; }
-    body > main form .input-group .checkbox-container input[type="text"] {
-      display: none;
-      outline: none;
-      background-color: transparent;
-      border: none;
-      border-bottom: 2px solid rgba(255, 255, 255, 0.2);
-      width: 100%;
-      font-size: 1.33em;
-      color: #fff;
-      padding: 6px 0;
-      margin-top: 16px; }
-      body > main form .input-group .checkbox-container input[type="text"]:focus {
-        border-bottom-color: #ffe416; }
-  body > main form button {
-    display: inline-block;
-    background-color: #ffe416;
-    border: none;
-    outline: none;
-    padding: 8px 12px;
-    text-transform: uppercase;
-    font-size: 1.2em; }
 
-/*# sourceMappingURL=field-support.css.map */
+/*# sourceMappingURL=news-and-notifications.css.map */

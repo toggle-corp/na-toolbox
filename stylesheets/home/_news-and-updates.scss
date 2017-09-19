@@ -1,8 +1,10 @@
 #news-and-updates {
-    flex-basis: 100%;
-    border-top: 2px solid $primary-color;
-    margin-top: 32px;
-    padding: 16px 0;
+    width: 97%;
+    max-width: 900px;
+    padding: 24px;
+    margin: auto;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin-top: 16px;
 
     >header {
         height: 48px;
@@ -19,8 +21,6 @@
 
     > .content {
         padding: 0 16px;
-        margin: auto;
-        max-width: 960px;
 
         .input-group {
             width: 100%;
@@ -50,7 +50,6 @@
                     border-bottom-color: $primary-color;
                 }
             }
-
         }
 
         button {
@@ -61,6 +60,7 @@
             padding: 8px 12px;
             text-transform: uppercase;
             font-size: 1.2em;
+            cursor: pointer;
         }
     }
 }

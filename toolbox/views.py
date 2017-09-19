@@ -25,6 +25,13 @@ class HomeView(View):
         context['highlights'] = Highlight.objects.filter(enabled=True)
         return render(request, 'toolbox/home.html', context)
 
+
+class NewsAndNotificationsView(View):
+    def get(self, request):
+        context = {}
+        context['tool_list'] = ToolList.objects.all()
+        return render(request, 'toolbox/news-and-notifications.html', context)
+
     def post(self, request):
         context = {}
 

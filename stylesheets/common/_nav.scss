@@ -14,7 +14,7 @@ body {
         display: flex;
         flex-wrap: wrap;
         align-items: stretch;
-        align-content: space-between;
+        align-content: center;
         justify-content: space-between;
         padding: 0 32px;
         box-shadow: 0 3px 15px -5px rgba(0, 0, 0, 0.5);
@@ -36,11 +36,10 @@ body {
                 color: get_text_color_on_primary();
                 text-transform: uppercase;
                 font-weight: 700;
-                letter-spacing: 0.06em;
                 cursor: pointer;
                 display: inline-flex;
                 align-items: center;
-                border: 1px solid transparent;
+                margin: 0 2px;
 
                 &:hover {
                     background-color: #333333;

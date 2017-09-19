@@ -99,34 +99,6 @@
         </div>
     </section>
 
-    <section id="news-and-updates">
-        <header>
-            <h2>Subscribe to news &amp; updates</h2>
-        </header>
-        <div class="content">
-            <form method="POST">
-                {% csrf_token %}
-                <div class="input-group">
-                    <label>Name</label>
-                    <input name="name" type="text" placeholder="eg: John Doe" required>
-                </div>
-                <div class="input-group">
-                    <label>Email address</label>
-                    <input name="email" type="text" placeholder="eg: john.doe@gmail.com" required>
-                </div>
-                <div class="input-group">
-                    <label>Organization</label>
-                    <input name="organization" type="text" placeholder="eg: Togglecorp" required>
-                </div>
-                <div class="input-group">
-                    <label>Duty station</label>
-                    <input name="duty-station" type="text" placeholder="" required>
-                </div>
-                <button type="submit">Subscribe</button>
-            </form>
-        </div>
-        </header>
-    </section>
 </main>
 
 {% include 'footer.html' %}
