@@ -40,24 +40,26 @@ class FieldSupportView(View):
 
         fsr.duty_station = DutyStation.objects.get(
             pk=request.POST['duty-station'])
-        fsr.situation_context = SituationContext.objects.get(
-            pk=request.POST['context-situation'])
+
+        situation_context = request.POST.get('context-situation')
+        situation_context_other = request.POST.get('context-situation-other')
+
+        if situation_context and situation_context != 'other':
+            fsr.situation_context = SituationContext.objects.get(
+                pk=situation_context)
+        else:
+            fsr.situation_context_other = situation_context_other
+
         fsr.persons_of_concern_context = PersonsOfConcernContext.objects.get(
             pk=request.POST['context-persons-of-concern'])
         fsr.crrf_country = CRRFCountryOption.objects.get(
             pk=request.POST['crrf-country'])
-        fsr.joint_activity = JointActivityOption.objects.get(
-            pk=request.POST['joint-activity'])
+
+        if request.POST.get('joint-activity'):
+            fsr.joint_activity = JointActivityOption.objects.get(
+                pk=request.POST['joint-activity'])
+
         fsr.comment = request.POST.get('comment')
-
-        service_requested = request.POST.get('service-requested')
-        service_requested_other = request.POST.get('service-requested-other')
-
-        if service_requested and service_requested != 'other':
-            fsr.service_requested = ServiceRequested.objects.get(
-                pk=service_requested)
-        else:
-            fsr.service_requested_other = service_requested_other
 
         activity_information = request.POST.get('activity-information')
         activity_information_other = request.POST.get(
@@ -90,6 +92,16 @@ class FieldSupportView(View):
             else:
                 fsr.data_sources.add(
                     DataSource.objects.get(pk=sector))
+
+        service_requested = request.POST.getlist('service-requested')
+        service_requested_other = request.POST.get('service-requested-other')
+
+        for service in service_requested:
+            if service == 'other':
+                fsr.service_requested_other = service_requested_other
+            else:
+                fsr.service_requested.add(
+                    ServiceRequested.objects.get(pk=service))
 
         fsr.save()
 

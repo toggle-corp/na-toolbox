@@ -106,13 +106,16 @@ class FieldSupportRequest(models.Model):
     position = models.CharField(max_length=255)
 
     duty_station = models.ForeignKey(DutyStation)
-    situation_context = models.ForeignKey(SituationContext)
+
+    situation_context = models.ForeignKey(SituationContext,
+                                          default=None, null=True,
+                                          blank=True)
+    situation_context_other = models.CharField(max_length=500, blank=True)
+
     persons_of_concern_context = models.ForeignKey(PersonsOfConcernContext)
     crrf_country = models.ForeignKey(CRRFCountryOption)
 
-    service_requested = models.ForeignKey(ServiceRequested,
-                                          default=None, null=True,
-                                          blank=True)
+    service_requested = models.ManyToManyField(ServiceRequested, blank=True)
     service_requested_other = models.CharField(max_length=500, blank=True)
 
     activity_information = models.ForeignKey(ActivityInformation,

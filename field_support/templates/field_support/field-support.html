@@ -38,7 +38,7 @@
             <h2>How to request for support</h2>
         </header>
         <div class="content">
-            <p>Fill in below form and submit the request for support. All UNHCR colleagues and partners are invited to get in touch. Support can range from a answering a specific question to providing support to joint needs assessments at the field level.</p>
+            <p>Fill in below form and submit the request for support. All UNHCR colleagues and partners are invited to get in touch. Support can range from answering a specific question to providing support to joint needs assessments at the field level.</p>
             <p>We strive to answer your questions in a timely manner and analyse the requests to help provide more targeted assistance in the future.  If we cannot support your needs, we will do our best to find someone who can.  The process is simple; click on the “Request for Support” link below, answer a few basic questions around the area of service you wish to discuss and submit your request.</p>
             <p><strong>Note:</strong> Only physical field support mission requests will formally go to senior management (by the requesting colleague/teams). All other inquiries will be handled by field support staff and regional networks.</p>
         </div>
@@ -59,6 +59,7 @@
                 <div class="input-group">
                     <label>Duty station *</label>
                     <select name="duty-station" required>
+                        <option selected disabled value="">Please select an option</option>
                         {% for duty_station in duty_stations %}
                         <option value="{{ duty_station.pk }}">{{ duty_station }}</option>
                         {% endfor %}
@@ -67,7 +68,7 @@
 
                 <div class="input-group">
                     <label>Position *</label>
-                    <input name="position" type="text" placeholder="eg: Enumenator" required>
+                    <input name="position" type="text" placeholder="eg: Information Management Officer" required>
                 </div>
 
                 <div class="input-group">
@@ -75,18 +76,22 @@
                     <input name="email" type="text" placeholder="eg: johndoe@gmail.com" required>
                 </div>
 
-                <div class="input-group">
+                <div class="input-group open-select">
                     <label>Context: Situation *</label>
                     <select name="context-situation" required>
+                        <option selected disabled value="">Please select an option</option>
                         {% for context in situation_contexts %}
                         <option value="{{ context.pk }}">{{ context }}</option>
                         {% endfor %}
+                        <option value="other">Other</option>
                     </select>
+                    <input type="text" name="context-situation-other" placeholder="Please specify" hidden>
                 </div>
 
                 <div class="input-group">
                     <label>Context: Persons of Concern *</label>
                     <select name="context-persons-of-concern" required>
+                        <option selected disabled value="">Please select an option</option>
                         {% for context in person_of_concern_contexts %}
                         <option value="{{ context.pk }}">{{ context }}</option>
                         {% endfor %}
@@ -96,32 +101,34 @@
                 <div class="input-group">
                     <label>CRRF country *</label>
                     <select name="crrf-country" required>
+                        <option selected disabled value="">Please select an option</option>
                         {% for option in crrf_country_options %}
                         <option value="{{ option.pk }}">{{ option }}</option>
                         {% endfor %}
                     </select>
                 </div>
 
-                <div class="input-group open-select">
+                <div class="input-group open-checkbox">
                     <label>Service requested *</label>
-                    <select name="service-requested" required>
+                    <div class="checkbox-container">
                         {% for service in services_requested %}
-                        <option value="{{ service.pk }}">{{ service }}</option>
+                        <label><input type="checkbox" name="service-requested" value="{{ service.pk }}">{{ service }}</label>
                         {% endfor %}
-                        <option value="other">Other field support request (not related to needs assessments)</option>
-                    </select>
-                    <input name="service-requested-other" placeholder="Please explain" hidden>
+                        <label><input type="checkbox" name="service-requested" value="other">Other</label>
+                        <input type="text" name="service-requested-other" placeholder="Please explain" hidden>
+                    </div>
                 </div>
 
                 <div class="input-group open-select">
                     <label>What will the needs assessment activity inform? *</label>
                     <select name="activity-information" required>
+                        <option selected disabled value="">Please select an option</option>
                         {% for activity in activity_informations %}
                         <option value="{{ activity.pk }}">{{ activity }}</option>
                         {% endfor %}
                         <option value="other">Other</option>
                     </select>
-                    <input name="activity-information-other" placeholder="Please explain" hidden>
+                    <input type="text" name="activity-information-other" placeholder="Please explain" hidden>
                 </div>
 
                 <div class="input-group open-checkbox">
@@ -149,6 +156,7 @@
                 <div class="input-group open-select">
                     <label>Is the needs assessment activity a joint or interagency activity?</label>
                     <select name="joint-activity">
+                        <option selected disabled value="">Please select an option</option>
                         {% for option in joint_activity_options %}
                         <option value="{{ option.pk }}">{{ option }}</option>
                         {% endfor %}
