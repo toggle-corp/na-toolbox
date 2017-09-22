@@ -180,6 +180,7 @@ body > footer {
 #news-and-updates {
   width: 97%;
   max-width: 900px;
+  min-height: calc(100vh - 128px - 48px - 32px);
   padding: 24px;
   margin: auto;
   background-color: rgba(255, 255, 255, 0.1);
@@ -217,6 +218,18 @@ body > footer {
         padding: 6px 0; }
         #news-and-updates > .content .input-group input:focus {
           border-bottom-color: #ffe416; }
+      #news-and-updates > .content .input-group select {
+        display: block;
+        width: 100%;
+        padding: 6px 0;
+        outline: none;
+        color: #fff;
+        font-size: 1.33em;
+        background-color: transparent;
+        border: none;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.2); }
+        #news-and-updates > .content .input-group select option {
+          color: #414141; }
     #news-and-updates > .content button {
       display: inline-block;
       background-color: #ffe416;

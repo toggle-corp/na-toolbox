@@ -29,13 +29,20 @@
                 <input name="organization" type="text" placeholder="eg: Togglecorp" required>
             </div>
             <div class="input-group">
-                <label>Duty station</label>
-                <input name="duty-station" type="text" placeholder="" required>
+                <label>Duty station *</label>
+                <select name="duty-station" required>
+                    <option selected disabled value="">Please select an option</option>
+                    {% for duty_station in duty_stations %}
+                    <option value="{{ duty_station }}">{{ duty_station }}</option>
+                    {% endfor %}
+                </select>
             </div>
             <button type="submit">Subscribe</button>
         </form>
     </div>
     </header>
 </main>
+
+{% include 'footer.html' %}
 
 {% endblock %}

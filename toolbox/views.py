@@ -12,6 +12,7 @@ import cgi
 from toolbox.models import ToolList
 from homecontent.models import Introduction, \
     DownloadSection, KeyLink, Highlight, Subscriber
+from field_support.models import DutyStation
 
 
 class HomeView(View):
@@ -30,6 +31,7 @@ class NewsAndNotificationsView(View):
     def get(self, request):
         context = {}
         context['tool_lists'] = ToolList.objects.all()
+        context['duty_stations'] = DutyStation.objects.all()
         return render(request, 'toolbox/news-and-notifications.html', context)
 
     def post(self, request):
