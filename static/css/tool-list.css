@@ -49,6 +49,11 @@ body #modal-fill {
       @media screen and (max-width: 420px) {
         body #modal-fill .modal .logo-container img {
           height: 56px; } }
+    body #modal-fill .modal .external-link .alert-icon {
+      color: #c0392b;
+      font-size: 1.2em;
+      margin-left: 4px;
+      transform: translateY(-50%); }
     body #modal-fill .modal > a {
       flex-basis: 100%;
       color: #414141;
@@ -98,6 +103,14 @@ body {
         body > nav #main-menu .menu-item.active {
           background-color: #333333;
           color: #ffe416; }
+      body > nav #main-menu .external-link {
+        border-left: 1px solid rgba(0, 0, 0, 0.1);
+        border-right: 1px solid rgba(0, 0, 0, 0.1);
+        position: relative; }
+        body > nav #main-menu .external-link .alert-icon {
+          color: #c0392b;
+          font-size: 1.4em;
+          transform: translateY(-50%); }
       body > nav #main-menu #menu-button {
         display: none;
         border: none;
@@ -210,6 +223,11 @@ body #modal-fill {
       @media screen and (max-width: 420px) {
         body #modal-fill .modal .logo-container img {
           height: 56px; } }
+    body #modal-fill .modal .external-link .alert-icon {
+      color: #c0392b;
+      font-size: 1.2em;
+      margin-left: 4px;
+      transform: translateY(-50%); }
     body #modal-fill .modal > a {
       flex-basis: 100%;
       color: #414141;

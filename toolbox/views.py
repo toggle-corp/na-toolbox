@@ -11,7 +11,8 @@ import cgi
 
 from toolbox.models import ToolList
 from homecontent.models import Introduction, \
-    DownloadSection, KeyLink, Highlight, Subscriber
+    DownloadSection, KeyLink, Highlight, Subscriber, \
+    NavLink
 from field_support.models import DutyStation
 
 
@@ -19,6 +20,7 @@ class HomeView(View):
     def get(self, request):
         context = {}
         context['tool_lists'] = ToolList.objects.all()
+        context['nav_links'] = NavLink.objects.all()
         context['introductions'] = Introduction.objects.filter(enabled=True)
         context['download_sections'] = DownloadSection.objects\
             .filter(enabled=True)
@@ -31,6 +33,7 @@ class NewsAndNotificationsView(View):
     def get(self, request):
         context = {}
         context['tool_lists'] = ToolList.objects.all()
+        context['nav_links'] = NavLink.objects.all()
         context['duty_stations'] = DutyStation.objects.all()
         return render(request, 'toolbox/news-and-notifications.html', context)
 
@@ -64,6 +67,7 @@ class ContactUsView(View):
     def get(self, request):
         context = {}
         context['tool_lists'] = ToolList.objects.all()
+        context['nav_links'] = NavLink.objects.all()
         return render(request, 'toolbox/contact-us.html', context)
 
 
@@ -71,6 +75,7 @@ class FaqsView(View):
     def get(self, request):
         context = {}
         context['tool_lists'] = ToolList.objects.all()
+        context['nav_links'] = NavLink.objects.all()
         return render(request, 'toolbox/faqs.html', context)
 
 
@@ -78,6 +83,7 @@ class ToolListView(View):
     def get(self, request, slug):
         context = {}
         context['tool_lists'] = ToolList.objects.all()
+        context['nav_links'] = NavLink.objects.all()
         context['current_list'] = ToolList.objects.get(slug=slug)
         return render(request, 'toolbox/tool-list.html', context)
 
