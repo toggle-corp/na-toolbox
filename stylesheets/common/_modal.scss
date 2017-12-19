@@ -37,12 +37,23 @@ body {
                     background-color: #fff;
                 }
 
+
                 @media screen and (max-width: 420px) {
                     img {
                         height: $nav-height - 72px;
                     }
                 }
             }
+
+            .external-link {
+                .alert-icon {
+                    color: $color-danger;
+                    font-size: 1.2em;
+                    margin-left: 4px;
+                    transform: translateY(-50%);
+                }
+            }
+
             > a {
                 flex-basis: 100%;
                 color: #414141;

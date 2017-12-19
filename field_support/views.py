@@ -1,7 +1,8 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.views.generic import View
 
 from toolbox.models import ToolList
+from homecontent.models import NavLink
 from field_support.models import (
     DutyStation,
     SituationContext, PersonsOfConcernContext,
@@ -17,6 +18,7 @@ class FieldSupportView(View):
     def get(self, request):
         context = {}
         context['tool_lists'] = ToolList.objects.all()
+        context['nav_links'] = NavLink.objects.all()
 
         context['duty_stations'] = DutyStation.objects.all()
         context['situation_contexts'] = SituationContext.objects.all()

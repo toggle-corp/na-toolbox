@@ -9,6 +9,12 @@
         <a href="{% url 'home' %}">Home</a>
         <a href="{% url 'news_and_notifications' %}" class="menu-item {% if  request.resolver_match.url_name == 'news_and_notifications' %}active{% endif %}">News &amp; Notifications</a>
         <a href="{% url 'field_support' %}" class="menu-item {% if  request.resolver_match.url_name == 'field_support' %}active{% endif %}">Request support</a>
+        {% for nav_link in nav_links %}
+        <a href="{{ nav_link.url }}" target="_blank" class="menu-item external-link">
+            {{ nav_link.title }}
+            <span class="alert-icon ion-ios-bell" />
+        </a>
+        {% endfor %}
         {% for tool_list in tool_lists %}
         <a href="{% url 'tool_list' tool_list.slug %}" class="menu-item {% if current_list == tool_list %}active{% endif %}">{{ tool_list.title }}</a>
         {% endfor %}

@@ -2,7 +2,7 @@ from django.contrib import admin
 
 from homecontent.models import Introduction, \
     DownloadSection, KeyLink, Highlight, \
-    Subscriber
+    Subscriber, NavLink
 
 
 # class DownloadInline(admin.StackedInline):
@@ -19,3 +19,4 @@ admin.site.register(DownloadSection)
 admin.site.register(KeyLink)
 admin.site.register(Highlight)
 admin.site.register(Subscriber)
+admin.site.register(NavLink)

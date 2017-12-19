@@ -8,6 +8,12 @@
         <a href="{% url 'home' %}"><img src="{% static 'img/unhcr-logo.png' %}"></a>
     </div>
     <div id="main-menu">
+        {% for nav_link in nav_links %}
+        <a href="{{ nav_link.url }}" target="_blank" class="menu-item external-link">
+            {{ nav_link.title }}
+            <span class="alert-icon ion-ios-bell" />
+        </a>
+        {% endfor %}
         <a href="{% url 'news_and_notifications' %}" class="menu-item {% if  request.resolver_match.url_name == 'news_and_notifications' %}active{% endif %}">News &amp; Notifications</a>
         <a href="{% url 'field_support' %}" class="menu-item {% if  request.resolver_match.url_name == 'field_support' %}active{% endif %}">Request support</a>
         <a href="{% url 'contact_us' %}" class="menu-item {% if request.resolver_match.url_name  == 'contact_us' %}active{% endif %}">Contact us</a>

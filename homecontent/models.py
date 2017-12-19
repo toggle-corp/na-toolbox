@@ -90,3 +90,15 @@ class Subscriber(models.Model):
 
     class Meta:
         ordering = ['-subscribed_at']
+
+
+class NavLink(models.Model):
+    title = models.CharField(max_length=200)
+    url = models.CharField(max_length=300, blank=True)
+    order = models.IntegerField(default=1)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        ordering = ['order']
