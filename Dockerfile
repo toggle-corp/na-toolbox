@@ -1,8 +1,14 @@
 FROM ubuntu:16.04
 
-RUN apt-get update
+# Clean apt
+RUN apt-get clean && \
+    rm -rf /var/lib/apt/lists/* && \
+    rm -rf /var/lib/apt/lists/partial/* && \
+    rm -rf /var/cache/apt/*
 
-RUN apt-get install -y \
+RUN apt-get update -y && \
+    apt-get install -y \
+        # Basic Packages
         python3 \
         python3-dev \
         python3-setuptools \
@@ -10,7 +16,6 @@ RUN apt-get install -y \
         ruby-sass
 
 RUN pip3 install uwsgi
-
 
 RUN mkdir /code
 WORKDIR /code

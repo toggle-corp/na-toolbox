@@ -29,13 +29,13 @@ class HomeView(View):
         return render(request, 'toolbox/home.html', context)
 
 
-class NewsAndNotificationsView(View):
+class NetworkAndContactView(View):
     def get(self, request):
         context = {}
         context['tool_lists'] = ToolList.objects.all()
         context['nav_links'] = NavLink.objects.all()
         context['duty_stations'] = DutyStation.objects.all()
-        return render(request, 'toolbox/news-and-notifications.html', context)
+        return render(request, 'toolbox/network-and-contact.html', context)
 
     def post(self, request):
         context = {}
@@ -61,14 +61,6 @@ class NewsAndNotificationsView(View):
         context['duty_station'] = request.POST['duty-station']
 
         return render(request, 'toolbox/subscribe-result.html', context)
-
-
-class ContactUsView(View):
-    def get(self, request):
-        context = {}
-        context['tool_lists'] = ToolList.objects.all()
-        context['nav_links'] = NavLink.objects.all()
-        return render(request, 'toolbox/contact-us.html', context)
 
 
 class FaqsView(View):

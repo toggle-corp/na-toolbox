@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/network-and-contact.css' %}">
+{% endblock %}
+
+{% block body %}
+
+{% include 'nav.html' %}
+
+<main id="network-and-contact">
+    <section class="news-and-updates">
+        <header>
+            <h2>Subscribe to the needs assessment network</h2>
+        </header>
+        <div class="content">
+            <p>Subscribe to the needs assessment network for regular updates and discussions on needs assessments and analysis:</p>
+            <form method="POST">
+                {% csrf_token %}
+                <div class="input-group">
+                    <label>Name *</label>
+                    <input name="name" type="text" placeholder="eg: John Doe" required>
+                </div>
+                <div class="input-group">
+                    <label>Email address *</label>
+                    <input name="email" type="email" placeholder="eg: john.doe@gmail.com" required>
+                </div>
+                <div class="input-group">
+                    <label>Organization</label>
+                    <input name="organization" type="text" placeholder="eg: Togglecorp" required>
+                </div>
+                <div class="input-group">
+                    <label>Job Title *</label>
+                    <input name="position" type="text" placeholder="eg: Analyst"  required>
+                </div>
+                <div class="input-group">
+                    <label>Duty station *</label>
+                    <select name="duty-station" required>
+                        <option selected disabled value="">Please select an option</option>
+                        {% for duty_station in duty_stations %}
+                        <option value="{{ duty_station }}">{{ duty_station }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+    <section class="contact-us" >
+        <header>
+            <h2>Contact us</h2>
+        </header>
+        <div class="content">
+            <p>For any questions, or comments, please contact us at <a href="mailto:HQNA@unhcr.org">HQNA@unhcr.org</a>.</p>
+        </div>
+    </section>
+</main>
+
+{% include 'footer.html' %}
+
+{% endblock %}
