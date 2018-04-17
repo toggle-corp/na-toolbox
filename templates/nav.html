@@ -14,7 +14,7 @@
             <span class="alert-icon ion-ios-bell" />
         </a>
         {% endfor %}
-        <a href="{% url 'news_and_notifications' %}" class="menu-item {% if  request.resolver_match.url_name == 'news_and_notifications' %}active{% endif %}">News &amp; Notifications</a>
+        <a href="{% url 'network_and_contact' %}" class="menu-item {% if  request.resolver_match.url_name == 'network_and_contact' %}active{% endif %}">Network &amp; Contact</a>
         <a href="{% url 'field_support' %}" class="menu-item {% if  request.resolver_match.url_name == 'field_support' %}active{% endif %}">Request support</a>
         <a href="{% url 'contact_us' %}" class="menu-item {% if request.resolver_match.url_name  == 'contact_us' %}active{% endif %}">Contact us</a>
         <button id="menu-button"><i class="ion-android-menu"></i></a>

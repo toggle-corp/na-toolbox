@@ -5,7 +5,7 @@ from django.views.generic import TemplateView
 
 from toolbox.views import HomeView, ToolListView, \
     DownloadFiles, ContactUsView, \
-    FaqsView, NewsAndNotificationsView
+    FaqsView, NetworkAndContactView
 from field_support.views import FieldSupportView
 
 
@@ -14,7 +14,7 @@ urlpatterns = [
 
     url(r'^$', HomeView.as_view(), name='home'),
     url(r'^field-support/$', FieldSupportView.as_view(), name='field_support'),
-    url(r'^news-and-notifications/$', NewsAndNotificationsView.as_view(), name='news_and_notifications'),
+    url(r'^network-and-contact/$', NetworkAndContactView.as_view(), name='network_and_contact'),
 
     url(r'^download/$', DownloadFiles.as_view(), name='download'),
     url(r'^contact-us/$', ContactUsView.as_view(), name='contact_us'),
