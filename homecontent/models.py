@@ -83,6 +83,9 @@ class Subscriber(models.Model):
     email = models.CharField(max_length=200)
     organization = models.CharField(max_length=200)
     duty_station = models.CharField(max_length=200)
+    job_title = models.CharField(
+        max_length=200, default="", null=False, blank=False,
+    )
     subscribed_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

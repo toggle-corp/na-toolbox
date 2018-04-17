@@ -1,15 +1,15 @@
 #network-and-contact {
     display: flex;
+    width: 100%;
     justify-content: space-between;
     align-items: flex-start;
-    min-height: calc(100vh - 128px - 48px - 32px);
+    min-height: calc(100vh - 128px - 48px - 24px);
     padding: 24px;
     padding-bottom: 12px;
     margin: auto;
 
     >section {
         padding: 24px;
-        flex-basis: 49.5%;
         background-color: rgba(255, 255, 255, 0.1);
 
         >header {
@@ -25,6 +25,10 @@
     }
 
     .news-and-updates {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+
         > .content {
             .input-group {
                 width: 100%;
@@ -86,6 +90,9 @@
     }
 
     .contact-us {
+        margin-left: 16px;
+        width: 360px;
+        flex-shrink: 0;
         text-align: justify;
 
         p {
@@ -93,17 +100,19 @@
                 font-weight: 700;
             }
         }
-
-        @media screen and (max-width: 1080px) {
-            width: 80%;
-        }
-
-        @media screen and (max-width: 720px) {
-            width: 100%;
-        }
     }
 
     @media screen and (max-width: 720px) {
         flex-direction: column;
+
+        >.news-and-updates {
+            width: 100%;
+        }
+
+        >.contact-us {
+            width: 100%;
+            margin-top: 16px;
+            margin-left: 0;
+        }
     }
 }

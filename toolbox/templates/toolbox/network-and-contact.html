@@ -12,22 +12,27 @@
 <main id="network-and-contact">
     <section class="news-and-updates">
         <header>
-            <h2>news &amp; updates</h2>
+            <h2>Subscribe to the needs assessment network</h2>
         </header>
         <div class="content">
+            <p>Subscribe to the needs assessment network for regular updates and discussions on needs assessments and analysis:</p>
             <form method="POST">
                 {% csrf_token %}
                 <div class="input-group">
-                    <label>Name</label>
+                    <label>Name *</label>
                     <input name="name" type="text" placeholder="eg: John Doe" required>
                 </div>
                 <div class="input-group">
-                    <label>Email address</label>
-                    <input name="email" type="text" placeholder="eg: john.doe@gmail.com" required>
+                    <label>Email address *</label>
+                    <input name="email" type="email" placeholder="eg: john.doe@gmail.com" required>
                 </div>
                 <div class="input-group">
                     <label>Organization</label>
                     <input name="organization" type="text" placeholder="eg: Togglecorp" required>
+                </div>
+                <div class="input-group">
+                    <label>Job Title *</label>
+                    <input name="position" type="text" placeholder="eg: Analyst"  required>
                 </div>
                 <div class="input-group">
                     <label>Duty station *</label>
@@ -47,8 +52,7 @@
             <h2>Contact us</h2>
         </header>
         <div class="content">
-            <p>For questions, comments or field support on needs assessments (data collation, collection or analysis), please contact us at <a href="mailto:HQNA@unhcr.org">HQNA@unhcr.org</a></p>
-            <p>UNHCR needs assessment activities are guided by general criteria and encompass not just data collection, but also data collation and needs analysis. Support requests on this site focus on needs assessment activities, but we can also liaise specific requests to the appropriate colleagues supporting profiling, protection monitoring, population data management and/or other data and information related activities.</p>
+            <p>For any questions, or comments, please contact us at <a href="mailto:HQNA@unhcr.org">HQNA@unhcr.org</a>.</p>
         </div>
     </section>
 </main>

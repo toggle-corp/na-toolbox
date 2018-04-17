@@ -63,14 +63,6 @@ class NetworkAndContactView(View):
         return render(request, 'toolbox/subscribe-result.html', context)
 
 
-class ContactUsView(View):
-    def get(self, request):
-        context = {}
-        context['tool_lists'] = ToolList.objects.all()
-        context['nav_links'] = NavLink.objects.all()
-        return render(request, 'toolbox/contact-us.html', context)
-
-
 class FaqsView(View):
     def get(self, request):
         context = {}

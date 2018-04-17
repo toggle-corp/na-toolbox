@@ -18,6 +18,5 @@
         {% for tool_list in tool_lists %}
         <a href="{% url 'tool_list' tool_list.slug %}" class="menu-item {% if current_list == tool_list %}active{% endif %}">{{ tool_list.title }}</a>
         {% endfor %}
-        <a href="{% url 'contact_us' %}" class="menu-item {% if request.resolver_match.url_name  == 'contact_us' %}active{% endif %}">Contact us</a>
     </div>
 </div>

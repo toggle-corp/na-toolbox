@@ -192,15 +192,15 @@ body > footer {
 
 #network-and-contact {
   display: flex;
+  width: 100%;
   justify-content: space-between;
   align-items: flex-start;
-  min-height: calc(100vh - 128px - 48px - 32px);
+  min-height: calc(100vh - 128px - 48px - 24px);
   padding: 24px;
   padding-bottom: 12px;
   margin: auto; }
   #network-and-contact > section {
     padding: 24px;
-    flex-basis: 49.5%;
     background-color: rgba(255, 255, 255, 0.1); }
     #network-and-contact > section > header {
       display: flex;
@@ -209,61 +209,68 @@ body > footer {
         text-transform: uppercase;
         color: #ffe416;
         font-weight: 500; }
-  #network-and-contact .news-and-updates > .content .input-group {
-    width: 100%;
-    margin-bottom: 24px;
-    padding: 10px 0; }
-    #network-and-contact .news-and-updates > .content .input-group label {
+  #network-and-contact .news-and-updates {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; }
+    #network-and-contact .news-and-updates > .content .input-group {
       width: 100%;
-      margin-bottom: 10px;
+      margin-bottom: 24px;
+      padding: 10px 0; }
+      #network-and-contact .news-and-updates > .content .input-group label {
+        width: 100%;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.9em; }
+      #network-and-contact .news-and-updates > .content .input-group input {
+        display: block;
+        outline: none;
+        background-color: transparent;
+        border: none;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+        width: 100%;
+        font-size: 1.33em;
+        color: #fff;
+        padding: 6px 0; }
+        #network-and-contact .news-and-updates > .content .input-group input:focus {
+          border-bottom-color: #ffe416; }
+      #network-and-contact .news-and-updates > .content .input-group select {
+        display: block;
+        width: 100%;
+        padding: 6px 0;
+        outline: none;
+        color: #fff;
+        font-size: 1.33em;
+        background-color: transparent;
+        border: none;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.2); }
+        #network-and-contact .news-and-updates > .content .input-group select option {
+          color: #414141; }
+    #network-and-contact .news-and-updates > .content button {
+      display: inline-block;
+      background-color: #ffe416;
+      border: none;
+      outline: none;
+      padding: 8px 12px;
       text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.7);
-      font-size: 0.9em; }
-    #network-and-contact .news-and-updates > .content .input-group input {
-      display: block;
-      outline: none;
-      background-color: transparent;
-      border: none;
-      border-bottom: 2px solid rgba(255, 255, 255, 0.2);
-      width: 100%;
-      font-size: 1.33em;
-      color: #fff;
-      padding: 6px 0; }
-      #network-and-contact .news-and-updates > .content .input-group input:focus {
-        border-bottom-color: #ffe416; }
-    #network-and-contact .news-and-updates > .content .input-group select {
-      display: block;
-      width: 100%;
-      padding: 6px 0;
-      outline: none;
-      color: #fff;
-      font-size: 1.33em;
-      background-color: transparent;
-      border: none;
-      border-bottom: 2px solid rgba(255, 255, 255, 0.2); }
-      #network-and-contact .news-and-updates > .content .input-group select option {
-        color: #414141; }
-  #network-and-contact .news-and-updates > .content button {
-    display: inline-block;
-    background-color: #ffe416;
-    border: none;
-    outline: none;
-    padding: 8px 12px;
-    text-transform: uppercase;
-    font-size: 1.2em;
-    cursor: pointer; }
+      font-size: 1.2em;
+      cursor: pointer; }
   #network-and-contact .contact-us {
+    margin-left: 16px;
+    width: 360px;
+    flex-shrink: 0;
     text-align: justify; }
     #network-and-contact .contact-us p strong {
       font-weight: 700; }
-    @media screen and (max-width: 1080px) {
-      #network-and-contact .contact-us {
-        width: 80%; } }
-    @media screen and (max-width: 720px) {
-      #network-and-contact .contact-us {
-        width: 100%; } }
   @media screen and (max-width: 720px) {
     #network-and-contact {
-      flex-direction: column; } }
+      flex-direction: column; }
+      #network-and-contact > .news-and-updates {
+        width: 100%; }
+      #network-and-contact > .contact-us {
+        width: 100%;
+        margin-top: 16px;
+        margin-left: 0; } }
 
 /*# sourceMappingURL=network-and-contact.css.map */
