@@ -1,29 +1,24 @@
-FROM ubuntu:16.04
+FROM python:3.6-alpine
 
-# Clean apt
-RUN apt-get clean && \
-    rm -rf /var/lib/apt/lists/* && \
-    rm -rf /var/lib/apt/lists/partial/* && \
-    rm -rf /var/cache/apt/*
+MAINTAINER togglecorp info@togglecorp.com
 
-RUN apt-get update -y && \
-    apt-get install -y \
-        # Basic Packages
-        python3 \
-        python3-dev \
-        python3-setuptools \
-        python3-pip \
-        ruby-sass
+RUN apk update \
+    && apk add --no-cache \
+        postgresql-libs \
+        bash \
+    && apk add --virtual \
+        .build-deps \
+        gcc \
+        musl-dev \
+        libc-dev \
+		linux-headers \
+        postgresql-dev \
+    && python3 -m pip install uwsgi psycopg2 --no-cache-dir \
+    && apk --purge del .build-deps
 
-RUN pip3 install uwsgi
-
-RUN mkdir /code
 WORKDIR /code
 
 COPY requirements.txt /code/
-RUN pip3 install virtualenv
-
-RUN virtualenv /venv
-RUN . /venv/bin/activate && pip install -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . /code/

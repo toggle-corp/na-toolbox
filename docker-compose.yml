@@ -7,8 +7,8 @@ services:
             - ./postgres-data:/var/lib/postgresql/data
     web:
         build: .
-        image: eoglethorpe/natoolbox:djangoh-1.0
-        command: ['./wait-for-it.sh', 'db:5432', '--', '/code/run_develop.sh']
+        image: devtc/natoolbox:djangoh-1.0
+        command: bash -c './wait-for-it.sh db:5432 && /code/run_develop.sh'
         volumes:
             - .:/code
             - ./media:/media
