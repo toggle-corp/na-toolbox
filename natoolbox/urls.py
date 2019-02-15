@@ -14,7 +14,10 @@ urlpatterns = [
 
     url(r'^$', HomeView.as_view(), name='home'),
     url(r'^field-support/$', FieldSupportView.as_view(), name='field_support'),
-    url(r'^network-and-contact/$', NetworkAndContactView.as_view(), name='network_and_contact'),
+    url(
+        r'^network-and-contact/$',
+        NetworkAndContactView.as_view(), name='network_and_contact',
+    ),
 
     url(r'^download/$', DownloadFiles.as_view(), name='download'),
     url(r'^faqs/$', FaqsView.as_view(), name='faqs'),
