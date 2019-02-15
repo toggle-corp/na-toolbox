@@ -116,3 +116,29 @@
         }
     }
 }
+
+#faq-page {
+    width: 100%;
+    min-height: calc(100vh - 128px - 48px - 24px);
+    padding: 24px;
+    padding-bottom: 12px;
+    margin: auto;
+
+    >header {
+        display: flex;
+        align-items: center;
+
+        h2 {
+            text-transform: uppercase;
+            color: $primary-color;
+            font-weight: 500;
+        }
+    }
+
+    .content {
+        .link {
+            font-weight: 600;
+            text-decoration: underline;
+        }
+    }
+}

@@ -2,7 +2,7 @@
 {% load staticfiles %}
 
 {% block head %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/contact-us.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/network-and-contact.css' %}">
 {% endblock %}
 
 {% block body %}
@@ -10,12 +10,12 @@
 {% include 'nav.html' %}
 
 <main>
-    <section>
+    <section id="faq-page">
         <header>
             <h1>FAQs</h1>
         </header>
         <div class="content">
-            <p>Currently under construction and will be based on the incoming questions via the <a href="{% url 'network_and_contact' %}">contact us</a> page.</p>
+            <p>Currently under construction and will be based on the incoming questions via the <a class="link" href="{% url 'network_and_contact' %}">contact us</a> page.</p>
         </div>
     </section>
 </main>

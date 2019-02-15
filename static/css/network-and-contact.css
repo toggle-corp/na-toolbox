@@ -273,4 +273,21 @@ body > footer {
         margin-top: 16px;
         margin-left: 0; } }
 
+#faq-page {
+  width: 100%;
+  min-height: calc(100vh - 128px - 48px - 24px);
+  padding: 24px;
+  padding-bottom: 12px;
+  margin: auto; }
+  #faq-page > header {
+    display: flex;
+    align-items: center; }
+    #faq-page > header h2 {
+      text-transform: uppercase;
+      color: #ffe416;
+      font-weight: 500; }
+  #faq-page .content .link {
+    font-weight: 600;
+    text-decoration: underline; }
+
 /*# sourceMappingURL=network-and-contact.css.map */
