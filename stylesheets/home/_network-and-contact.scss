@@ -118,7 +118,7 @@
 }
 
 #faq-page {
-    width: 100%;
+    width: 80vw;
     min-height: calc(100vh - 128px - 48px - 24px);
     padding: 24px;
     padding-bottom: 12px;
@@ -136,9 +136,34 @@
     }
 
     .content {
+        display: flex;
+        flex-direction: column;
+        color: #ddd;
         .link {
             font-weight: 600;
             text-decoration: underline;
+            &:hover{
+                color: $primary-color;
+            }
+        }
+        .bold{
+            font-weight: 600;
+        }
+        .img-container {
+            text-align: center;
+        }
+        .faq-object{
+            margin: 25px 0 0;
+            .faq-question{
+                h4{
+                    color: $background-color-light;
+                    font-size: 18px;
+                    font-weight: 600;
+                }
+            }
+            p{
+                margin: 0.75em;
+            }
         }
     }
 }

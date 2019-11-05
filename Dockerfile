@@ -6,12 +6,13 @@ RUN apk update \
     && apk add --no-cache \
         postgresql-libs \
         bash \
+        coreutils \
     && apk add --virtual \
         .build-deps \
         gcc \
         musl-dev \
         libc-dev \
-		linux-headers \
+        linux-headers \
         postgresql-dev \
     && python3 -m pip install uwsgi psycopg2 --no-cache-dir \
     && apk --purge del .build-deps
